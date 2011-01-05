@@ -3,14 +3,14 @@
 .---------------------------------------------------------------------------.
 |  Software: PHPMailer - PHP email class                                    |
 |   Version: 5.1                                                            |
-|   Contact: via sourceforge.net support pages (also www.worxware.com)      |
-|      Info: http://phpmailer.sourceforge.net                               |
-|   Support: http://sourceforge.net/projects/phpmailer/                     |
+|      Site: https://code.google.com/a/apache-extras.org/p/phpmailer/       |
 | ------------------------------------------------------------------------- |
-|     Admin: Andy Prevost (project admininistrator)                         |
+|     Admin: Jim Jagielski (project admininistrator)                        |
 |   Authors: Andy Prevost (codeworxtech) codeworxtech@users.sourceforge.net |
 |          : Marcus Bointon (coolbru) coolbru@users.sourceforge.net         |
+|          : Jim Jagielski (jimjag) jimjag@gmail.com                        |
 |   Founder: Brent R. Matzelle (original founder)                           |
+| Copyright (c) 2010-2011, Jim Jagielski. All Rights Reserved.               |
 | Copyright (c) 2004-2009, Andy Prevost. All Rights Reserved.               |
 | Copyright (c) 2001-2003, Brent R. Matzelle                                |
 | ------------------------------------------------------------------------- |
@@ -19,11 +19,6 @@
 | This program is distributed in the hope that it will be useful - WITHOUT  |
 | ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or     |
 | FITNESS FOR A PARTICULAR PURPOSE.                                         |
-| ------------------------------------------------------------------------- |
-| We offer a number of paid services (www.worxware.com):                    |
-| - Web Hosting on highly optimized fast and secure servers                 |
-| - Technology Consulting                                                   |
-| - Oursourcing (highly qualified programmers and graphic designers)        |
 '---------------------------------------------------------------------------'
 */
 
@@ -33,8 +28,10 @@
  * @package PHPMailer
  * @author Andy Prevost
  * @author Marcus Bointon
+ * @author Jim Jagielski
+ * @copyright 2010 - 2010 Jim Jagielski
  * @copyright 2004 - 2009 Andy Prevost
- * @version $Id: class.phpmailer.php 452 2010-06-24 01:08:39Z coolbru $
+ * @version $Id: class.phpmailer.php 450 2010-06-23 16:46:33Z coolbru $
  * @license http://www.gnu.org/copyleft/lesser.html GNU Lesser General Public License
  */
 
@@ -477,10 +474,11 @@ class PHPMailer {
    */
   protected function AddAnAddress($kind, $address, $name = '') {
     if (!preg_match('/^(to|cc|bcc|ReplyTo)$/', $kind)) {
-      $this->SetError('Invalid recipient array: ' . kind);
+      $this->SetError($this->Lang('Invalid recipient array').': '.$kind);
       if ($this->exceptions) {
-        throw new phpmailerException('Invalid recipient array: ' . kind);
+        throw new phpmailerException('Invalid recipient array: ' . $kind);
       }
+      echo $this->Lang('Invalid recipient array').': '.$kind;
       return false;
     }
     $address = trim($address);
@@ -490,6 +488,7 @@ class PHPMailer {
       if ($this->exceptions) {
         throw new phpmailerException($this->Lang('invalid_address').': '.$address);
       }
+      echo $this->Lang('invalid_address').': '.$address;
       return false;
     }
     if ($kind != 'ReplyTo') {
@@ -521,6 +520,7 @@ class PHPMailer {
       if ($this->exceptions) {
         throw new phpmailerException($this->Lang('invalid_address').': '.$address);
       }
+      echo $this->Lang('invalid_address').': '.$address;
       return false;
     }
     $this->From = $address;
@@ -637,6 +637,7 @@ class PHPMailer {
       if ($this->exceptions) {
         throw $e;
       }
+      echo $e->getMessage()."\n";
       return false;
     }
   }
@@ -1193,7 +1194,7 @@ class PHPMailer {
     if($this->XMailer) {
       $result .= $this->HeaderLine('X-Mailer', $this->XMailer);
     } else {
-      $result .= $this->HeaderLine('X-Mailer', 'PHPMailer '.$this->Version.' (phpmailer.worxware.com)');
+      $result .= $this->HeaderLine('X-Mailer', 'PHPMailer '.$this->Version.' (http://code.google.com/a/apache-extras.org/p/phpmailer/)');
     }
 
     if($this->ConfirmReadingTo != '') {
@@ -1486,6 +1487,7 @@ class PHPMailer {
       if ($this->exceptions) {
         throw $e;
       }
+      echo $e->getMessage()."\n";
       if ( $e->getCode() == self::STOP_CRITICAL ) {
         return false;
       }
@@ -1856,7 +1858,8 @@ class PHPMailer {
       default:
         // Replace every high ascii, control =, ? and _ characters
         //TODO using /e (equivalent to eval()) is probably not a good idea
-        $encoded = preg_replace('/([\000-\011\013\014\016-\037\075\077\137\177-\377])/e', "'='.sprintf('%02X', ord(stripslashes('\\1')))", $encoded);
+        $encoded = preg_replace('/([\000-\011\013\014\016-\037\075\077\137\177-\377])/e',
+                                "'='.sprintf('%02X', ord(stripslashes('\\1')))", $encoded);
         break;
     }
 
@@ -2059,7 +2062,7 @@ class PHPMailer {
     if ($this->Mailer == 'smtp' and !is_null($this->smtp)) {
       $lasterror = $this->smtp->getError();
       if (!empty($lasterror) and array_key_exists('smtp_msg', $lasterror)) {
-        $msg .= $this->Lang('smtp_error') . $lasterror['smtp_msg'] . "\n";
+        $msg .= '<p>' . $this->Lang('smtp_error') . $lasterror['smtp_msg'] . "</p>\n";
       }
     }
     $this->ErrorInfo = $msg;
