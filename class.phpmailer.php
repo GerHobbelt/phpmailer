@@ -741,6 +741,25 @@ class PHPMailer {
   }
 
   /**
+   * Calls actual mail() function, but in a safe_mode aware fashion
+   * @param string $to To
+   * @param string $subject Subject
+   * @param string $body Message Body
+   * @param string $headers Additional Headers
+   * @param string $params Params
+   * @access private
+   * @return bool
+   */
+  private function mail_passthru($to, $subject, $body, $header, $params) {
+	if (ini_get('safe_mode')) {
+		$rt = @mail($to, $this->EncodeHeader($this->SecureHeader($subject)), $body, $header);
+	} else {
+		$rt = @mail($to, $this->EncodeHeader($this->SecureHeader($subject)), $body, $header, $params);
+	}
+	return $rt;
+  }
+
+  /**
    * Sends mail using the PHP mail() function.
    * @param string $header The message headers
    * @param string $body The message body
@@ -764,13 +783,13 @@ class PHPMailer {
       ini_set('sendmail_from', $this->Sender);
       if ($this->SingleTo === true && count($toArr) > 1) {
         foreach ($toArr as $key => $val) {
-          $rt = @mail($val, $this->EncodeHeader($this->SecureHeader($this->Subject)), $body, $header, $params);
+          $rt = mail_passthru($val, $this->Subject, $body, $header, $params);
           // implement call back function if it exists
           $isSent = ($rt == 1) ? 1 : 0;
           $this->doCallback($isSent, $val, $this->cc, $this->bcc, $this->Subject, $body);
         }
       } else {
-        $rt = @mail($to, $this->EncodeHeader($this->SecureHeader($this->Subject)), $body, $header, $params);
+        $rt = mail_passthru($to, $this->Subject, $body, $header, $params);
         // implement call back function if it exists
         $isSent = ($rt == 1) ? 1 : 0;
         $this->doCallback($isSent, $to, $this->cc, $this->bcc, $this->Subject, $body);
@@ -778,13 +797,13 @@ class PHPMailer {
     } else {
       if ($this->SingleTo === true && count($toArr) > 1) {
         foreach ($toArr as $key => $val) {
-          $rt = @mail($val, $this->EncodeHeader($this->SecureHeader($this->Subject)), $body, $header, $params);
+          $rt = mail_passthru($val, $this->Subject, $body, $header, $params);
           // implement call back function if it exists
           $isSent = ($rt == 1) ? 1 : 0;
           $this->doCallback($isSent, $val, $this->cc, $this->bcc, $this->Subject, $body);
         }
       } else {
-        $rt = @mail($to, $this->EncodeHeader($this->SecureHeader($this->Subject)), $body, $header, $params);
+        $rt = mail_passthru($to, $this->Subject, $body, $header, $params);
         // implement call back function if it exists
         $isSent = ($rt == 1) ? 1 : 0;
         $this->doCallback($isSent, $to, $this->cc, $this->bcc, $this->Subject, $body);
