@@ -1367,7 +1367,7 @@ class PHPMailer {
     $body = '';
 
     if ($this->sign_key_file) {
-      $body .= $this->GetMailMIME();
+      $body .= $this->GetMailMIME().$this->LE;
     }
 
     $this->SetWordWrap();
