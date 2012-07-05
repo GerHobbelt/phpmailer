@@ -346,9 +346,9 @@ class PHPMailer {
 
   /**
    * What to use in the X-Mailer header
-   * @var string
+   * @var string NULL for none, whitespace for default, or actual string to use
    */
-  public $XMailer         = '';
+  public $XMailer         = ' ';
 
   /////////////////////////////////////////////////
   // PROPERTIES, PRIVATE AND PROTECTED
@@ -1265,10 +1265,13 @@ class PHPMailer {
       $result .= sprintf("Message-ID: <%s@%s>%s", $uniq_id, $this->ServerHostname(), $this->LE);
     }
     $result .= $this->HeaderLine('X-Priority', $this->Priority);
-    if($this->XMailer) {
-      $result .= $this->HeaderLine('X-Mailer', $this->XMailer);
-    } else {
-      $result .= $this->HeaderLine('X-Mailer', 'PHPMailer '.$this->Version.' (http://code.google.com/a/apache-extras.org/p/phpmailer/)');
+    if ($this->XMailer) {
+	  $myXmailer = trim($this->XMailer);
+	  if ($myXmailer) {
+		$result .= $this->HeaderLine('X-Mailer', $myXmailer);
+	  } else {
+		$result .= $this->HeaderLine('X-Mailer', 'PHPMailer '.$this->Version.' (http://code.google.com/a/apache-extras.org/p/phpmailer/)');
+	  }
     }
 
     if($this->ConfirmReadingTo != '') {
