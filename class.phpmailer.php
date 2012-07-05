@@ -335,8 +335,17 @@ class PHPMailer {
   public $DKIM_private    = '';
 
   /**
-   * Callback Action function name
-   * the function that handles the result of the send email action. Parameters:
+   * Callback Action function name.
+   * The function that handles the result of the send email action.
+   * It is called out by Send() for each email sent.
+   *
+   * Value can be:
+   * - 'function_name' for function names
+   * - 'Class::Method' for static method calls
+   * - array($object, 'Method') for calling methods on $object
+   * See http://php.net/is_callable manual page for more details.
+   *
+   * Parameters:
    *   bool    $result        result of the send action
    *   string  $to            email address of the recipient
    *   string  $cc            cc email addresses
@@ -2565,7 +2574,7 @@ class PHPMailer {
   }
 
   protected function doCallback($isSent, $to, $cc, $bcc, $subject, $body) {
-    if (!empty($this->action_function) && function_exists($this->action_function)) {
+    if (!empty($this->action_function) && is_callable($this->action_function)) {
       $params = array($isSent, $to, $cc, $bcc, $subject, $body);
       call_user_func_array($this->action_function, $params);
     }
