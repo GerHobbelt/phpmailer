@@ -1295,10 +1295,6 @@ class PHPMailer {
   public function GetMailMIME() {
     $result = '';
     switch($this->message_type) {
-      case 'plain':
-        $result .= $this->HeaderLine('Content-Transfer-Encoding', $this->Encoding);
-        $result .= $this->TextLine('Content-Type: '.$this->ContentType.'; charset="'.$this->CharSet.'"');
-        break;
       case 'inline':
         $result .= $this->HeaderLine('Content-Type', 'multipart/related;');
         $result .= $this->TextLine("\tboundary=\"" . $this->boundary[1] . '"');
@@ -1314,6 +1310,11 @@ class PHPMailer {
       case 'alt_inline':
         $result .= $this->HeaderLine('Content-Type', 'multipart/alternative;');
         $result .= $this->TextLine("\tboundary=\"" . $this->boundary[1] . '"');
+        break;
+	  default:
+        // Catches case 'plain': and case '':
+        $result .= $this->HeaderLine('Content-Transfer-Encoding', $this->Encoding);
+        $result .= $this->TextLine('Content-Type: '.$this->ContentType.'; charset="'.$this->CharSet.'"');
         break;
     }
 
@@ -1349,9 +1350,6 @@ class PHPMailer {
     $this->SetWordWrap();
 
     switch($this->message_type) {
-      case 'plain':
-        $body .= $this->EncodeString($this->Body, $this->Encoding);
-        break;
       case 'inline':
         $body .= $this->GetBoundary($this->boundary[1], '', '', '');
         $body .= $this->EncodeString($this->Body, $this->Encoding);
@@ -1435,6 +1433,10 @@ class PHPMailer {
         $body .= $this->EndBoundary($this->boundary[2]);
         $body .= $this->LE;
         $body .= $this->AttachAll("attachment", $this->boundary[1]);
+        break;
+	  default:
+        // catch case 'plain' and case ''
+        $body .= $this->EncodeString($this->Body, $this->Encoding);
         break;
     }
 
