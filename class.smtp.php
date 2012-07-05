@@ -2,7 +2,7 @@
 /*~ class.smtp.php
 .---------------------------------------------------------------------------.
 |  Software: PHPMailer - PHP email class                                    |
-|   Version: 5.2.1                                                          |
+|   Version: 5.2.2-dev                                                          |
 |      Site: https://code.google.com/a/apache-extras.org/p/phpmailer/       |
 | ------------------------------------------------------------------------- |
 |     Admin: Jim Jagielski (project admininistrator)                        |
@@ -72,7 +72,7 @@ class SMTP {
    * Sets the SMTP PHPMailer Version number
    * @var string
    */
-  public $Version         = '5.2.1';
+  public $Version         = '5.2.2-dev';
 
   /////////////////////////////////////////////////
   // PROPERTIES, PRIVATE AND PROTECTED
