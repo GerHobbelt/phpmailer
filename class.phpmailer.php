@@ -87,11 +87,20 @@ class PHPMailer {
   public $FromName          = 'Root User';
 
   /**
-   * Sets the Sender email (Return-Path) of the message.  If not empty,
+   * Sets the Sender email of the message.  If not empty,
    * will be sent via -f to sendmail or as 'MAIL FROM' in smtp mode.
+   * If not empty, and ReturnPath is empty, will also be the
+   * Return-Path header.
    * @var string
    */
   public $Sender            = '';
+
+  /**
+   * Sets the Return-Path of the message.  If empty, it will
+   * be set to either From or Sender.
+   * @var string
+   */
+  public $ReturnPath        = '';
 
   /**
    * Sets the Subject of the message.
@@ -1214,7 +1223,9 @@ class PHPMailer {
     $this->boundary[3] = 'b3_' . $uniq_id;
 
     $result .= $this->HeaderLine('Date', self::RFCDate());
-    if($this->Sender == '') {
+	if ($this->ReturnPath) {
+      $result .= $this->HeaderLine('Return-Path', trim($this->ReturnPath));
+	} elseif ($this->Sender == '') {
       $result .= $this->HeaderLine('Return-Path', trim($this->From));
     } else {
       $result .= $this->HeaderLine('Return-Path', trim($this->Sender));
