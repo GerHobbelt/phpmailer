@@ -297,9 +297,13 @@ class PHPMailer {
 
  /**
    * Provides the ability to change the generic line ending
+   * NOTE: The default is now the SMTP RFC line-ending sequence,
+   *       however, we still allow for the end-user to reset to "\n"
+   *       if need be. We force CRLF where we KNOW it must be used
+   *       via self::CRLF
    * @var string
    */
-  public $LE              = "\n";
+  public $LE              = "\r\n";
 
    /**
    * Used with DKIM DNS Resource Record
