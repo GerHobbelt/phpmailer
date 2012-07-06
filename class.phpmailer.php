@@ -296,18 +296,12 @@ class PHPMailer {
   public $SingleToArray = array();
 
  /**
-   * Provides the ability to change the line ending
+   * Provides the ability to change the generic line ending
    * @var string
    */
   public $LE              = "\n";
 
- /**
-   *  RFC SMTP body line ending
-   *  @var string
-   */
-  public $CRLF            = "\r\n";
-
-  /**
+   /**
    * Used with DKIM DNS Resource Record
    * @var string
    */
@@ -402,6 +396,7 @@ class PHPMailer {
   const STOP_MESSAGE  = 0; // message only, continue processing
   const STOP_CONTINUE = 1; // message?, likely ok to continue processing
   const STOP_CRITICAL = 2; // message, plus full stop, critical error reached
+  const CRLF = "\r\n";     // SMTP RFC specified EOL
 
   /////////////////////////////////////////////////
   // METHODS, VARIABLES
@@ -1091,7 +1086,7 @@ class PHPMailer {
     // split multibyte characters when we wrap
     $is_utf8 = (strtolower($this->CharSet) == "utf-8");
 	$lelen = strlen($this->LE);
-	$crlflen = strlen($this->CRLF);
+	$crlflen = strlen(self::CRLF);
 
     $message = $this->FixEOL($message);
     if (substr($message, -$lelen) == $this->LE) {
@@ -1120,7 +1115,7 @@ class PHPMailer {
               $part = substr($word, 0, $len);
               $word = substr($word, $len);
               $buf .= ' ' . $part;
-              $message .= $buf . sprintf("=%s", $this->CRLF);
+              $message .= $buf . sprintf("=%s", self::CRLF);
             } else {
               $message .= $buf . $soft_break;
             }
@@ -1139,7 +1134,7 @@ class PHPMailer {
             $word = substr($word, $len);
 
             if (strlen($word) > 0) {
-              $message .= $part . sprintf("=%s", $this->CRLF);
+              $message .= $part . sprintf("=%s", self::CRLF);
             } else {
               $buf = $part;
             }
@@ -1154,7 +1149,7 @@ class PHPMailer {
           }
         }
       }
-      $message .= $buf . $this->CRLF;
+      $message .= $buf . self::CRLF;
     }
 
     return $message;
