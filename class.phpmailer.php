@@ -301,6 +301,12 @@ class PHPMailer {
    */
   public $LE              = "\n";
 
+ /**
+   *  RFC SMTP body line ending
+   *  @var string
+   */
+  public $CRLF            = "\r\n";
+
   /**
    * Used with DKIM DNS Resource Record
    * @var string
@@ -1084,13 +1090,15 @@ class PHPMailer {
     // If utf-8 encoding is used, we will need to make sure we don't
     // split multibyte characters when we wrap
     $is_utf8 = (strtolower($this->CharSet) == "utf-8");
+	$lelen = strlen($this->LE);
+	$crlflen = strlen($this->CRLF);
 
     $message = $this->FixEOL($message);
-    if (substr($message, -1) == $this->LE) {
-      $message = substr($message, 0, -1);
+    if (substr($message, -$lelen) == $this->LE) {
+      $message = substr($message, 0, -$lelen);
     }
 
-    $line = explode($this->LE, $message);
+    $line = explode($this->LE, $message);	// Magic. We know FixEOL uses $LE
     $message = '';
     for ($i = 0 ;$i < count($line); $i++) {
       $line_part = explode(' ', $line[$i]);
@@ -1098,7 +1106,7 @@ class PHPMailer {
       for ($e = 0; $e<count($line_part); $e++) {
         $word = $line_part[$e];
         if ($qp_mode and (strlen($word) > $length)) {
-          $space_left = $length - strlen($buf) - 1;
+          $space_left = $length - strlen($buf) - $crlflen;
           if ($e != 0) {
             if ($space_left > 20) {
               $len = $space_left;
@@ -1112,7 +1120,7 @@ class PHPMailer {
               $part = substr($word, 0, $len);
               $word = substr($word, $len);
               $buf .= ' ' . $part;
-              $message .= $buf . sprintf("=%s", $this->LE);
+              $message .= $buf . sprintf("=%s", $this->CRLF);
             } else {
               $message .= $buf . $soft_break;
             }
@@ -1131,7 +1139,7 @@ class PHPMailer {
             $word = substr($word, $len);
 
             if (strlen($word) > 0) {
-              $message .= $part . sprintf("=%s", $this->LE);
+              $message .= $part . sprintf("=%s", $this->CRLF);
             } else {
               $buf = $part;
             }
@@ -1146,7 +1154,7 @@ class PHPMailer {
           }
         }
       }
-      $message .= $buf . $this->LE;
+      $message .= $buf . $this->CRLF;
     }
 
     return $message;
@@ -2247,7 +2255,7 @@ class PHPMailer {
   }
 
   /**
-   * Changes every end of line from CR or LF to CRLF.
+   * Changes every end of line from CR or LF to $this->LE.
    * @access public
    * @return string
    */
