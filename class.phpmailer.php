@@ -139,11 +139,11 @@ class PHPMailer {
   protected $MIMEHeader     = '';
 
   /**
-   * Stores the complete sent MIME message (Body and Headers)
+   * Stores the extra header list which CreateHeader() doesn't fold in
    * @var string
    * @access protected
   */
-  protected $SentMIMEMessage     = '';
+  protected $mailHeader     = '';
 
   /**
    * Sets word wrapping on the body of the message to a given number of
@@ -669,7 +669,7 @@ class PHPMailer {
       if(!$this->PreSend()) return false;
       return $this->PostSend();
     } catch (phpmailerException $e) {
-      $this->SentMIMEMessage = '';
+      $this->mailHeader = '';
       $this->SetError($e->getMessage());
       if ($this->exceptions) {
         throw $e;
@@ -680,7 +680,7 @@ class PHPMailer {
 
   protected function PreSend() {
     try {
-      $mailHeader = "";
+      $this->mailHeader = "";
       if ((count($this->to) + count($this->cc) + count($this->bcc)) < 1) {
         throw new phpmailerException($this->Lang('provide_address'), self::STOP_CRITICAL);
       }
@@ -704,13 +704,13 @@ class PHPMailer {
       // an extra header list which CreateHeader() doesn't fold in
       if ($this->Mailer == 'mail') {
         if (count($this->to) > 0) {
-          $mailHeader .= $this->AddrAppend("To", $this->to);
+          $this->mailHeader .= $this->AddrAppend("To", $this->to);
         } else {
-          $mailHeader .= $this->HeaderLine("To", "undisclosed-recipients:;");
+          $this->mailHeader .= $this->HeaderLine("To", "undisclosed-recipients:;");
         }
-        $mailHeader .= $this->HeaderLine('Subject', $this->EncodeHeader($this->SecureHeader(trim($this->Subject))));
+        $this->mailHeader .= $this->HeaderLine('Subject', $this->EncodeHeader($this->SecureHeader(trim($this->Subject))));
         // if(count($this->cc) > 0) {
-            // $mailHeader .= $this->AddrAppend("Cc", $this->cc);
+            // $this->mailHeader .= $this->AddrAppend("Cc", $this->cc);
         // }
       }
 
@@ -720,7 +720,6 @@ class PHPMailer {
         $this->MIMEHeader = str_replace("\r\n", "\n", $header_dkim) . $this->MIMEHeader;
       }
 
-      $this->SentMIMEMessage = sprintf("%s%s\r\n\r\n%s",$this->MIMEHeader,$mailHeader,$this->MIMEBody);
       return true;
 
     } catch (phpmailerException $e) {
@@ -1381,7 +1380,7 @@ class PHPMailer {
    * @return string
    */
   public function GetSentMIMEMessage() {
-    return $this->SentMIMEMessage;
+    return sprintf("%s%s\r\n\r\n%s",$this->MIMEHeader,$this->mailHeader,$this->MIMEBody);
   }
 
 
