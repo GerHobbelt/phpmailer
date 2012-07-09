@@ -106,11 +106,11 @@ class SMTP {
    * @param string $str
    */
   private function edebug($str) {
-	if ($this->Debugoutput == "error_log") {
-		error_log($str);
-	} else {
-		echo $str;
-	}
+    if ($this->Debugoutput == "error_log") {
+        error_log($str);
+    } else {
+        echo $str;
+    }
   }
 
   /**
