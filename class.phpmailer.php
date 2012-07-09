@@ -416,7 +416,8 @@ class PHPMailer {
   /**
    * Calls actual mail() function, but in a safe_mode aware fashion
    * Also, unless sendmail_path points to sendmail (or something that
-   * claims to be sendmail), don't pass params
+   * claims to be sendmail), don't pass params (not a perfect fix,
+   * but it will do)
    * @param string $to To
    * @param string $subject Subject
    * @param string $body Message Body
