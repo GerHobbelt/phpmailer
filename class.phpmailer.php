@@ -730,17 +730,22 @@ class PHPMailer {
   }
 
   protected function PostSend() {
+	$rtn = false;
     try {
       // Choose the mailer and send through it
       switch($this->Mailer) {
         case 'sendmail':
-          return $this->SendmailSend($this->MIMEHeader, $this->MIMEBody);
+          $rtn = $this->SendmailSend($this->MIMEHeader, $this->MIMEBody);
+		  break;
         case 'smtp':
-          return $this->SmtpSend($this->MIMEHeader, $this->MIMEBody);
+          $rtn = $this->SmtpSend($this->MIMEHeader, $this->MIMEBody);
+		  break;
         case 'mail':
-          return $this->MailSend($this->MIMEHeader, $this->MIMEBody);
+          $rtn = $this->MailSend($this->MIMEHeader, $this->MIMEBody);
+		  break;
         default:
-          return $this->MailSend($this->MIMEHeader, $this->MIMEBody);
+          $rtn = $this->MailSend($this->MIMEHeader, $this->MIMEBody);
+		  break;
       }
 
     } catch (phpmailerException $e) {
@@ -753,6 +758,7 @@ class PHPMailer {
       }
       return false;
     }
+	return $rtn;
   }
 
   /**
