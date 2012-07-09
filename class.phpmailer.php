@@ -275,6 +275,13 @@ class PHPMailer {
   public $SMTPDebug     = false;
 
   /**
+   * Sets the function/method to use for debugging output.
+   * Right now we only honor "echo" or "error_log"
+   * @var string
+   */
+  public $Debugoutput     = "echo";
+
+  /**
    * Prevents the SMTP connection from being closed after each mail
    * sending.  If this is set to true then to close the connection
    * requires an explicit call to SmtpClose().
@@ -401,10 +408,41 @@ class PHPMailer {
   const STOP_CONTINUE = 1; // message?, likely ok to continue processing
   const STOP_CRITICAL = 2; // message, plus full stop, critical error reached
   const CRLF = "\r\n";     // SMTP RFC specified EOL
-
+  
   /////////////////////////////////////////////////
   // METHODS, VARIABLES
   /////////////////////////////////////////////////
+
+  /**
+   * Calls actual mail() function, but in a safe_mode aware fashion
+   * @param string $to To
+   * @param string $subject Subject
+   * @param string $body Message Body
+   * @param string $headers Additional Headers
+   * @param string $params Params
+   * @access private
+   * @return bool
+   */
+  private function mail_passthru($to, $subject, $body, $header, $params) {
+	if (ini_get('safe_mode')) {
+		$rt = @mail($to, $this->EncodeHeader($this->SecureHeader($subject)), $body, $header);
+	} else {
+		$rt = @mail($to, $this->EncodeHeader($this->SecureHeader($subject)), $body, $header, $params);
+	}
+	return $rt;
+  }
+
+  /**
+   * Outputs debugging info via user-defined method
+   * @param string $str
+   */
+  private function edebug($str) {
+	if ($this->Debugoutput == "error_log") {
+		error_log($str);
+	} else {
+		echo $str;
+	}
+  }
 
   /**
    * Constructor
@@ -527,7 +565,7 @@ class PHPMailer {
         throw new phpmailerException('Invalid recipient array: ' . $kind);
       }
 	  if ($this->SMTPDebug) {
-        echo $this->Lang('Invalid recipient array').': '.$kind;
+        edebug($this->Lang('Invalid recipient array').': '.$kind);
       }
       return false;
     }
@@ -539,7 +577,7 @@ class PHPMailer {
         throw new phpmailerException($this->Lang('invalid_address').': '.$address);
       }
 	  if ($this->SMTPDebug) {
-        echo $this->Lang('invalid_address').': '.$address;
+        edebug($this->Lang('invalid_address').': '.$address);
       }
       return false;
     }
@@ -573,7 +611,7 @@ class PHPMailer {
         throw new phpmailerException($this->Lang('invalid_address').': '.$address);
       }
 	  if ($this->SMTPDebug) {
-        echo $this->Lang('invalid_address').': '.$address;
+        edebug($this->Lang('invalid_address').': '.$address);
       }
       return false;
     }
@@ -711,7 +749,7 @@ class PHPMailer {
         throw $e;
       }
 	  if ($this->SMTPDebug) {
-        echo $e->getMessage()."\n";
+        edebug($e->getMessage()."\n");
       }
       return false;
     }
@@ -761,25 +799,6 @@ class PHPMailer {
       }
     }
     return true;
-  }
-
-  /**
-   * Calls actual mail() function, but in a safe_mode aware fashion
-   * @param string $to To
-   * @param string $subject Subject
-   * @param string $body Message Body
-   * @param string $headers Additional Headers
-   * @param string $params Params
-   * @access private
-   * @return bool
-   */
-  private function mail_passthru($to, $subject, $body, $header, $params) {
-	if (ini_get('safe_mode')) {
-		$rt = @mail($to, $this->EncodeHeader($this->SecureHeader($subject)), $body, $header);
-	} else {
-		$rt = @mail($to, $this->EncodeHeader($this->SecureHeader($subject)), $body, $header, $params);
-	}
-	return $rt;
   }
 
   /**
@@ -1605,7 +1624,7 @@ class PHPMailer {
         throw $e;
       }
 	  if ($this->SMTPDebug) {
-        echo $e->getMessage()."\n";
+        edebug($e->getMessage()."\n");
       }
       if ( $e->getCode() == self::STOP_CRITICAL ) {
         return false;
