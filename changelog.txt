@@ -4,6 +4,10 @@ NOTE: THIS VERSION OF PHPMAILER IS DESIGNED FOR PHP5/PHP6.
       IT WILL NOT WORK WITH PHP4.
 
 Version 5.2.2 (??)
+* Expose PreSend() and PostSend() as public methods to allow
+  for more control if serializing message sending.
+* GetSentMIMEMessage() only constructs the message copy when
+  needed. Save memory.
 * Only pass params to mail() if the underlying MTA is
   "sendmail" (as defined as "having the string sendmail
   in its pathname") [#69]
