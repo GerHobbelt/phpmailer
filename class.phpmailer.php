@@ -262,7 +262,7 @@ class PHPMailer {
   public $Workstation   = '';
 
   /**
-   * Sets the SMTP server timeout in seconds.
+   * Sets the SMTP server   in seconds.
    * This function will not work with the win32 version.
    * @var int
    */
@@ -926,6 +926,7 @@ class PHPMailer {
       $this->smtp = new SMTP();
     }
 
+	$this->smtp->Timeout = $this->Timeout;
     $this->smtp->do_debug = $this->SMTPDebug;
     $hosts = explode(';', $this->Host);
     $index = 0;

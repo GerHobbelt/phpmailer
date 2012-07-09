@@ -69,6 +69,18 @@ class SMTP {
   public $do_verp = false;
 
   /**
+   * Sets the SMTP timeout value for reads, in seconds
+   * @var int
+   */
+  public $Timeout         = 15;
+
+  /**
+   * Sets the SMTP timelimit value for reads, in seconds
+   * @var int
+   */
+  public $Timelimit       = 30;
+
+  /**
    * Sets the SMTP PHPMailer Version number
    * @var string
    */
@@ -151,7 +163,7 @@ class SMTP {
      if ($max != 0 && $tval > $max) { // don't bother if unlimited
       @set_time_limit($tval);
      }
-     socket_set_timeout($this->smtp_conn, $tval, 0);
+     stream_set_timeout($this->smtp_conn, $tval, 0);
     }
 
     // get any announcement
@@ -870,6 +882,11 @@ class SMTP {
    */
   private function get_lines() {
     $data = "";
+    $endtime = 0;
+    stream_set_timeout($this->smtp_conn, $this->Timeout);
+    if ($this->Timelimit > 0) {
+      $endtime = time() + $this->Timelimit;
+    }
     while(!feof($this->smtp_conn)) {
       $str = @fgets($this->smtp_conn,515);
       if($this->do_debug >= 4) {
@@ -882,6 +899,23 @@ class SMTP {
       }
       // if 4th character is a space, we are done reading, break the loop
       if(substr($str,3,1) == " ") { break; }
+      // Timed-out? Log and break
+      $info = stream_get_meta_data($this->smtp_conn);
+      if ($info['timed_out']) {
+        if($this->do_debug >= 4) {
+          echo "SMTP -> get_lines(): timed-out (" . $this->Timeout . " seconds) <br />";
+        }
+        break;
+      }
+      // Now check if reads took too long
+      if ($endtime) {
+        if (time() > $endtime) {
+          if($this->do_debug >= 4) {
+            echo "SMTP -> get_lines(): timelimit reached (" . $this->Timelimit . " seconds) <br />";
+          }
+          break;
+        }
+      }
     }
     return $data;
   }
