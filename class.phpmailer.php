@@ -565,7 +565,7 @@ class PHPMailer {
         throw new phpmailerException('Invalid recipient array: ' . $kind);
       }
       if ($this->SMTPDebug) {
-        edebug($this->Lang('Invalid recipient array').': '.$kind);
+       $this->edebug($this->Lang('Invalid recipient array').': '.$kind);
       }
       return false;
     }
@@ -577,7 +577,7 @@ class PHPMailer {
         throw new phpmailerException($this->Lang('invalid_address').': '.$address);
       }
       if ($this->SMTPDebug) {
-        edebug($this->Lang('invalid_address').': '.$address);
+       $this->edebug($this->Lang('invalid_address').': '.$address);
       }
       return false;
     }
@@ -611,7 +611,7 @@ class PHPMailer {
         throw new phpmailerException($this->Lang('invalid_address').': '.$address);
       }
       if ($this->SMTPDebug) {
-        edebug($this->Lang('invalid_address').': '.$address);
+       $this->edebug($this->Lang('invalid_address').': '.$address);
       }
       return false;
     }
@@ -754,7 +754,7 @@ class PHPMailer {
         throw $e;
       }
       if ($this->SMTPDebug) {
-        edebug($e->getMessage()."\n");
+       $this->edebug($e->getMessage()."\n");
       }
       return false;
     }
@@ -1621,7 +1621,7 @@ class PHPMailer {
         throw $e;
       }
       if ($this->SMTPDebug) {
-        edebug($e->getMessage()."\n");
+       $this->edebug($e->getMessage()."\n");
       }
       if ( $e->getCode() == self::STOP_CRITICAL ) {
         return false;
