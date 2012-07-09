@@ -678,7 +678,7 @@ class PHPMailer {
     }
   }
 
-  protected function PreSend() {
+  public function PreSend() {
     try {
       $this->mailHeader = "";
       if ((count($this->to) + count($this->cc) + count($this->bcc)) < 1) {
@@ -731,7 +731,7 @@ class PHPMailer {
     }
   }
 
-  protected function PostSend() {
+  public function PostSend() {
     $rtn = false;
     try {
       // Choose the mailer and send through it
