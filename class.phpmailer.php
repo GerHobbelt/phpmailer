@@ -424,12 +424,12 @@ class PHPMailer {
    * @return bool
    */
   private function mail_passthru($to, $subject, $body, $header, $params) {
-	if (ini_get('safe_mode')) {
-		$rt = @mail($to, $this->EncodeHeader($this->SecureHeader($subject)), $body, $header);
-	} else {
-		$rt = @mail($to, $this->EncodeHeader($this->SecureHeader($subject)), $body, $header, $params);
-	}
-	return $rt;
+    if (ini_get('safe_mode')) {
+        $rt = @mail($to, $this->EncodeHeader($this->SecureHeader($subject)), $body, $header);
+    } else {
+        $rt = @mail($to, $this->EncodeHeader($this->SecureHeader($subject)), $body, $header, $params);
+    }
+    return $rt;
   }
 
   /**
@@ -437,11 +437,11 @@ class PHPMailer {
    * @param string $str
    */
   private function edebug($str) {
-	if ($this->Debugoutput == "error_log") {
-		error_log($str);
-	} else {
-		echo $str;
-	}
+    if ($this->Debugoutput == "error_log") {
+        error_log($str);
+    } else {
+        echo $str;
+    }
   }
 
   /**
@@ -564,7 +564,7 @@ class PHPMailer {
       if ($this->exceptions) {
         throw new phpmailerException('Invalid recipient array: ' . $kind);
       }
-	  if ($this->SMTPDebug) {
+      if ($this->SMTPDebug) {
         edebug($this->Lang('Invalid recipient array').': '.$kind);
       }
       return false;
@@ -576,7 +576,7 @@ class PHPMailer {
       if ($this->exceptions) {
         throw new phpmailerException($this->Lang('invalid_address').': '.$address);
       }
-	  if ($this->SMTPDebug) {
+      if ($this->SMTPDebug) {
         edebug($this->Lang('invalid_address').': '.$address);
       }
       return false;
@@ -610,7 +610,7 @@ class PHPMailer {
       if ($this->exceptions) {
         throw new phpmailerException($this->Lang('invalid_address').': '.$address);
       }
-	  if ($this->SMTPDebug) {
+      if ($this->SMTPDebug) {
         edebug($this->Lang('invalid_address').': '.$address);
       }
       return false;
@@ -666,7 +666,7 @@ class PHPMailer {
       if(!$this->PreSend()) return false;
       return $this->PostSend();
     } catch (phpmailerException $e) {
-	  $this->SentMIMEMessage = '';
+      $this->SentMIMEMessage = '';
       $this->SetError($e->getMessage());
       if ($this->exceptions) {
         throw $e;
@@ -677,7 +677,7 @@ class PHPMailer {
 
   protected function PreSend() {
     try {
-	  $mailHeader = "";
+      $mailHeader = "";
       if ((count($this->to) + count($this->cc) + count($this->bcc)) < 1) {
         throw new phpmailerException($this->Lang('provide_address'), self::STOP_CRITICAL);
       }
@@ -698,7 +698,7 @@ class PHPMailer {
       $this->MIMEBody = $this->CreateBody();
 
       // To capture the complete message when using mail(), create
-	  // an extra header list which CreateHeader() doesn't fold in
+      // an extra header list which CreateHeader() doesn't fold in
       if ($this->Mailer == 'mail') {
         if (count($this->to) > 0) {
           $mailHeader .= $this->AddrAppend("To", $this->to);
@@ -730,22 +730,22 @@ class PHPMailer {
   }
 
   protected function PostSend() {
-	$rtn = false;
+    $rtn = false;
     try {
       // Choose the mailer and send through it
       switch($this->Mailer) {
         case 'sendmail':
           $rtn = $this->SendmailSend($this->MIMEHeader, $this->MIMEBody);
-		  break;
+          break;
         case 'smtp':
           $rtn = $this->SmtpSend($this->MIMEHeader, $this->MIMEBody);
-		  break;
+          break;
         case 'mail':
           $rtn = $this->MailSend($this->MIMEHeader, $this->MIMEBody);
-		  break;
+          break;
         default:
           $rtn = $this->MailSend($this->MIMEHeader, $this->MIMEBody);
-		  break;
+          break;
       }
 
     } catch (phpmailerException $e) {
@@ -753,12 +753,12 @@ class PHPMailer {
       if ($this->exceptions) {
         throw $e;
       }
-	  if ($this->SMTPDebug) {
+      if ($this->SMTPDebug) {
         edebug($e->getMessage()."\n");
       }
       return false;
     }
-	return $rtn;
+    return $rtn;
   }
 
   /**
@@ -829,33 +829,19 @@ class PHPMailer {
     if ($this->Sender != '' and !ini_get('safe_mode')) {
       $old_from = ini_get('sendmail_from');
       ini_set('sendmail_from', $this->Sender);
-      if ($this->SingleTo === true && count($toArr) > 1) {
-        foreach ($toArr as $key => $val) {
-          $rt = mail_passthru($val, $this->Subject, $body, $header, $params);
-          // implement call back function if it exists
-          $isSent = ($rt == 1) ? 1 : 0;
-          $this->doCallback($isSent, $val, $this->cc, $this->bcc, $this->Subject, $body);
-        }
-      } else {
-        $rt = mail_passthru($to, $this->Subject, $body, $header, $params);
+    }
+    if ($this->SingleTo === true && count($toArr) > 1) {
+      foreach ($toArr as $key => $val) {
+        $rt = $this->mail_passthru($val, $this->Subject, $body, $header, $params);
         // implement call back function if it exists
         $isSent = ($rt == 1) ? 1 : 0;
-        $this->doCallback($isSent, $to, $this->cc, $this->bcc, $this->Subject, $body);
+        $this->doCallback($isSent, $val, $this->cc, $this->bcc, $this->Subject, $body);
       }
     } else {
-      if ($this->SingleTo === true && count($toArr) > 1) {
-        foreach ($toArr as $key => $val) {
-          $rt = mail_passthru($val, $this->Subject, $body, $header, $params);
-          // implement call back function if it exists
-          $isSent = ($rt == 1) ? 1 : 0;
-          $this->doCallback($isSent, $val, $this->cc, $this->bcc, $this->Subject, $body);
-        }
-      } else {
-        $rt = mail_passthru($to, $this->Subject, $body, $header, $params);
-        // implement call back function if it exists
-        $isSent = ($rt == 1) ? 1 : 0;
-        $this->doCallback($isSent, $to, $this->cc, $this->bcc, $this->Subject, $body);
-      }
+      $rt = $this->mail_passthru($to, $this->Subject, $body, $header, $params);
+      // implement call back function if it exists
+      $isSent = ($rt == 1) ? 1 : 0;
+      $this->doCallback($isSent, $to, $this->cc, $this->bcc, $this->Subject, $body);
     }
     if (isset($old_from)) {
       ini_set('sendmail_from', $old_from);
@@ -951,12 +937,12 @@ class PHPMailer {
       $this->smtp = new SMTP();
     }
 
-	$this->smtp->Timeout = $this->Timeout;
+    $this->smtp->Timeout = $this->Timeout;
     $this->smtp->do_debug = $this->SMTPDebug;
     $hosts = explode(';', $this->Host);
     $index = 0;
     $connection = $this->smtp->Connected();
-	$rtn = true;
+    $rtn = true;
 
     // Retry while there is no connection
     try {
@@ -980,7 +966,7 @@ class PHPMailer {
 
           if ($tls) {
             if (!$this->smtp->StartTLS()) {
-			  $rtn = false;
+              $rtn = false;
               throw new phpmailerException($this->Lang('tls'));
             }
 
@@ -991,24 +977,24 @@ class PHPMailer {
           $connection = true;
           if ($this->SMTPAuth) {
             if (!$this->smtp->Authenticate($this->Username, $this->Password, $this->AuthType,
-										   $this->Realm, $this->Workstation)) {
-			  $rtn = false;
+                                           $this->Realm, $this->Workstation)) {
+              $rtn = false;
               throw new phpmailerException($this->Lang('authenticate'));
             }
           }
         }
         $index++;
         if (!$connection) {
-		  $rtn = false;
+          $rtn = false;
           throw new phpmailerException($this->Lang('connect_host'));
         }
       }
     } catch (phpmailerException $e) {
       $this->smtp->Reset();
-	  if ($this->exceptions) {
+      if ($this->exceptions) {
         throw $e;
       }
-	  $rtn = false;
+      $rtn = false;
     }
     return $rtn;
   }
@@ -1120,15 +1106,15 @@ class PHPMailer {
     // If utf-8 encoding is used, we will need to make sure we don't
     // split multibyte characters when we wrap
     $is_utf8 = (strtolower($this->CharSet) == "utf-8");
-	$lelen = strlen($this->LE);
-	$crlflen = strlen(self::CRLF);
+    $lelen = strlen($this->LE);
+    $crlflen = strlen(self::CRLF);
 
     $message = $this->FixEOL($message);
     if (substr($message, -$lelen) == $this->LE) {
       $message = substr($message, 0, -$lelen);
     }
 
-    $line = explode($this->LE, $message);	// Magic. We know FixEOL uses $LE
+    $line = explode($this->LE, $message);   // Magic. We know FixEOL uses $LE
     $message = '';
     for ($i = 0 ;$i < count($line); $i++) {
       $line_part = explode(' ', $line[$i]);
@@ -1270,9 +1256,9 @@ class PHPMailer {
     $this->boundary[3] = 'b3_' . $uniq_id;
 
     $result .= $this->HeaderLine('Date', self::RFCDate());
-	if ($this->ReturnPath) {
+    if ($this->ReturnPath) {
       $result .= $this->HeaderLine('Return-Path', trim($this->ReturnPath));
-	} elseif ($this->Sender == '') {
+    } elseif ($this->Sender == '') {
       $result .= $this->HeaderLine('Return-Path', trim($this->From));
     } else {
       $result .= $this->HeaderLine('Return-Path', trim($this->Sender));
@@ -1291,7 +1277,7 @@ class PHPMailer {
           $result .= $this->HeaderLine('To', 'undisclosed-recipients:;');
         }
       }
-	}
+    }
 
     $from = array();
     $from[0][0] = trim($this->From);
@@ -1324,12 +1310,12 @@ class PHPMailer {
     }
     $result .= $this->HeaderLine('X-Priority', $this->Priority);
     if ($this->XMailer == '') {
-		$result .= $this->HeaderLine('X-Mailer', 'PHPMailer '.$this->Version.' (http://code.google.com/a/apache-extras.org/p/phpmailer/)');
-	} else {
-	  $myXmailer = trim($this->XMailer);
-	  if ($myXmailer) {
-		$result .= $this->HeaderLine('X-Mailer', $myXmailer);
-	  }
+        $result .= $this->HeaderLine('X-Mailer', 'PHPMailer '.$this->Version.' (http://code.google.com/a/apache-extras.org/p/phpmailer/)');
+    } else {
+      $myXmailer = trim($this->XMailer);
+      if ($myXmailer) {
+        $result .= $this->HeaderLine('X-Mailer', $myXmailer);
+      }
     }
 
     if($this->ConfirmReadingTo != '') {
@@ -1372,7 +1358,7 @@ class PHPMailer {
         $result .= $this->HeaderLine('Content-Type', 'multipart/alternative;');
         $result .= $this->TextLine("\tboundary=\"" . $this->boundary[1] . '"');
         break;
-	  default:
+      default:
         // Catches case 'plain': and case '':
         $result .= $this->HeaderLine('Content-Transfer-Encoding', $this->Encoding);
         $result .= $this->TextLine('Content-Type: '.$this->ContentType.'; charset='.$this->CharSet);
@@ -1495,7 +1481,7 @@ class PHPMailer {
         $body .= $this->LE;
         $body .= $this->AttachAll("attachment", $this->boundary[1]);
         break;
-	  default:
+      default:
         // catch case 'plain' and case ''
         $body .= $this->EncodeString($this->Body, $this->Encoding);
         break;
@@ -1634,7 +1620,7 @@ class PHPMailer {
       if ($this->exceptions) {
         throw $e;
       }
-	  if ($this->SMTPDebug) {
+      if ($this->SMTPDebug) {
         edebug($e->getMessage()."\n");
       }
       if ( $e->getCode() == self::STOP_CRITICAL ) {
@@ -1739,23 +1725,23 @@ class PHPMailer {
           return false;
         }
       }
-	  $magic_quotes = get_magic_quotes_runtime();
-	  if ($magic_quotes) {
+      $magic_quotes = get_magic_quotes_runtime();
+      if ($magic_quotes) {
         if (version_compare(PHP_VERSION, '5.3.0', '<')) {
           set_magic_quotes_runtime(0);
         } else {
-		  ini_set('magic_quotes_runtime', 0); 
-		}
-	  }
+          ini_set('magic_quotes_runtime', 0); 
+        }
+      }
       $file_buffer  = file_get_contents($path);
       $file_buffer  = $this->EncodeString($file_buffer, $encoding);
-	  if ($magic_quotes) {
+      if ($magic_quotes) {
         if (version_compare(PHP_VERSION, '5.3.0', '<')) {
           set_magic_quotes_runtime($magic_quotes);
         } else {
-		  ini_set('magic_quotes_runtime', $magic_quotes); 
-	    }
-	  }
+          ini_set('magic_quotes_runtime', $magic_quotes); 
+        }
+      }
       return $file_buffer;
     } catch (Exception $e) {
       $this->SetError($e->getMessage());
@@ -2329,16 +2315,16 @@ class PHPMailer {
     }
     $this->IsHTML(true);
     $this->Body = $message;
-	if (empty($this->AltBody)) {
-		$textMsg = trim(strip_tags(preg_replace('/<(head|title|style|script)[^>]*>.*?<\/\\1>/s', '', $message)));
-		if (!empty($textMsg)) {
-			$this->AltBody = html_entity_decode($textMsg, ENT_QUOTES, $this->CharSet);
-		}
-	}
+    if (empty($this->AltBody)) {
+        $textMsg = trim(strip_tags(preg_replace('/<(head|title|style|script)[^>]*>.*?<\/\\1>/s', '', $message)));
+        if (!empty($textMsg)) {
+            $this->AltBody = html_entity_decode($textMsg, ENT_QUOTES, $this->CharSet);
+        }
+    }
     if (empty($this->AltBody)) {
       $this->AltBody = 'To view this email message, open it in a program that understands HTML!' . "\n\n";
     }
-	return $message;
+    return $message;
   }
 
   /**
@@ -2476,7 +2462,7 @@ class PHPMailer {
    * @return string
    */
   public function SecureHeader($str) {
-	return trim(str_replace(array("\r", "\n"), '', $str));
+    return trim(str_replace(array("\r", "\n"), '', $str));
   }
 
   /**
