@@ -956,6 +956,7 @@ class PHPMailer {
     $hosts = explode(';', $this->Host);
     $index = 0;
     $connection = $this->smtp->Connected();
+	$rtn = true;
 
     // Retry while there is no connection
     try {
@@ -979,6 +980,7 @@ class PHPMailer {
 
           if ($tls) {
             if (!$this->smtp->StartTLS()) {
+			  $rtn = false;
               throw new phpmailerException($this->Lang('tls'));
             }
 
@@ -990,12 +992,14 @@ class PHPMailer {
           if ($this->SMTPAuth) {
             if (!$this->smtp->Authenticate($this->Username, $this->Password, $this->AuthType,
 										   $this->Realm, $this->Workstation)) {
+			  $rtn = false;
               throw new phpmailerException($this->Lang('authenticate'));
             }
           }
         }
         $index++;
         if (!$connection) {
+		  $rtn = false;
           throw new phpmailerException($this->Lang('connect_host'));
         }
       }
@@ -1004,8 +1008,9 @@ class PHPMailer {
 	  if ($this->exceptions) {
         throw $e;
       }
+	  $rtn = false;
     }
-    return true;
+    return $rtn;
   }
 
   /**
