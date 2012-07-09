@@ -415,6 +415,8 @@ class PHPMailer {
 
   /**
    * Calls actual mail() function, but in a safe_mode aware fashion
+   * Also, unless sendmail_path points to sendmail (or something that
+   * claims to be sendmail), don't pass params
    * @param string $to To
    * @param string $subject Subject
    * @param string $body Message Body
@@ -424,7 +426,7 @@ class PHPMailer {
    * @return bool
    */
   private function mail_passthru($to, $subject, $body, $header, $params) {
-    if (ini_get('safe_mode')) {
+    if ( ini_get('safe_mode') || !strstr(ini_get("sendmail_path"), 'sendmail') ) {
         $rt = @mail($to, $this->EncodeHeader($this->SecureHeader($subject)), $body, $header);
     } else {
         $rt = @mail($to, $this->EncodeHeader($this->SecureHeader($subject)), $body, $header, $params);
