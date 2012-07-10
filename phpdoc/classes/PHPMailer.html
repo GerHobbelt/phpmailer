@@ -3,7 +3,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
 <meta charset="utf-8">
-<title>PHPMailer version 5.2.2-dev » \PHPMailer</title>
+<title>PHPMailer version ${version} » \PHPMailer</title>
 <meta name="author" content="Mike van Riel">
 <meta name="description" content="">
 <link href="../css/template.css" rel="stylesheet" media="all">
@@ -15,7 +15,7 @@
 <body>
 <div class="navbar navbar-fixed-top">
 <div class="navbar-inner"><div class="container">
-<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a><a class="brand" href="../index.html">PHPMailer version 5.2.2-dev</a><div class="nav-collapse"><ul class="nav">
+<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a><a class="brand" href="../index.html">PHPMailer version ${version}</a><div class="nav-collapse"><ul class="nav">
 <li class="dropdown">
 <a href="#api" class="dropdown-toggle" data-toggle="dropdown">
                                     API Documentation <b class="caret"></b></a><ul class="dropdown-menu"></ul>
@@ -28,7 +28,7 @@
 <a href="#reports" class="dropdown-toggle" data-toggle="dropdown">
                                     Reports <b class="caret"></b></a><ul class="dropdown-menu">
 <li><a href="../errors.html"><i class="icon-remove-sign"></i> Errors 
-                <span class="label label-info">82</span></a></li>
+                <span class="label label-info">81</span></a></li>
 <li><a href="../markers.html"><i class="icon-map-marker"></i> Markers 
                 <ul><li>todo 
                 <span class="label label-info">3</span>
@@ -115,6 +115,10 @@ Also results in same content as you started with after decoding</span><pre>Encod
 <li class="method public "><a href="#IsSMTP" title="IsSMTP :: Sets Mailer to send message using SMTP."><span class="description">Sets Mailer to send message using SMTP.</span><pre>IsSMTP()</pre></a></li>
 <li class="method public "><a href="#IsSendmail" title="IsSendmail :: Sets Mailer to send message using the $Sendmail program."><span class="description">Sets Mailer to send message using the $Sendmail program.</span><pre>IsSendmail()</pre></a></li>
 <li class="method public "><a href="#MsgHTML" title="MsgHTML :: Evaluates the message and returns modifications for inline images and backgrounds"><span class="description">Evaluates the message and returns modifications for inline images and backgrounds</span><pre>MsgHTML()</pre></a></li>
+<li class="method public "><a href="#PostSend" title="PostSend :: "><span class="description">PostSend()
+        </span><pre>PostSend()</pre></a></li>
+<li class="method public "><a href="#PreSend" title="PreSend :: "><span class="description">PreSend()
+        </span><pre>PreSend()</pre></a></li>
 <li class="method public "><a href="#RFCDate" title="RFCDate :: Returns the proper RFC 822 formatted date."><span class="description">Returns the proper RFC 822 formatted date.</span><pre>RFCDate()</pre></a></li>
 <li class="method public "><a href="#SecureHeader" title="SecureHeader :: Strips newlines to prevent header injection."><span class="description">Strips newlines to prevent header injection.</span><pre>SecureHeader()</pre></a></li>
 <li class="method public "><a href="#Send" title="Send :: Creates message and assigns Mailer."><span class="description">Creates message and assigns Mailer.</span><pre>Send()</pre></a></li>
@@ -151,10 +155,6 @@ Addresses that have been added already return false, but do not throw exceptions
 <li class="method protected "><a href="#GetBoundary" title="GetBoundary :: Returns the start of a message boundary."><span class="description">Returns the start of a message boundary.</span><pre>GetBoundary()</pre></a></li>
 <li class="method protected "><a href="#Lang" title="Lang :: Returns a message in the appropriate language."><span class="description">Returns a message in the appropriate language.</span><pre>Lang()</pre></a></li>
 <li class="method protected "><a href="#MailSend" title="MailSend :: Sends mail using the PHP mail() function."><span class="description">Sends mail using the PHP mail() function.</span><pre>MailSend()</pre></a></li>
-<li class="method protected "><a href="#PostSend" title="PostSend :: "><span class="description">PostSend()
-        </span><pre>PostSend()</pre></a></li>
-<li class="method protected "><a href="#PreSend" title="PreSend :: "><span class="description">PreSend()
-        </span><pre>PreSend()</pre></a></li>
 <li class="method protected "><a href="#SendmailSend" title="SendmailSend :: Sends mail using the $Sendmail program."><span class="description">Sends mail using the $Sendmail program.</span><pre>SendmailSend()</pre></a></li>
 <li class="method protected "><a href="#ServerHostname" title="ServerHostname :: Returns the server hostname or 'localhost.localdomain' if unknown."><span class="description">Returns the server hostname or 'localhost.localdomain' if unknown.</span><pre>ServerHostname()</pre></a></li>
 <li class="method protected "><a href="#SetError" title="SetError :: Adds the error message to the error container."><span class="description">Adds the error message to the error container.</span><pre>SetError()</pre></a></li>
@@ -166,7 +166,13 @@ Returns false if there is a bad MAIL FROM, RCPT, or DATA input.</span><pre>SmtpS
         </span><pre>doCallback()</pre></a></li>
 <li class="nav-header private">» Private</li>
 <li class="method private "><a href="#edebug" title="edebug :: Outputs debugging info via user-defined method"><span class="description">Outputs debugging info via user-defined method</span><pre>edebug()</pre></a></li>
-<li class="method private "><a href="#mail_passthru" title="mail_passthru :: Calls actual mail() function, but in a safe_mode aware fashion"><span class="description">Calls actual mail() function, but in a safe_mode aware fashion</span><pre>mail_passthru()</pre></a></li>
+<li class="method private "><a href="#mail_passthru" title="mail_passthru :: Calls actual mail() function, but in a safe_mode aware fashion
+Also, unless sendmail_path points to sendmail (or something that
+claims to be sendmail), don't pass params (not a perfect fix,
+but it will do)"><span class="description">Calls actual mail() function, but in a safe_mode aware fashion
+Also, unless sendmail_path points to sendmail (or something that
+claims to be sendmail), don't pass params (not a perfect fix,
+but it will do)</span><pre>mail_passthru()</pre></a></li>
 <li class="nav-header">
 <i class="icon-custom icon-property"></i> Properties</li>
 <li class="property public "><a href="#%24AltBody" title="$AltBody :: Sets the text-only body of the message."><span class="description">Sets the text-only body of the message.</span><pre>$AltBody</pre></a></li>
@@ -238,7 +244,6 @@ characters.</span><pre>$WordWrap</pre></a></li>
 <li class="property protected "><a href="#%24MIMEBody" title="$MIMEBody :: Stores the complete compiled MIME message body."><span class="description">Stores the complete compiled MIME message body.</span><pre>$MIMEBody</pre></a></li>
 <li class="property protected "><a href="#%24MIMEHeader" title="$MIMEHeader :: Stores the complete compiled MIME message headers."><span class="description">Stores the complete compiled MIME message headers.</span><pre>$MIMEHeader</pre></a></li>
 <li class="property protected "><a href="#%24ReplyTo" title="$ReplyTo :: "><span class="description">$ReplyTo</span><pre>$ReplyTo</pre></a></li>
-<li class="property protected "><a href="#%24SentMIMEMessage" title="$SentMIMEMessage :: Stores the complete sent MIME message (Body and Headers)"><span class="description">Stores the complete sent MIME message (Body and Headers)</span><pre>$SentMIMEMessage</pre></a></li>
 <li class="property protected "><a href="#%24all_recipients" title="$all_recipients :: "><span class="description">$all_recipients</span><pre>$all_recipients</pre></a></li>
 <li class="property protected "><a href="#%24attachment" title="$attachment :: "><span class="description">$attachment</span><pre>$attachment</pre></a></li>
 <li class="property protected "><a href="#%24bcc" title="$bcc :: "><span class="description">$bcc</span><pre>$bcc</pre></a></li>
@@ -247,6 +252,7 @@ characters.</span><pre>$WordWrap</pre></a></li>
 <li class="property protected "><a href="#%24error_count" title="$error_count :: "><span class="description">$error_count</span><pre>$error_count</pre></a></li>
 <li class="property protected "><a href="#%24exceptions" title="$exceptions :: "><span class="description">$exceptions</span><pre>$exceptions</pre></a></li>
 <li class="property protected "><a href="#%24language" title="$language :: "><span class="description">$language</span><pre>$language</pre></a></li>
+<li class="property protected "><a href="#%24mailHeader" title="$mailHeader :: Stores the extra header list which CreateHeader() doesn't fold in"><span class="description">Stores the extra header list which CreateHeader() doesn't fold in</span><pre>$mailHeader</pre></a></li>
 <li class="property protected "><a href="#%24message_type" title="$message_type :: "><span class="description">$message_type</span><pre>$message_type</pre></a></li>
 <li class="property protected "><a href="#%24sign_cert_file" title="$sign_cert_file :: "><span class="description">$sign_cert_file</span><pre>$sign_cert_file</pre></a></li>
 <li class="property protected "><a href="#%24sign_key_file" title="$sign_key_file :: "><span class="description">$sign_key_file</span><pre>$sign_key_file</pre></a></li>
@@ -1049,6 +1055,20 @@ Also results in same content as you started with after decoding</h2>
 <div class="subelement response"><code>\$message</code></div>
 </div></div>
 </div>
+<a name="PostSend" id="PostSend"></a><div class="element clickable method public PostSend" data-toggle="collapse" data-target=".PostSend .collapse">
+<h2>PostSend()
+        </h2>
+<pre>PostSend() </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
+</div>
+<a name="PreSend" id="PreSend"></a><div class="element clickable method public PreSend" data-toggle="collapse" data-target=".PreSend .collapse">
+<h2>PreSend()
+        </h2>
+<pre>PreSend() </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
+</div>
 <a name="RFCDate" id="RFCDate"></a><div class="element clickable method public RFCDate" data-toggle="collapse" data-target=".RFCDate .collapse">
 <h2>Returns the proper RFC 822 formatted date.</h2>
 <pre>RFCDate() : string</pre>
@@ -1536,20 +1556,6 @@ Addresses that have been added already return false, but do not throw exceptions
 <div class="subelement response"><code>bool</code></div>
 </div></div>
 </div>
-<a name="PostSend" id="PostSend"></a><div class="element clickable method protected PostSend" data-toggle="collapse" data-target=".PostSend .collapse">
-<h2>PostSend()
-        </h2>
-<pre>PostSend() </pre>
-<div class="labels"></div>
-<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
-</div>
-<a name="PreSend" id="PreSend"></a><div class="element clickable method protected PreSend" data-toggle="collapse" data-target=".PreSend .collapse">
-<h2>PreSend()
-        </h2>
-<pre>PreSend() </pre>
-<div class="labels"></div>
-<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
-</div>
 <a name="SendmailSend" id="SendmailSend"></a><div class="element clickable method protected SendmailSend" data-toggle="collapse" data-target=".SendmailSend .collapse">
 <h2>Sends mail using the $Sendmail program.</h2>
 <pre>SendmailSend(string $header, string $body) : bool</pre>
@@ -1690,7 +1696,10 @@ Returns false if there is a bad MAIL FROM, RCPT, or DATA input.</h2>
 </div></div>
 </div>
 <a name="mail_passthru" id="mail_passthru"></a><div class="element clickable method private mail_passthru" data-toggle="collapse" data-target=".mail_passthru .collapse">
-<h2>Calls actual mail() function, but in a safe_mode aware fashion</h2>
+<h2>Calls actual mail() function, but in a safe_mode aware fashion
+Also, unless sendmail_path points to sendmail (or something that
+claims to be sendmail), don't pass params (not a perfect fix,
+but it will do)</h2>
 <pre>mail_passthru(string $to, string $subject, string $body, $header, string $params) : bool</pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description">
@@ -2064,18 +2073,6 @@ See http://php.net/is_callable manual page for more details.</p>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
 </div>
-<a name="%24SentMIMEMessage" id="$SentMIMEMessage"> </a><div class="element clickable property protected $SentMIMEMessage" data-toggle="collapse" data-target=".$SentMIMEMessage .collapse">
-<h2>Stores the complete sent MIME message (Body and Headers)</h2>
-<pre>$SentMIMEMessage : string</pre>
-<div class="labels"></div>
-<div class="row collapse"><div class="detail-description">
-<p class="long_description"></p>
-<table class="table table-bordered"><tr>
-<th>access</th>
-<td>protected</td>
-</tr></table>
-</div></div>
-</div>
 <a name="%24all_recipients" id="$all_recipients"> </a><div class="element clickable property protected $all_recipients" data-toggle="collapse" data-target=".$all_recipients .collapse">
 <h2>$all_recipients</h2>
 <pre>$all_recipients </pre>
@@ -2123,6 +2120,18 @@ See http://php.net/is_callable manual page for more details.</p>
 <pre>$language </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
+</div>
+<a name="%24mailHeader" id="$mailHeader"> </a><div class="element clickable property protected $mailHeader" data-toggle="collapse" data-target=".$mailHeader .collapse">
+<h2>Stores the extra header list which CreateHeader() doesn't fold in</h2>
+<pre>$mailHeader : string</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<table class="table table-bordered"><tr>
+<th>access</th>
+<td>protected</td>
+</tr></table>
+</div></div>
 </div>
 <a name="%24message_type" id="$message_type"> </a><div class="element clickable property protected $message_type" data-toggle="collapse" data-target=".$message_type .collapse">
 <h2>$message_type</h2>
@@ -2192,7 +2201,7 @@ See http://php.net/is_callable manual page for more details.</p>
 <div class="row"><footer class="span12">
             Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
             Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.0.0a7</a> and<br>
-            generated on 2012-07-09T16:35:30-04:00.<br></footer></div>
+            generated on 2012-07-10T09:55:46-04:00.<br></footer></div>
 </div>
 </body>
 </html>
