@@ -39,12 +39,13 @@
  * POP Before SMTP Authentication Class
  * Version 5.2.2-dev
  *
- * Author: Richard Davey (rich@corephp.co.uk)
+ * Orig Author: Richard Davey (rich@corephp.co.uk)
  * Modifications: Andy Prevost
+ * Modifications: Jim Jagielski
  * License: LGPL, see PHPMailer License
  *
  * Specifically for PHPMailer to allow POP before SMTP authentication.
- * Does not yet work with APOP - if you have an APOP account, contact Richard Davey
+ * Does not yet work with APOP - if you have an APOP account, contact Jim Jagielski
  * and we can test changes to this script.
  *
  * This class is based on the structure of the SMTP class originally authored by Chris Ryan
@@ -53,7 +54,9 @@
  * required for POP3 connection, authentication and disconnection.
  *
  * @package PHPMailer
- * @author Richard Davey
+ * @author Richard Davey (orig)
+ * @author Andy Prevost
+ * @author Jim Jagielski
  */
 
 class POP3 {
