@@ -22,6 +22,9 @@
 '---------------------------------------------------------------------------'
 */
 
+
+if (version_compare(PHP_VERSION, '5.0.0', '<') ) exit("Sorry, this version of PHPMailer will only run on PHP version 5 or greater!\n");
+
 /**
  * PHPMailer - PHP email transport class
  * NOTE: Requires PHP version 5 or later
@@ -33,9 +36,6 @@
  * @copyright 2004 - 2009 Andy Prevost
  * @license http://www.gnu.org/copyleft/lesser.html GNU Lesser General Public License
  */
-
-if (version_compare(PHP_VERSION, '5.0.0', '<') ) exit("Sorry, this version of PHPMailer will only run on PHP version 5 or greater!\n");
-
 class PHPMailer {
 
   /////////////////////////////////////////////////
@@ -420,7 +420,7 @@ class PHPMailer {
    * @param string $to To
    * @param string $subject Subject
    * @param string $body Message Body
-   * @param string $headers Additional Headers
+   * @param string $header Additional Header(s)
    * @param string $params Params
    * @access private
    * @return bool
@@ -602,6 +602,7 @@ class PHPMailer {
  * Set the From and FromName properties
  * @param string $address
  * @param string $name
+ * @param int $auto Also set Reply-To and Sender
  * @return boolean
  */
   public function SetFrom($address, $name = '', $auto = 1) {
@@ -677,6 +678,10 @@ class PHPMailer {
     }
   }
 
+  /**
+   * Prep mail by constructing all message entities
+   * @return bool
+   */
   public function PreSend() {
     try {
       $this->mailHeader = "";
@@ -730,6 +735,11 @@ class PHPMailer {
     }
   }
 
+  /**
+   * Actual Email transport function
+   * Send the email via the selected mechanism
+   * @return bool
+   */
   public function PostSend() {
     $rtn = false;
     try {
@@ -2598,6 +2608,9 @@ class PHPMailer {
     return "X-PHPMAILER-DKIM: phpmailer.worxware.com\r\n".$dkimhdrs.$signed."\r\n";
   }
 
+  /**
+   * Perform callback
+   */
   protected function doCallback($isSent, $to, $cc, $bcc, $subject, $body) {
     if (!empty($this->action_function) && is_callable($this->action_function)) {
       $params = array($isSent, $to, $cc, $bcc, $subject, $body);
@@ -2606,6 +2619,9 @@ class PHPMailer {
   }
 }
 
+/**
+ * Exception handling
+ */
 class phpmailerException extends Exception {
   public function errorMessage() {
     $errorMsg = '<strong>' . $this->getMessage() . "</strong><br />\n";
