@@ -3,7 +3,7 @@ ChangeLog
 NOTE: THIS VERSION OF PHPMAILER IS DESIGNED FOR PHP5/PHP6.
       IT WILL NOT WORK WITH PHP4.
 
-Version 5.2.2 (??)
+Version 5.2.2-beta1 (July 13, 2012)
 * Expose PreSend() and PostSend() as public methods to allow
   for more control if serializing message sending.
 * GetSentMIMEMessage() only constructs the message copy when

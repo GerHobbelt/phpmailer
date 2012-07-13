@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<project version="2.0.0a7" title="PHPMailer version 5.2.2-beta">
-  <file path="class.phpmailer.php" hash="516e00ea3b4a9e95f8bc04355dcf7714" package="PHPMailer">
+<project version="2.0.0a7" title="PHPMailer version 5.2.2-beta1">
+  <file path="class.phpmailer.php" hash="2d479428cc4bb06ae9573c3f854c7934" package="PHPMailer">
     <docblock line="25">
       <description><![CDATA[PHPMailer - PHP email transport class
 NOTE: Requires PHP version 5 or later]]></description>
@@ -580,7 +580,7 @@ See http://php.net/is_callable manual page for more details.</p>
       </property>
       <property final="false" static="false" visibility="public" line="377" namespace="global" package="PHPMailer">
         <name>$Version</name>
-        <default><![CDATA['5.2.2-dev']]></default>
+        <default><![CDATA['5.2.2-beta1']]></default>
         <docblock line="373">
           <description><![CDATA[Sets the PHPMailer Version number]]></description>
           <long-description><![CDATA[]]></long-description>
@@ -2435,7 +2435,7 @@ $page->set('X-Priority', '3');</p>]]></long-description>
       <error line="2630" code="50010">No DocBlock was found for method errorMessage()</error>
     </parse_markers>
   </file>
-  <file path="class.pop3.php" hash="124b7d3a2e00942bc5893979a74d67be" package="PHPMailer">
+  <file path="class.pop3.php" hash="078dbcf3d03d0bffc0c24ea805741f6b" package="PHPMailer">
     <docblock line="25">
       <description><![CDATA[PHPMailer - PHP POP Before SMTP Authentication Class
 NOTE: Designed for use with PHP version 5 and up]]></description>
@@ -2454,7 +2454,7 @@ NOTE: Designed for use with PHP version 5 and up]]></description>
       <full_name>\POP3</full_name>
       <docblock line="37">
         <description><![CDATA[POP Before SMTP Authentication Class
-Version 5.2.2-dev]]></description>
+Version 5.2.2-beta1]]></description>
         <long-description><![CDATA[<p>Orig Author: Richard Davey (rich@corephp.co.uk)
 Modifications: Andy Prevost
 Modifications: Jim Jagielski
@@ -2574,7 +2574,7 @@ required for POP3 connection, authentication and disconnection.</p>]]></long-des
       </property>
       <property final="false" static="false" visibility="public" line="120" namespace="global" package="PHPMailer">
         <name>$Version</name>
-        <default><![CDATA['5.2.2-dev']]></default>
+        <default><![CDATA['5.2.2-beta1']]></default>
         <docblock line="116">
           <description><![CDATA[Sets the POP3 PHPMailer Version number]]></description>
           <long-description><![CDATA[]]></long-description>
@@ -2852,7 +2852,7 @@ required for POP3 connection, authentication and disconnection.</p>]]></long-des
       <error line="141" code="50015">Argument $debug_level is missing from the Docblock of Authorise()</error>
     </parse_markers>
   </file>
-  <file path="class.smtp.php" hash="f424ce75752cac40da832f6085019b73" package="PHPMailer">
+  <file path="class.smtp.php" hash="62b12c80d9b2e395052241a588a0821f" package="PHPMailer">
     <docblock line="25">
       <description><![CDATA[PHPMailer - PHP SMTP email transport class
 NOTE: Designed for use with PHP version 5 and up]]></description>
@@ -2947,7 +2947,7 @@ original author: Chris Ryan</p>]]></long-description>
       </property>
       <property final="false" static="false" visibility="public" line="93" namespace="global" package="PHPMailer">
         <name>$Version</name>
-        <default><![CDATA['5.2.2-dev']]></default>
+        <default><![CDATA['5.2.2-beta1']]></default>
         <docblock line="89">
           <description><![CDATA[Sets the SMTP PHPMailer Version number]]></description>
           <long-description><![CDATA[]]></long-description>
