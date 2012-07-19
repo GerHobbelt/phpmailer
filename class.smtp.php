@@ -899,11 +899,15 @@ class SMTP {
   private function get_lines() {
     $data = "";
     $endtime = 0;
+    /* If for some reason the fp is bad, don't inf loop */
+    if (!is_resource($this->smtp_conn)) {
+      return $data;
+    }
     stream_set_timeout($this->smtp_conn, $this->Timeout);
     if ($this->Timelimit > 0) {
       $endtime = time() + $this->Timelimit;
     }
-    while(!feof($this->smtp_conn)) {
+    while(is_resource($this->smtp_conn) && !feof($this->smtp_conn)) {
       $str = @fgets($this->smtp_conn,515);
       if($this->do_debug >= 4) {
         $this->edebug("SMTP -> get_lines(): \$data was \"$data\"" . $this->CRLF . '<br />');

@@ -3,6 +3,9 @@ ChangeLog
 NOTE: THIS VERSION OF PHPMAILER IS DESIGNED FOR PHP5/PHP6.
       IT WILL NOT WORK WITH PHP4.
 
+Version 5.2.2-beta2 (????)
+* Prevent inf look for get_lines() (Bugz: 77)
+
 Version 5.2.2-beta1 (July 13, 2012)
 * Expose PreSend() and PostSend() as public methods to allow
   for more control if serializing message sending.
