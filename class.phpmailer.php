@@ -168,6 +168,12 @@ class PHPMailer {
   public $Sendmail          = '/usr/sbin/sendmail';
 
   /**
+   * Determine if mail() *really* uses the real sendmail
+   * @var boolean
+   */
+  public $ReallyIsSendmail	= false;
+  
+  /**
    * Path to PHPMailer plugins.  Useful if the SMTP class
    * is in a different directory than the PHP include path.
    * @var string
@@ -374,7 +380,7 @@ class PHPMailer {
    * Sets the PHPMailer Version number
    * @var string
    */
-  public $Version         = '5.2.2-beta1';
+  public $Version         = '5.2.2-beta2';
 
   /**
    * What to use in the X-Mailer header
@@ -430,7 +436,7 @@ class PHPMailer {
    * @return bool
    */
   private function mail_passthru($to, $subject, $body, $header, $params) {
-    if ( ini_get('safe_mode') || !strstr(ini_get("sendmail_path"), 'sendmail') ) {
+    if ( ini_get('safe_mode') || !$this->ReallyIsSendmail ) {
         $rt = @mail($to, $this->EncodeHeader($this->SecureHeader($subject)), $body, $header);
     } else {
         $rt = @mail($to, $this->EncodeHeader($this->SecureHeader($subject)), $body, $header, $params);
@@ -474,6 +480,7 @@ class PHPMailer {
   /**
    * Sets Mailer to send message using SMTP.
    * @return void
+   * @deprecated
    */
   public function IsSMTP() {
     $this->Mailer = 'smtp';
@@ -482,6 +489,7 @@ class PHPMailer {
   /**
    * Sets Mailer to send message using PHP mail() function.
    * @return void
+   * @deprecated
    */
   public function IsMail() {
     $this->Mailer = 'mail';
@@ -490,6 +498,7 @@ class PHPMailer {
   /**
    * Sets Mailer to send message using the $Sendmail program.
    * @return void
+   * @deprecated
    */
   public function IsSendmail() {
     if (!stristr(ini_get('sendmail_path'), 'sendmail')) {
@@ -501,6 +510,7 @@ class PHPMailer {
   /**
    * Sets Mailer to send message using the qmail MTA.
    * @return void
+   * @deprecated
    */
   public function IsQmail() {
     if (stristr(ini_get('sendmail_path'), 'qmail')) {
