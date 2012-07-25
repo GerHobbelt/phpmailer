@@ -1857,7 +1857,7 @@ class PHPMailer {
       $encoding = 'Q';
       $encoded = $this->EncodeQ($str, $position);
       $encoded = $this->WrapText($encoded, $maxlen, true);
-      $encoded = str_replace('='.$this->LE, "\n", trim($encoded));
+      $encoded = str_replace('='.self::CRLF, "\n", trim($encoded));
     }
 
     $encoded = preg_replace('/^(.*)$/m', " =?".$this->CharSet."?$encoding?\\1?=", $encoded);
