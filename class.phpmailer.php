@@ -370,6 +370,7 @@ class PHPMailer {
    *   string  $bcc           bcc email addresses
    *   string  $subject       the subject
    *   string  $body          the email body
+   *   string  $from          email address of sender
    * @var string
    */
   public $action_function = ''; //'callbackAction';
@@ -2623,9 +2624,9 @@ class PHPMailer {
   /**
    * Perform callback
    */
-  protected function doCallback($isSent, $to, $cc, $bcc, $subject, $body) {
+  protected function doCallback($isSent, $to, $cc, $bcc, $subject, $body, $from=null) {
     if (!empty($this->action_function) && is_callable($this->action_function)) {
-      $params = array($isSent, $to, $cc, $bcc, $subject, $body);
+      $params = array($isSent, $to, $cc, $bcc, $subject, $body, $from);
       call_user_func_array($this->action_function, $params);
     }
   }

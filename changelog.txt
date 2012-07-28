@@ -4,6 +4,8 @@ NOTE: THIS VERSION OF PHPMAILER IS DESIGNED FOR PHP5/PHP6.
       IT WILL NOT WORK WITH PHP4.
   
 Version 5.2.2-beta2 (????)
+  * Allow action_function callbacks to pass/use
+    the From address (passed as final param)
   * Prevent inf look for get_lines() (Bugz: 77)
   * New public var ($ReallyIsSendmail). Only pass sendmail()
     params iff we really are using sendmail. (Bugz: 75)
