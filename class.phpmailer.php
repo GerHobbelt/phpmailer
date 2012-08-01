@@ -435,7 +435,7 @@ class PHPMailer {
    * @return bool
    */
   private function mail_passthru($to, $subject, $body, $header, $params) {
-    if ( ini_get('safe_mode') || !$this->ReallyIsSendmail ) {
+    if ( ini_get('safe_mode') || !($this->ReallyIsSendmail) ) {
         $rt = @mail($to, $this->EncodeHeader($this->SecureHeader($subject)), $body, $header);
     } else {
         $rt = @mail($to, $this->EncodeHeader($this->SecureHeader($subject)), $body, $header, $params);
