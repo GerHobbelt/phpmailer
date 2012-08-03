@@ -2012,29 +2012,36 @@ class PHPMailer {
    * @return string
    */
   public function EncodeQ($str, $position = 'text') {
-    // There should not be any EOL in the string
-    $encoded = preg_replace('/[\r\n]*/', '', $str);
-
+    //There should not be any EOL in the string
+    $encoded = str_replace(array("\r", "\n"), '', $str);
     switch (strtolower($position)) {
       case 'phrase':
-        $encoded = preg_replace("/([^A-Za-z0-9!*+\/ -])/e", "'='.sprintf('%02X', ord('\\1'))", $encoded);
+        $pattern = '^A-Za-z0-9!*+\/ -';
         break;
+
       case 'comment':
-        $encoded = preg_replace("/([\(\)\"])/e", "'='.sprintf('%02X', ord('\\1'))", $encoded);
+        $pattern = '\(\)"';
+        //note that we dont break here!
+        //for this reason we build the $pattern withoud including delimiters and []
+
       case 'text':
       default:
-        // Replace every high ascii, control =, ? and _ characters
-        //TODO using /e (equivalent to eval()) is probably not a good idea
-        $encoded = preg_replace('/([\000-\011\013\014\016-\037\075\077\137\177-\377])/e',
-                                "'='.sprintf('%02X', ord(stripslashes('\\1')))", $encoded);
+        //Replace every high ascii, control =, ? and _ characters
+        //We put \075 (=) as first value to make sure it's the first one in being converted, preventing double encode
+        $pattern = '\075\000-\011\013\014\016-\037\077\137\177-\377' . $pattern;
         break;
     }
+    
+    if (preg_match_all("/[{$pattern}]/", $encoded, $matches)) {
+      foreach (array_unique($matches[0]) as $char) {
+        $encoded = str_replace($char, '=' . sprintf('%02X', ord($char)), $encoded);
+      }
+    }
+    
+    //Replace every spaces to _ (more readable than =20)
+    return str_replace(' ', '_', $encoded);
+}
 
-    // Replace every spaces to _ (more readable than =20)
-    $encoded = str_replace(' ', '_', $encoded);
-
-    return $encoded;
-  }
 
   /**
    * Adds a string or binary attachment (non-filesystem) to the list.
