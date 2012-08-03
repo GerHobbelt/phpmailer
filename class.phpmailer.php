@@ -2295,12 +2295,18 @@ class PHPMailer {
   }
 
   /**
-   * Changes every end of line from CR or LF to $this->LE.
+   * Changes every end of line from CRLF, CR or LF to $this->LE.
    * @access public
    * @return string
    */
   public function FixEOL($str) {
-    return str_replace(array("\r\n", "\r", "\n"), $this->LE, $str);
+	// condense down to \n
+	$nstr = str_replace(array("\r\n", "\r"), "\n", $str);
+	// Now convert LE as needed
+	if ($this->LE !== "\n") {
+		$nstr = str_replace("\n", $this->LE, $nstr);
+	}
+    return  $nstr;
   }
 
   /**
