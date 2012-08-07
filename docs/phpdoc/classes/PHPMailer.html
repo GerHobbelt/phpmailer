@@ -3,7 +3,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
 <meta charset="utf-8">
-<title>PHPMailer version 5.2.2-beta1 » \PHPMailer</title>
+<title>PHPMailer version 5.2.2-beta2 » \PHPMailer</title>
 <meta name="author" content="Mike van Riel">
 <meta name="description" content="">
 <link href="../css/template.css" rel="stylesheet" media="all">
@@ -15,7 +15,7 @@
 <body>
 <div class="navbar navbar-fixed-top">
 <div class="navbar-inner"><div class="container">
-<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a><a class="brand" href="../index.html">PHPMailer version 5.2.2-beta1</a><div class="nav-collapse"><ul class="nav">
+<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a><a class="brand" href="../index.html">PHPMailer version 5.2.2-beta2</a><div class="nav-collapse"><ul class="nav">
 <li class="dropdown">
 <a href="#api" class="dropdown-toggle" data-toggle="dropdown">
                                     API Documentation <b class="caret"></b></a><ul class="dropdown-menu"></ul>
@@ -28,13 +28,13 @@
 <a href="#reports" class="dropdown-toggle" data-toggle="dropdown">
                                     Reports <b class="caret"></b></a><ul class="dropdown-menu">
 <li><a href="../errors.html"><i class="icon-remove-sign"></i> Errors 
-                <span class="label label-info">79</span></a></li>
+                <span class="label label-info">80</span></a></li>
 <li><a href="../markers.html"><i class="icon-map-marker"></i> Markers 
                 <ul><li>todo 
-                <span class="label label-info">3</span>
+                <span class="label label-info">2</span>
 </li></ul></a></li>
 <li><a href="../deprecated.html"><i class="icon-stop"></i> Deprecated elements 
-                <span class="label label-info">0</span></a></li>
+                <span class="label label-info">4</span></a></li>
 </ul>
 </li>
 </ul></div>
@@ -100,7 +100,7 @@ Uses a PHP5 stream filter to do the encoding about 64x faster than the old versi
 Also results in same content as you started with after decoding</span><pre>EncodeQP()</pre></a></li>
 <li class="method public "><a href="#EncodeQPphp" title="EncodeQPphp :: Encode string to quoted-printable."><span class="description">Encode string to quoted-printable.</span><pre>EncodeQPphp()</pre></a></li>
 <li class="method public "><a href="#EncodeString" title="EncodeString :: Encodes string to requested format."><span class="description">Encodes string to requested format.</span><pre>EncodeString()</pre></a></li>
-<li class="method public "><a href="#FixEOL" title="FixEOL :: Changes every end of line from CR or LF to $this-&gt;LE."><span class="description">Changes every end of line from CR or LF to $this-&gt;LE.</span><pre>FixEOL()</pre></a></li>
+<li class="method public "><a href="#FixEOL" title="FixEOL :: Changes every end of line from CRLF, CR or LF to $this-&gt;LE."><span class="description">Changes every end of line from CRLF, CR or LF to $this-&gt;LE.</span><pre>FixEOL()</pre></a></li>
 <li class="method public "><a href="#GetAttachments" title="GetAttachments :: Return the current array of attachments"><span class="description">Return the current array of attachments</span><pre>GetAttachments()</pre></a></li>
 <li class="method public "><a href="#GetMailMIME" title="GetMailMIME :: Returns the message MIME."><span class="description">Returns the message MIME.</span><pre>GetMailMIME()</pre></a></li>
 <li class="method public "><a href="#GetSentMIMEMessage" title="GetSentMIMEMessage :: Returns the MIME message (headers and body)."><span class="description">Returns the MIME message (headers and body).</span><pre>GetSentMIMEMessage()</pre></a></li>
@@ -201,19 +201,16 @@ optional, in format of email address 'you@yourdomain.com'</span><pre>$DKIM_priva
 <li class="property public "><a href="#%24Hostname" title="$Hostname :: Sets the hostname to use in Message-Id and Received headers
 and as default HELO string."><span class="description">Sets the hostname to use in Message-Id and Received headers
 and as default HELO string.</span><pre>$Hostname</pre></a></li>
-<li class="property public "><a href="#%24LE" title='$LE :: Provides the ability to change the generic line ending
-NOTE: The default is now the SMTP RFC line-ending sequence,
-      however, we still allow for the end-user to reset to "\n"
-      if need be.'><span class="description">Provides the ability to change the generic line ending
-NOTE: The default is now the SMTP RFC line-ending sequence,
-      however, we still allow for the end-user to reset to "\n"
-      if need be.</span><pre>$LE</pre></a></li>
+<li class="property public "><a href="#%24LE" title="$LE :: Provides the ability to change the generic line ending
+NOTE: The default remains '\n'."><span class="description">Provides the ability to change the generic line ending
+NOTE: The default remains '\n'.</span><pre>$LE</pre></a></li>
 <li class="property public "><a href="#%24Mailer" title='$Mailer :: Method to send mail: ("mail", "sendmail", or "smtp").'><span class="description">Method to send mail: ("mail", "sendmail", or "smtp").</span><pre>$Mailer</pre></a></li>
 <li class="property public "><a href="#%24MessageID" title="$MessageID :: Sets the message ID to be used in the Message-Id header."><span class="description">Sets the message ID to be used in the Message-Id header.</span><pre>$MessageID</pre></a></li>
 <li class="property public "><a href="#%24Password" title="$Password :: Sets SMTP password."><span class="description">Sets SMTP password.</span><pre>$Password</pre></a></li>
 <li class="property public "><a href="#%24PluginDir" title="$PluginDir :: Path to PHPMailer plugins."><span class="description">Path to PHPMailer plugins.</span><pre>$PluginDir</pre></a></li>
 <li class="property public "><a href="#%24Port" title="$Port :: Sets the default SMTP server port."><span class="description">Sets the default SMTP server port.</span><pre>$Port</pre></a></li>
 <li class="property public "><a href="#%24Priority" title="$Priority :: Email priority (1 = High, 3 = Normal, 5 = low)."><span class="description">Email priority (1 = High, 3 = Normal, 5 = low).</span><pre>$Priority</pre></a></li>
+<li class="property public "><a href="#%24ReallyIsSendmail" title="$ReallyIsSendmail :: Determine if mail() *really* uses the real sendmail"><span class="description">Determine if mail() *really* uses the real sendmail</span><pre>$ReallyIsSendmail</pre></a></li>
 <li class="property public "><a href="#%24Realm" title="$Realm :: Sets SMTP realm."><span class="description">Sets SMTP realm.</span><pre>$Realm</pre></a></li>
 <li class="property public "><a href="#%24ReturnPath" title="$ReturnPath :: Sets the Return-Path of the message."><span class="description">Sets the Return-Path of the message.</span><pre>$ReturnPath</pre></a></li>
 <li class="property public "><a href="#%24SMTPAuth" title="$SMTPAuth :: Sets SMTP authentication."><span class="description">Sets SMTP authentication.</span><pre>$SMTPAuth</pre></a></li>
@@ -861,7 +858,7 @@ Also results in same content as you started with after decoding</h2>
 </div></div>
 </div>
 <a name="FixEOL" id="FixEOL"></a><div class="element clickable method public FixEOL" data-toggle="collapse" data-target=".FixEOL .collapse">
-<h2>Changes every end of line from CR or LF to $this-&gt;LE.</h2>
+<h2>Changes every end of line from CRLF, CR or LF to $this-&gt;LE.</h2>
 <pre>FixEOL($str) : string</pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description">
@@ -1014,25 +1011,49 @@ Also results in same content as you started with after decoding</h2>
 <h2>Sets Mailer to send message using PHP mail() function.</h2>
 <pre>IsMail() : void</pre>
 <div class="labels"></div>
-<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<table class="table table-bordered"><tr>
+<th>deprecated</th>
+<td></td>
+</tr></table>
+</div></div>
 </div>
 <a name="IsQmail" id="IsQmail"></a><div class="element clickable method public IsQmail" data-toggle="collapse" data-target=".IsQmail .collapse">
 <h2>Sets Mailer to send message using the qmail MTA.</h2>
 <pre>IsQmail() : void</pre>
 <div class="labels"></div>
-<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<table class="table table-bordered"><tr>
+<th>deprecated</th>
+<td></td>
+</tr></table>
+</div></div>
 </div>
 <a name="IsSMTP" id="IsSMTP"></a><div class="element clickable method public IsSMTP" data-toggle="collapse" data-target=".IsSMTP .collapse">
 <h2>Sets Mailer to send message using SMTP.</h2>
 <pre>IsSMTP() : void</pre>
 <div class="labels"></div>
-<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<table class="table table-bordered"><tr>
+<th>deprecated</th>
+<td></td>
+</tr></table>
+</div></div>
 </div>
 <a name="IsSendmail" id="IsSendmail"></a><div class="element clickable method public IsSendmail" data-toggle="collapse" data-target=".IsSendmail .collapse">
 <h2>Sets Mailer to send message using the $Sendmail program.</h2>
 <pre>IsSendmail() : void</pre>
 <div class="labels"></div>
-<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<table class="table table-bordered"><tr>
+<th>deprecated</th>
+<td></td>
+</tr></table>
+</div></div>
 </div>
 <a name="MsgHTML" id="MsgHTML"></a><div class="element clickable method public MsgHTML" data-toggle="collapse" data-target=".MsgHTML .collapse">
 <h2>Evaluates the message and returns modifications for inline images and backgrounds</h2>
@@ -1659,7 +1680,7 @@ Returns false if there is a bad MAIL FROM, RCPT, or DATA input.</h2>
 </div>
 <a name="doCallback" id="doCallback"></a><div class="element clickable method protected doCallback" data-toggle="collapse" data-target=".doCallback .collapse">
 <h2>Perform callback</h2>
-<pre>doCallback($isSent, $to, $cc, $bcc, $subject, $body) </pre>
+<pre>doCallback($isSent, $to, $cc, $bcc, $subject, $body, $from) </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description">
 <p class="long_description"></p>
@@ -1686,6 +1707,10 @@ Returns false if there is a bad MAIL FROM, RCPT, or DATA input.</h2>
 </div>
 <div class="subelement argument">
 <h4>$body</h4>
+<code></code>
+</div>
+<div class="subelement argument">
+<h4>$from</h4>
 <code></code>
 </div>
 </div></div>
@@ -1869,13 +1894,11 @@ by SERVER_NAME is used or 'localhost.localdomain'.</p></p></div></div>
 </div>
 <a name="%24LE" id="$LE"> </a><div class="element clickable property public $LE" data-toggle="collapse" data-target=".$LE .collapse">
 <h2>Provides the ability to change the generic line ending
-NOTE: The default is now the SMTP RFC line-ending sequence,
-      however, we still allow for the end-user to reset to "\n"
-      if need be.</h2>
+NOTE: The default remains '\n'.</h2>
 <pre>$LE : string</pre>
 <div class="labels"></div>
-<div class="row collapse"><div class="detail-description"><p class="long_description"><p>We force CRLF where we KNOW it must be used
-      via self::CRLF</p></p></div></div>
+<div class="row collapse"><div class="detail-description"><p class="long_description"><p>We force CRLF where we KNOW
+       it must be used via self::CRLF</p></p></div></div>
 </div>
 <a name="%24Mailer" id="$Mailer"> </a><div class="element clickable property public $Mailer" data-toggle="collapse" data-target=".$Mailer .collapse">
 <h2>Method to send mail: ("mail", "sendmail", or "smtp").</h2>
@@ -1911,6 +1934,12 @@ is in a different directory than the PHP include path.</p></p></div></div>
 <a name="%24Priority" id="$Priority"> </a><div class="element clickable property public $Priority" data-toggle="collapse" data-target=".$Priority .collapse">
 <h2>Email priority (1 = High, 3 = Normal, 5 = low).</h2>
 <pre>$Priority : int</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
+</div>
+<a name="%24ReallyIsSendmail" id="$ReallyIsSendmail"> </a><div class="element clickable property public $ReallyIsSendmail" data-toggle="collapse" data-target=".$ReallyIsSendmail .collapse">
+<h2>Determine if mail() *really* uses the real sendmail</h2>
+<pre>$ReallyIsSendmail : boolean</pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
 </div>
@@ -2043,7 +2072,8 @@ See http://php.net/is_callable manual page for more details.</p>
   string  $cc            cc email addresses
   string  $bcc           bcc email addresses
   string  $subject       the subject
-  string  $body          the email body</p></p></div></div>
+  string  $body          the email body
+  string  $from          email address of sender</p></p></div></div>
 </div>
 <a name="%24CustomHeader" id="$CustomHeader"> </a><div class="element clickable property protected $CustomHeader" data-toggle="collapse" data-target=".$CustomHeader .collapse">
 <h2>$CustomHeader</h2>
@@ -2209,8 +2239,8 @@ See http://php.net/is_callable manual page for more details.</p>
 </div>
 <div class="row"><footer class="span12">
             Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
-            Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.0.0a7</a> and<br>
-            generated on 2012-07-13T12:13:23-04:00.<br></footer></div>
+            Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.0.0a8</a> and<br>
+            generated on 2012-08-07T13:29:13-04:00.<br></footer></div>
 </div>
 </body>
 </html>
