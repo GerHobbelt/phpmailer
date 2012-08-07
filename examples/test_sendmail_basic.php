@@ -15,8 +15,6 @@ $mail->IsSendmail(); // telling the class to use SendMail transport
 $body             = file_get_contents('contents.html');
 $body             = preg_replace('/[\]/','',$body);
 
-$mail->AddReplyTo("name@yourdomain.com","First Last");
-
 $mail->SetFrom('name@yourdomain.com', 'First Last');
 
 $mail->AddReplyTo("name@yourdomain.com","First Last");
