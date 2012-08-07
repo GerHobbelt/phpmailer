@@ -171,7 +171,7 @@ class PHPMailer {
    * Determine if mail() *really* uses the real sendmail
    * @var boolean
    */
-  public $ReallyIsSendmail	= false;
+  public $ReallyIsSendmail	= true;
   
   /**
    * Path to PHPMailer plugins.  Useful if the SMTP class
