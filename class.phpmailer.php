@@ -168,10 +168,11 @@ class PHPMailer {
   public $Sendmail          = '/usr/sbin/sendmail';
 
   /**
-   * Determine if mail() *really* uses the real sendmail
+   * Determine if mail() uses a fully sendmail compatible MTA that
+   * supports sendmail's "-oi -f" options
    * @var boolean
    */
-  public $ReallyIsSendmail	= true;
+  public $UseSendmailOptions	= true;
   
   /**
    * Path to PHPMailer plugins.  Useful if the SMTP class
@@ -435,7 +436,7 @@ class PHPMailer {
    * @return bool
    */
   private function mail_passthru($to, $subject, $body, $header, $params) {
-    if ( ini_get('safe_mode') || !($this->ReallyIsSendmail) ) {
+    if ( ini_get('safe_mode') || !($this->UseSendmailOptions) ) {
         $rt = @mail($to, $this->EncodeHeader($this->SecureHeader($subject)), $body, $header);
     } else {
         $rt = @mail($to, $this->EncodeHeader($this->SecureHeader($subject)), $body, $header, $params);
