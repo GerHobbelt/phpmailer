@@ -2305,6 +2305,7 @@ class PHPMailer {
   /**
    * Changes every end of line from CRLF, CR or LF to $this->LE.
    * @access public
+   * @param string $str String to FixEOL
    * @return string
    */
   public function FixEOL($str) {
@@ -2318,17 +2319,27 @@ class PHPMailer {
   }
 
   /**
-   * Adds a custom header.
+   * Adds a custom header. $name value can be overloaded to contain
+   * both header name and value (name:value)
    * @access public
+   * @param string $name custom header name
+   * @param string $value header value
    * @return void
    */
-  public function AddCustomHeader($custom_header) {
-    $this->CustomHeader[] = explode(':', $custom_header, 2);
+  public function AddCustomHeader($name, $value=null) {
+	if ($value === null) {
+		// Value passed in as name:value
+		$this->CustomHeader[] = explode(':', $name, 2);
+	} else {
+		$this->CustomHeader[] = array($name, $value);
+	}
   }
 
   /**
    * Evaluates the message and returns modifications for inline images and backgrounds
    * @access public
+   * @param string $message Text to be HTML modified
+   * @param string $basedir baseline directory for path
    * @return $message
    */
   public function MsgHTML($message, $basedir = '') {
@@ -2367,7 +2378,7 @@ class PHPMailer {
 
   /**
    * Gets the MIME type of the embedded or inline image
-   * @param string File extension
+   * @param string $ext File extension
    * @access public
    * @return string MIME type of ext
    * @static
