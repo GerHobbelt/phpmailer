@@ -28,7 +28,7 @@
 <a href="#reports" class="dropdown-toggle" data-toggle="dropdown">
                                     Reports <b class="caret"></b></a><ul class="dropdown-menu">
 <li><a href="../errors.html"><i class="icon-remove-sign"></i> Errors 
-                <span class="label label-info">80</span></a></li>
+                <span class="label label-info">76</span></a></li>
 <li><a href="../markers.html"><i class="icon-map-marker"></i> Markers 
                 <ul><li>todo 
                 <span class="label label-info">2</span>
@@ -210,7 +210,6 @@ NOTE: The default remains '\n'.</span><pre>$LE</pre></a></li>
 <li class="property public "><a href="#%24PluginDir" title="$PluginDir :: Path to PHPMailer plugins."><span class="description">Path to PHPMailer plugins.</span><pre>$PluginDir</pre></a></li>
 <li class="property public "><a href="#%24Port" title="$Port :: Sets the default SMTP server port."><span class="description">Sets the default SMTP server port.</span><pre>$Port</pre></a></li>
 <li class="property public "><a href="#%24Priority" title="$Priority :: Email priority (1 = High, 3 = Normal, 5 = low)."><span class="description">Email priority (1 = High, 3 = Normal, 5 = low).</span><pre>$Priority</pre></a></li>
-<li class="property public "><a href="#%24ReallyIsSendmail" title="$ReallyIsSendmail :: Determine if mail() *really* uses the real sendmail"><span class="description">Determine if mail() *really* uses the real sendmail</span><pre>$ReallyIsSendmail</pre></a></li>
 <li class="property public "><a href="#%24Realm" title="$Realm :: Sets SMTP realm."><span class="description">Sets SMTP realm.</span><pre>$Realm</pre></a></li>
 <li class="property public "><a href="#%24ReturnPath" title="$ReturnPath :: Sets the Return-Path of the message."><span class="description">Sets the Return-Path of the message.</span><pre>$ReturnPath</pre></a></li>
 <li class="property public "><a href="#%24SMTPAuth" title="$SMTPAuth :: Sets SMTP authentication."><span class="description">Sets SMTP authentication.</span><pre>$SMTPAuth</pre></a></li>
@@ -227,6 +226,9 @@ emails, instead of sending to entire TO addresses</span><pre>$SingleTo</pre></a>
 <li class="property public "><a href="#%24SingleToArray" title="$SingleToArray :: If SingleTo is true, this provides the array to hold the email addresses"><span class="description">If SingleTo is true, this provides the array to hold the email addresses</span><pre>$SingleToArray</pre></a></li>
 <li class="property public "><a href="#%24Subject" title="$Subject :: Sets the Subject of the message."><span class="description">Sets the Subject of the message.</span><pre>$Subject</pre></a></li>
 <li class="property public "><a href="#%24Timeout" title="$Timeout :: Sets the SMTP server   in seconds."><span class="description">Sets the SMTP server   in seconds.</span><pre>$Timeout</pre></a></li>
+<li class="property public "><a href="#%24UseSendmailOptions" title="$UseSendmailOptions :: Determine if mail() uses a fully sendmail compatible MTA that
+supports sendmail's &quot;-oi -f&quot; options"><span class="description">Determine if mail() uses a fully sendmail compatible MTA that
+supports sendmail's "-oi -f" options</span><pre>$UseSendmailOptions</pre></a></li>
 <li class="property public "><a href="#%24Username" title="$Username :: Sets SMTP username."><span class="description">Sets SMTP username.</span><pre>$Username</pre></a></li>
 <li class="property public "><a href="#%24Version" title="$Version :: Sets the PHPMailer Version number"><span class="description">Sets the PHPMailer Version number</span><pre>$Version</pre></a></li>
 <li class="property public "><a href="#%24WordWrap" title="$WordWrap :: Sets word wrapping on the body of the message to a given number of
@@ -367,19 +369,22 @@ or accessed.</p></p>
 </div>
 <a name="AddCustomHeader" id="AddCustomHeader"></a><div class="element clickable method public AddCustomHeader" data-toggle="collapse" data-target=".AddCustomHeader .collapse">
 <h2>Adds a custom header.</h2>
-<pre>AddCustomHeader($custom_header) : void</pre>
+<pre>AddCustomHeader(string $name, string $value) : void</pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description">
-<p class="long_description"></p>
+<p class="long_description"><p>$name value can be overloaded to contain
+both header name and value (name:value)</p></p>
 <table class="table table-bordered"><tr>
 <th>access</th>
 <td>public</td>
 </tr></table>
 <h3>Parameters</h3>
 <div class="subelement argument">
-<h4>$custom_header</h4>
-<code></code>
-</div>
+<h4>$name</h4>
+<code>string</code><p>custom header name</p></div>
+<div class="subelement argument">
+<h4>$value</h4>
+<code>string</code><p>header value</p></div>
 </div></div>
 </div>
 <a name="AddEmbeddedImage" id="AddEmbeddedImage"></a><div class="element clickable method public AddEmbeddedImage" data-toggle="collapse" data-target=".AddEmbeddedImage .collapse">
@@ -859,7 +864,7 @@ Also results in same content as you started with after decoding</h2>
 </div>
 <a name="FixEOL" id="FixEOL"></a><div class="element clickable method public FixEOL" data-toggle="collapse" data-target=".FixEOL .collapse">
 <h2>Changes every end of line from CRLF, CR or LF to $this-&gt;LE.</h2>
-<pre>FixEOL($str) : string</pre>
+<pre>FixEOL(string $str) : string</pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description">
 <p class="long_description"></p>
@@ -870,8 +875,7 @@ Also results in same content as you started with after decoding</h2>
 <h3>Parameters</h3>
 <div class="subelement argument">
 <h4>$str</h4>
-<code></code>
-</div>
+<code>string</code><p>String to FixEOL</p></div>
 <h3>Returns</h3>
 <div class="subelement response"><code>string</code></div>
 </div></div>
@@ -1057,7 +1061,7 @@ Also results in same content as you started with after decoding</h2>
 </div>
 <a name="MsgHTML" id="MsgHTML"></a><div class="element clickable method public MsgHTML" data-toggle="collapse" data-target=".MsgHTML .collapse">
 <h2>Evaluates the message and returns modifications for inline images and backgrounds</h2>
-<pre>MsgHTML($message, $basedir) : \$message</pre>
+<pre>MsgHTML(string $message, string $basedir) : \$message</pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description">
 <p class="long_description"></p>
@@ -1068,12 +1072,10 @@ Also results in same content as you started with after decoding</h2>
 <h3>Parameters</h3>
 <div class="subelement argument">
 <h4>$message</h4>
-<code></code>
-</div>
+<code>string</code><p>Text to be HTML modified</p></div>
 <div class="subelement argument">
 <h4>$basedir</h4>
-<code></code>
-</div>
+<code>string</code><p>baseline directory for path</p></div>
 <h3>Returns</h3>
 <div class="subelement response"><code>\$message</code></div>
 </div></div>
@@ -1937,12 +1939,6 @@ is in a different directory than the PHP include path.</p></p></div></div>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
 </div>
-<a name="%24ReallyIsSendmail" id="$ReallyIsSendmail"> </a><div class="element clickable property public $ReallyIsSendmail" data-toggle="collapse" data-target=".$ReallyIsSendmail .collapse">
-<h2>Determine if mail() *really* uses the real sendmail</h2>
-<pre>$ReallyIsSendmail : boolean</pre>
-<div class="labels"></div>
-<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
-</div>
 <a name="%24Realm" id="$Realm"> </a><div class="element clickable property public $Realm" data-toggle="collapse" data-target=".$Realm .collapse">
 <h2>Sets SMTP realm.</h2>
 <pre>$Realm </pre>
@@ -2021,6 +2017,13 @@ emails, instead of sending to entire TO addresses</h2>
 <pre>$Timeout : int</pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><p class="long_description"><p>This function will not work with the win32 version.</p></p></div></div>
+</div>
+<a name="%24UseSendmailOptions" id="$UseSendmailOptions"> </a><div class="element clickable property public $UseSendmailOptions" data-toggle="collapse" data-target=".$UseSendmailOptions .collapse">
+<h2>Determine if mail() uses a fully sendmail compatible MTA that
+supports sendmail's "-oi -f" options</h2>
+<pre>$UseSendmailOptions : boolean</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
 </div>
 <a name="%24Username" id="$Username"> </a><div class="element clickable property public $Username" data-toggle="collapse" data-target=".$Username .collapse">
 <h2>Sets SMTP username.</h2>
@@ -2240,7 +2243,7 @@ See http://php.net/is_callable manual page for more details.</p>
 <div class="row"><footer class="span12">
             Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
             Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.0.0a8</a> and<br>
-            generated on 2012-08-07T13:29:13-04:00.<br></footer></div>
+            generated on 2012-08-17T13:52:27-04:00.<br></footer></div>
 </div>
 </body>
 </html>
