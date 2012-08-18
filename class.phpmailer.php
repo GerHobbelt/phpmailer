@@ -1391,7 +1391,7 @@ class PHPMailer {
     }
 
     if($this->Mailer != 'mail') {
-      $result .= $this->LE.$this->LE;
+      $result .= $this->LE;
     }
 
     return $result;
@@ -1403,7 +1403,7 @@ class PHPMailer {
    * @return string
    */
   public function GetSentMIMEMessage() {
-    return sprintf("%s%s\r\n\r\n%s",$this->MIMEHeader,$this->mailHeader,$this->MIMEBody);
+    return $this->MIMEHeader . $this->mailHeader . self::CRLF . $this->MIMEBody;
   }
 
 
