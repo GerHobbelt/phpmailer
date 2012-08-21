@@ -207,7 +207,9 @@ class PHPMailer {
   /////////////////////////////////////////////////
 
   /**
-   * Sets the SMTP hosts.  All hosts must be separated by a
+   * Sets the SMTP hosts.
+   *
+   * All hosts must be separated by a
    * semicolon.  You can also specify a different port
    * for each host by using this format: [hostname:port]
    * (e.g. "smtp1.example.com:25;smtp2.example.com").
@@ -229,8 +231,7 @@ class PHPMailer {
   public $Helo          = '';
 
   /**
-   * Sets connection prefix.
-   * Options are "", "ssl" or "tls"
+   * Sets connection prefix. Options are "", "ssl" or "tls"
    * @var string
    */
   public $SMTPSecure    = '';
@@ -254,8 +255,8 @@ class PHPMailer {
   public $Password      = '';
 
   /**
-   *  Sets SMTP auth type.
-   *  @var string LOGIN | PLAIN | NTLM  (default LOGIN)
+   *  Sets SMTP auth type. Options are LOGIN | PLAIN | NTLM  (default LOGIN)
+   *  @var string
    */
   public $AuthType      = '';
   

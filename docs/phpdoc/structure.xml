@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<project version="2.0.0a8" title="PHPMailer version 5.2.2-beta2">
-  <file path="class.phpmailer.php" hash="213a18956e62e58d63ad2e0980bc2a91" package="PHPMailer">
+<project version="2.0.0a8" title="PHPMailer version 5.2.2">
+  <file path="class.phpmailer.php" hash="fca836e56bdebdcdec25d9385e4d6391" package="PHPMailer">
     <docblock line="25">
       <description><![CDATA[PHPMailer - PHP email transport class
 NOTE: Requires PHP version 5 or later]]></description>
@@ -13,10 +13,10 @@ NOTE: Requires PHP version 5 or later]]></description>
       <tag line="25" name="copyright" description="2004 - 2009 Andy Prevost"/>
       <tag line="25" name="license" description="http://www.gnu.org/copyleft/lesser.html GNU Lesser General Public License"/>
     </docblock>
-    <include line="890" type="Require Once" package="PHPMailer">
+    <include line="891" type="Require Once" package="PHPMailer">
       <name/>
     </include>
-    <include line="1071" type="Include" package="PHPMailer">
+    <include line="1073" type="Include" package="PHPMailer">
       <name/>
     </include>
     <class final="false" abstract="false" namespace="global" line="43" package="PHPMailer">
@@ -27,22 +27,22 @@ NOTE: Requires PHP version 5 or later]]></description>
         <description><![CDATA[Main PHPMailer class definition]]></description>
         <long-description><![CDATA[]]></long-description>
       </docblock>
-      <constant namespace="global" line="416" package="PHPMailer">
+      <constant namespace="global" line="417" package="PHPMailer">
         <name>STOP_MESSAGE</name>
         <full_name>STOP_MESSAGE</full_name>
         <value><![CDATA[0]]></value>
       </constant>
-      <constant namespace="global" line="417" package="PHPMailer">
+      <constant namespace="global" line="418" package="PHPMailer">
         <name>STOP_CONTINUE</name>
         <full_name>STOP_CONTINUE</full_name>
         <value><![CDATA[1]]></value>
       </constant>
-      <constant namespace="global" line="418" package="PHPMailer">
+      <constant namespace="global" line="419" package="PHPMailer">
         <name>STOP_CRITICAL</name>
         <full_name>STOP_CRITICAL</full_name>
         <value><![CDATA[2]]></value>
       </constant>
-      <constant namespace="global" line="419" package="PHPMailer">
+      <constant namespace="global" line="420" package="PHPMailer">
         <name>CRLF</name>
         <full_name>CRLF</full_name>
         <value><![CDATA["\r\n"]]></value>
@@ -317,7 +317,7 @@ by SERVER_NAME is used or 'localhost.localdomain'.</p>]]></long-description>
           </tag>
         </docblock>
       </property>
-      <property final="false" static="false" visibility="public" line="217" namespace="global" package="PHPMailer">
+      <property final="false" static="false" visibility="public" line="219" namespace="global" package="PHPMailer">
         <name>$Host</name>
         <default><![CDATA['localhost']]></default>
         <docblock line="209">
@@ -332,240 +332,243 @@ Hosts will be tried in order.</p>]]></long-description>
           </tag>
         </docblock>
       </property>
-      <property final="false" static="false" visibility="public" line="223" namespace="global" package="PHPMailer">
+      <property final="false" static="false" visibility="public" line="225" namespace="global" package="PHPMailer">
         <name>$Port</name>
         <default><![CDATA[25]]></default>
-        <docblock line="219">
+        <docblock line="221">
           <description><![CDATA[Sets the default SMTP server port.]]></description>
           <long-description><![CDATA[]]></long-description>
-          <tag line="219" name="var" description="" type="int">
+          <tag line="221" name="var" description="" type="int">
             <type by_reference="false">int</type>
           </tag>
         </docblock>
       </property>
-      <property final="false" static="false" visibility="public" line="229" namespace="global" package="PHPMailer">
+      <property final="false" static="false" visibility="public" line="231" namespace="global" package="PHPMailer">
         <name>$Helo</name>
         <default><![CDATA['']]></default>
-        <docblock line="225">
+        <docblock line="227">
           <description><![CDATA[Sets the SMTP HELO of the message (Default is $Hostname).]]></description>
           <long-description><![CDATA[]]></long-description>
-          <tag line="225" name="var" description="" type="string">
+          <tag line="227" name="var" description="" type="string">
             <type by_reference="false">string</type>
           </tag>
         </docblock>
       </property>
-      <property final="false" static="false" visibility="public" line="236" namespace="global" package="PHPMailer">
+      <property final="false" static="false" visibility="public" line="237" namespace="global" package="PHPMailer">
         <name>$SMTPSecure</name>
         <default><![CDATA['']]></default>
-        <docblock line="231">
+        <docblock line="233">
           <description><![CDATA[Sets connection prefix.]]></description>
           <long-description><![CDATA[<p>Options are "", "ssl" or "tls"</p>]]></long-description>
-          <tag line="231" name="var" description="" type="string">
+          <tag line="233" name="var" description="" type="string">
             <type by_reference="false">string</type>
           </tag>
         </docblock>
       </property>
-      <property final="false" static="false" visibility="public" line="242" namespace="global" package="PHPMailer">
+      <property final="false" static="false" visibility="public" line="243" namespace="global" package="PHPMailer">
         <name>$SMTPAuth</name>
         <default><![CDATA[false]]></default>
-        <docblock line="238">
+        <docblock line="239">
           <description><![CDATA[Sets SMTP authentication.]]></description>
           <long-description><![CDATA[<p>Utilizes the Username and Password variables.</p>]]></long-description>
-          <tag line="238" name="var" description="" type="bool">
+          <tag line="239" name="var" description="" type="bool">
             <type by_reference="false">bool</type>
           </tag>
         </docblock>
       </property>
-      <property final="false" static="false" visibility="public" line="248" namespace="global" package="PHPMailer">
+      <property final="false" static="false" visibility="public" line="249" namespace="global" package="PHPMailer">
         <name>$Username</name>
         <default><![CDATA['']]></default>
-        <docblock line="244">
+        <docblock line="245">
           <description><![CDATA[Sets SMTP username.]]></description>
           <long-description><![CDATA[]]></long-description>
-          <tag line="244" name="var" description="" type="string">
+          <tag line="245" name="var" description="" type="string">
             <type by_reference="false">string</type>
           </tag>
         </docblock>
       </property>
-      <property final="false" static="false" visibility="public" line="254" namespace="global" package="PHPMailer">
+      <property final="false" static="false" visibility="public" line="255" namespace="global" package="PHPMailer">
         <name>$Password</name>
         <default><![CDATA['']]></default>
-        <docblock line="250">
+        <docblock line="251">
           <description><![CDATA[Sets SMTP password.]]></description>
           <long-description><![CDATA[]]></long-description>
-          <tag line="250" name="var" description="" type="string">
+          <tag line="251" name="var" description="" type="string">
             <type by_reference="false">string</type>
           </tag>
         </docblock>
       </property>
-      <property final="false" static="false" visibility="public" line="260" namespace="global" package="PHPMailer">
+      <property final="false" static="false" visibility="public" line="261" namespace="global" package="PHPMailer">
         <name>$AuthType</name>
         <default><![CDATA['']]></default>
-        <docblock line="256">
+        <docblock line="257">
           <description><![CDATA[Sets SMTP auth type.]]></description>
-          <long-description><![CDATA[<p>@var string</p>]]></long-description>
+          <long-description><![CDATA[<p>Options are LOGIN | PLAIN | NTLM  (default LOGIN)</p>]]></long-description>
+          <tag line="257" name="var" description="" type="string">
+            <type by_reference="false">string</type>
+          </tag>
         </docblock>
       </property>
-      <property final="false" static="false" visibility="public" line="266" namespace="global" package="PHPMailer">
+      <property final="false" static="false" visibility="public" line="267" namespace="global" package="PHPMailer">
         <name>$Realm</name>
         <default><![CDATA['']]></default>
-        <docblock line="262">
+        <docblock line="263">
           <description><![CDATA[Sets SMTP realm.]]></description>
           <long-description><![CDATA[<p>@var string</p>]]></long-description>
         </docblock>
       </property>
-      <property final="false" static="false" visibility="public" line="272" namespace="global" package="PHPMailer">
+      <property final="false" static="false" visibility="public" line="273" namespace="global" package="PHPMailer">
         <name>$Workstation</name>
         <default><![CDATA['']]></default>
-        <docblock line="268">
+        <docblock line="269">
           <description><![CDATA[Sets SMTP workstation.]]></description>
           <long-description><![CDATA[<p>@var string</p>]]></long-description>
         </docblock>
       </property>
-      <property final="false" static="false" visibility="public" line="279" namespace="global" package="PHPMailer">
+      <property final="false" static="false" visibility="public" line="280" namespace="global" package="PHPMailer">
         <name>$Timeout</name>
         <default><![CDATA[10]]></default>
-        <docblock line="274">
+        <docblock line="275">
           <description><![CDATA[Sets the SMTP server   in seconds.]]></description>
           <long-description><![CDATA[<p>This function will not work with the win32 version.</p>]]></long-description>
-          <tag line="274" name="var" description="" type="int">
+          <tag line="275" name="var" description="" type="int">
             <type by_reference="false">int</type>
           </tag>
         </docblock>
       </property>
-      <property final="false" static="false" visibility="public" line="285" namespace="global" package="PHPMailer">
+      <property final="false" static="false" visibility="public" line="286" namespace="global" package="PHPMailer">
         <name>$SMTPDebug</name>
         <default><![CDATA[false]]></default>
-        <docblock line="281">
+        <docblock line="282">
           <description><![CDATA[Sets SMTP class debugging on or off.]]></description>
           <long-description><![CDATA[]]></long-description>
-          <tag line="281" name="var" description="" type="bool">
+          <tag line="282" name="var" description="" type="bool">
             <type by_reference="false">bool</type>
           </tag>
         </docblock>
       </property>
-      <property final="false" static="false" visibility="public" line="292" namespace="global" package="PHPMailer">
+      <property final="false" static="false" visibility="public" line="293" namespace="global" package="PHPMailer">
         <name>$Debugoutput</name>
         <default><![CDATA["echo"]]></default>
-        <docblock line="287">
+        <docblock line="288">
           <description><![CDATA[Sets the function/method to use for debugging output.]]></description>
           <long-description><![CDATA[<p>Right now we only honor "echo" or "error_log"</p>]]></long-description>
-          <tag line="287" name="var" description="" type="string">
+          <tag line="288" name="var" description="" type="string">
             <type by_reference="false">string</type>
           </tag>
         </docblock>
       </property>
-      <property final="false" static="false" visibility="public" line="300" namespace="global" package="PHPMailer">
+      <property final="false" static="false" visibility="public" line="301" namespace="global" package="PHPMailer">
         <name>$SMTPKeepAlive</name>
         <default><![CDATA[false]]></default>
-        <docblock line="294">
+        <docblock line="295">
           <description><![CDATA[Prevents the SMTP connection from being closed after each mail
 sending.]]></description>
           <long-description><![CDATA[<p>If this is set to true then to close the connection
 requires an explicit call to SmtpClose().</p>]]></long-description>
-          <tag line="294" name="var" description="" type="bool">
+          <tag line="295" name="var" description="" type="bool">
             <type by_reference="false">bool</type>
           </tag>
         </docblock>
       </property>
-      <property final="false" static="false" visibility="public" line="307" namespace="global" package="PHPMailer">
+      <property final="false" static="false" visibility="public" line="308" namespace="global" package="PHPMailer">
         <name>$SingleTo</name>
         <default><![CDATA[false]]></default>
-        <docblock line="302">
+        <docblock line="303">
           <description><![CDATA[Provides the ability to have the TO field process individual
 emails, instead of sending to entire TO addresses]]></description>
           <long-description><![CDATA[]]></long-description>
-          <tag line="302" name="var" description="" type="bool">
+          <tag line="303" name="var" description="" type="bool">
             <type by_reference="false">bool</type>
           </tag>
         </docblock>
       </property>
-      <property final="false" static="false" visibility="public" line="313" namespace="global" package="PHPMailer">
+      <property final="false" static="false" visibility="public" line="314" namespace="global" package="PHPMailer">
         <name>$SingleToArray</name>
         <default><![CDATA[array()]]></default>
-        <docblock line="309">
+        <docblock line="310">
           <description><![CDATA[If SingleTo is true, this provides the array to hold the email addresses]]></description>
           <long-description><![CDATA[]]></long-description>
-          <tag line="309" name="var" description="" type="bool">
+          <tag line="310" name="var" description="" type="bool">
             <type by_reference="false">bool</type>
           </tag>
         </docblock>
       </property>
-      <property final="false" static="false" visibility="public" line="321" namespace="global" package="PHPMailer">
+      <property final="false" static="false" visibility="public" line="322" namespace="global" package="PHPMailer">
         <name>$LE</name>
         <default><![CDATA["\n"]]></default>
-        <docblock line="315">
+        <docblock line="316">
           <description><![CDATA[Provides the ability to change the generic line ending
 NOTE: The default remains '\n'.]]></description>
           <long-description><![CDATA[<p>We force CRLF where we KNOW
        it must be used via self::CRLF</p>]]></long-description>
-          <tag line="315" name="var" description="" type="string">
+          <tag line="316" name="var" description="" type="string">
             <type by_reference="false">string</type>
           </tag>
         </docblock>
       </property>
-      <property final="false" static="false" visibility="public" line="327" namespace="global" package="PHPMailer">
+      <property final="false" static="false" visibility="public" line="328" namespace="global" package="PHPMailer">
         <name>$DKIM_selector</name>
         <default><![CDATA['phpmailer']]></default>
-        <docblock line="323">
+        <docblock line="324">
           <description><![CDATA[Used with DKIM DNS Resource Record]]></description>
           <long-description><![CDATA[]]></long-description>
-          <tag line="323" name="var" description="" type="string">
+          <tag line="324" name="var" description="" type="string">
             <type by_reference="false">string</type>
           </tag>
         </docblock>
       </property>
-      <property final="false" static="false" visibility="public" line="334" namespace="global" package="PHPMailer">
+      <property final="false" static="false" visibility="public" line="335" namespace="global" package="PHPMailer">
         <name>$DKIM_identity</name>
         <default><![CDATA['']]></default>
-        <docblock line="329">
+        <docblock line="330">
           <description><![CDATA[Used with DKIM DNS Resource Record
 optional, in format of email address 'you@yourdomain.com']]></description>
           <long-description><![CDATA[]]></long-description>
-          <tag line="329" name="var" description="" type="string">
+          <tag line="330" name="var" description="" type="string">
             <type by_reference="false">string</type>
           </tag>
         </docblock>
       </property>
-      <property final="false" static="false" visibility="public" line="340" namespace="global" package="PHPMailer">
+      <property final="false" static="false" visibility="public" line="341" namespace="global" package="PHPMailer">
         <name>$DKIM_passphrase</name>
         <default><![CDATA['']]></default>
-        <docblock line="336">
+        <docblock line="337">
           <description><![CDATA[Used with DKIM DNS Resource Record]]></description>
           <long-description><![CDATA[]]></long-description>
-          <tag line="336" name="var" description="" type="string">
+          <tag line="337" name="var" description="" type="string">
             <type by_reference="false">string</type>
           </tag>
         </docblock>
       </property>
-      <property final="false" static="false" visibility="public" line="347" namespace="global" package="PHPMailer">
+      <property final="false" static="false" visibility="public" line="348" namespace="global" package="PHPMailer">
         <name>$DKIM_domain</name>
         <default><![CDATA['']]></default>
-        <docblock line="342">
+        <docblock line="343">
           <description><![CDATA[Used with DKIM DNS Resource Record
 optional, in format of email address 'you@yourdomain.com']]></description>
           <long-description><![CDATA[]]></long-description>
-          <tag line="342" name="var" description="" type="string">
+          <tag line="343" name="var" description="" type="string">
             <type by_reference="false">string</type>
           </tag>
         </docblock>
       </property>
-      <property final="false" static="false" visibility="public" line="354" namespace="global" package="PHPMailer">
+      <property final="false" static="false" visibility="public" line="355" namespace="global" package="PHPMailer">
         <name>$DKIM_private</name>
         <default><![CDATA['']]></default>
-        <docblock line="349">
+        <docblock line="350">
           <description><![CDATA[Used with DKIM DNS Resource Record
 optional, in format of email address 'you@yourdomain.com']]></description>
           <long-description><![CDATA[]]></long-description>
-          <tag line="349" name="var" description="" type="string">
+          <tag line="350" name="var" description="" type="string">
             <type by_reference="false">string</type>
           </tag>
         </docblock>
       </property>
-      <property final="false" static="false" visibility="public" line="377" namespace="global" package="PHPMailer">
+      <property final="false" static="false" visibility="public" line="378" namespace="global" package="PHPMailer">
         <name>$action_function</name>
         <default><![CDATA['']]></default>
-        <docblock line="356">
+        <docblock line="357">
           <description><![CDATA[Callback Action function name.]]></description>
           <long-description><![CDATA[<p>The function that handles the result of the send email action.
 It is called out by Send() for each email sent.</p>
@@ -584,1895 +587,1895 @@ See http://php.net/is_callable manual page for more details.</p>
   string  $subject       the subject
   string  $body          the email body
   string  $from          email address of sender</p>]]></long-description>
-          <tag line="356" name="var" description="" type="string">
+          <tag line="357" name="var" description="" type="string">
             <type by_reference="false">string</type>
           </tag>
         </docblock>
       </property>
-      <property final="false" static="false" visibility="public" line="383" namespace="global" package="PHPMailer">
+      <property final="false" static="false" visibility="public" line="384" namespace="global" package="PHPMailer">
         <name>$Version</name>
-        <default><![CDATA['5.2.2-beta2']]></default>
-        <docblock line="379">
+        <default><![CDATA['5.2.2']]></default>
+        <docblock line="380">
           <description><![CDATA[Sets the PHPMailer Version number]]></description>
           <long-description><![CDATA[]]></long-description>
-          <tag line="379" name="var" description="" type="string">
+          <tag line="380" name="var" description="" type="string">
             <type by_reference="false">string</type>
           </tag>
         </docblock>
       </property>
-      <property final="false" static="false" visibility="public" line="389" namespace="global" package="PHPMailer">
+      <property final="false" static="false" visibility="public" line="390" namespace="global" package="PHPMailer">
         <name>$XMailer</name>
         <default><![CDATA['']]></default>
-        <docblock line="385">
+        <docblock line="386">
           <description><![CDATA[What to use in the X-Mailer header]]></description>
           <long-description><![CDATA[]]></long-description>
-          <tag line="385" name="var" description="NULL for default, whitespace for None, or actual string to use" type="string">
+          <tag line="386" name="var" description="NULL for default, whitespace for None, or actual string to use" type="string">
             <type by_reference="false">string</type>
           </tag>
         </docblock>
       </property>
-      <property final="false" static="false" visibility="protected" line="395" namespace="global" package="PHPMailer">
+      <property final="false" static="false" visibility="protected" line="396" namespace="global" package="PHPMailer">
         <name>$smtp</name>
         <default><![CDATA[NULL]]></default>
       </property>
-      <property final="false" static="false" visibility="protected" line="396" namespace="global" package="PHPMailer">
+      <property final="false" static="false" visibility="protected" line="397" namespace="global" package="PHPMailer">
         <name>$to</name>
         <default><![CDATA[array()]]></default>
       </property>
-      <property final="false" static="false" visibility="protected" line="397" namespace="global" package="PHPMailer">
+      <property final="false" static="false" visibility="protected" line="398" namespace="global" package="PHPMailer">
         <name>$cc</name>
         <default><![CDATA[array()]]></default>
       </property>
-      <property final="false" static="false" visibility="protected" line="398" namespace="global" package="PHPMailer">
+      <property final="false" static="false" visibility="protected" line="399" namespace="global" package="PHPMailer">
         <name>$bcc</name>
         <default><![CDATA[array()]]></default>
       </property>
-      <property final="false" static="false" visibility="protected" line="399" namespace="global" package="PHPMailer">
+      <property final="false" static="false" visibility="protected" line="400" namespace="global" package="PHPMailer">
         <name>$ReplyTo</name>
         <default><![CDATA[array()]]></default>
       </property>
-      <property final="false" static="false" visibility="protected" line="400" namespace="global" package="PHPMailer">
+      <property final="false" static="false" visibility="protected" line="401" namespace="global" package="PHPMailer">
         <name>$all_recipients</name>
         <default><![CDATA[array()]]></default>
       </property>
-      <property final="false" static="false" visibility="protected" line="401" namespace="global" package="PHPMailer">
+      <property final="false" static="false" visibility="protected" line="402" namespace="global" package="PHPMailer">
         <name>$attachment</name>
         <default><![CDATA[array()]]></default>
       </property>
-      <property final="false" static="false" visibility="protected" line="402" namespace="global" package="PHPMailer">
+      <property final="false" static="false" visibility="protected" line="403" namespace="global" package="PHPMailer">
         <name>$CustomHeader</name>
         <default><![CDATA[array()]]></default>
       </property>
-      <property final="false" static="false" visibility="protected" line="403" namespace="global" package="PHPMailer">
+      <property final="false" static="false" visibility="protected" line="404" namespace="global" package="PHPMailer">
         <name>$message_type</name>
         <default><![CDATA['']]></default>
       </property>
-      <property final="false" static="false" visibility="protected" line="404" namespace="global" package="PHPMailer">
+      <property final="false" static="false" visibility="protected" line="405" namespace="global" package="PHPMailer">
         <name>$boundary</name>
         <default><![CDATA[array()]]></default>
       </property>
-      <property final="false" static="false" visibility="protected" line="405" namespace="global" package="PHPMailer">
+      <property final="false" static="false" visibility="protected" line="406" namespace="global" package="PHPMailer">
         <name>$language</name>
         <default><![CDATA[array()]]></default>
       </property>
-      <property final="false" static="false" visibility="protected" line="406" namespace="global" package="PHPMailer">
+      <property final="false" static="false" visibility="protected" line="407" namespace="global" package="PHPMailer">
         <name>$error_count</name>
         <default><![CDATA[0]]></default>
       </property>
-      <property final="false" static="false" visibility="protected" line="407" namespace="global" package="PHPMailer">
+      <property final="false" static="false" visibility="protected" line="408" namespace="global" package="PHPMailer">
         <name>$sign_cert_file</name>
         <default><![CDATA['']]></default>
       </property>
-      <property final="false" static="false" visibility="protected" line="408" namespace="global" package="PHPMailer">
+      <property final="false" static="false" visibility="protected" line="409" namespace="global" package="PHPMailer">
         <name>$sign_key_file</name>
         <default><![CDATA['']]></default>
       </property>
-      <property final="false" static="false" visibility="protected" line="409" namespace="global" package="PHPMailer">
+      <property final="false" static="false" visibility="protected" line="410" namespace="global" package="PHPMailer">
         <name>$sign_key_pass</name>
         <default><![CDATA['']]></default>
       </property>
-      <property final="false" static="false" visibility="protected" line="410" namespace="global" package="PHPMailer">
+      <property final="false" static="false" visibility="protected" line="411" namespace="global" package="PHPMailer">
         <name>$exceptions</name>
         <default><![CDATA[false]]></default>
       </property>
-      <method final="false" abstract="false" static="false" visibility="private" namespace="global" line="438" package="PHPMailer">
+      <method final="false" abstract="false" static="false" visibility="private" namespace="global" line="439" package="PHPMailer">
         <name>mail_passthru</name>
         <full_name>mail_passthru</full_name>
-        <docblock line="425">
+        <docblock line="426">
           <description><![CDATA[Calls actual mail() function, but in a safe_mode aware fashion
 Also, unless sendmail_path points to sendmail (or something that
 claims to be sendmail), don't pass params (not a perfect fix,
 but it will do)]]></description>
           <long-description><![CDATA[]]></long-description>
-          <tag line="425" name="param" description="To" type="string" variable="$to">
+          <tag line="426" name="param" description="To" type="string" variable="$to">
             <type by_reference="false">string</type>
           </tag>
-          <tag line="425" name="param" description="Subject" type="string" variable="$subject">
+          <tag line="426" name="param" description="Subject" type="string" variable="$subject">
             <type by_reference="false">string</type>
           </tag>
-          <tag line="425" name="param" description="Message Body" type="string" variable="$body">
+          <tag line="426" name="param" description="Message Body" type="string" variable="$body">
             <type by_reference="false">string</type>
           </tag>
-          <tag line="425" name="param" description="Additional Header(s)" type="string" variable="$header">
+          <tag line="426" name="param" description="Additional Header(s)" type="string" variable="$header">
             <type by_reference="false">string</type>
           </tag>
-          <tag line="425" name="param" description="Params" type="string" variable="$params">
+          <tag line="426" name="param" description="Params" type="string" variable="$params">
             <type by_reference="false">string</type>
           </tag>
-          <tag line="425" name="access" description="private"/>
-          <tag line="425" name="return" description="" type="bool">
+          <tag line="426" name="access" description="private"/>
+          <tag line="426" name="return" description="" type="bool">
             <type by_reference="false">bool</type>
           </tag>
         </docblock>
-        <argument line="438">
+        <argument line="439">
           <name>$to</name>
           <default><![CDATA[]]></default>
           <type/>
         </argument>
-        <argument line="438">
+        <argument line="439">
           <name>$subject</name>
           <default><![CDATA[]]></default>
           <type/>
         </argument>
-        <argument line="438">
+        <argument line="439">
           <name>$body</name>
           <default><![CDATA[]]></default>
           <type/>
         </argument>
-        <argument line="438">
+        <argument line="439">
           <name>$header</name>
           <default><![CDATA[]]></default>
           <type/>
         </argument>
-        <argument line="438">
+        <argument line="439">
           <name>$params</name>
           <default><![CDATA[]]></default>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="private" namespace="global" line="451" package="PHPMailer">
+      <method final="false" abstract="false" static="false" visibility="private" namespace="global" line="452" package="PHPMailer">
         <name>edebug</name>
         <full_name>edebug</full_name>
-        <docblock line="447">
+        <docblock line="448">
           <description><![CDATA[Outputs debugging info via user-defined method]]></description>
           <long-description><![CDATA[]]></long-description>
-          <tag line="447" name="param" description="" type="string" variable="$str">
+          <tag line="448" name="param" description="" type="string" variable="$str">
             <type by_reference="false">string</type>
           </tag>
         </docblock>
-        <argument line="451">
+        <argument line="452">
           <name>$str</name>
           <default><![CDATA[]]></default>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="463" package="PHPMailer">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="464" package="PHPMailer">
         <name>__construct</name>
         <full_name>__construct</full_name>
-        <docblock line="459">
+        <docblock line="460">
           <description><![CDATA[Constructor]]></description>
           <long-description><![CDATA[]]></long-description>
-          <tag line="459" name="param" description="Should we throw external exceptions?" type="boolean" variable="$exceptions">
+          <tag line="460" name="param" description="Should we throw external exceptions?" type="boolean" variable="$exceptions">
             <type by_reference="false">boolean</type>
           </tag>
         </docblock>
-        <argument line="463">
+        <argument line="464">
           <name>$exceptions</name>
           <default><![CDATA[false]]></default>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="472" package="PHPMailer">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="473" package="PHPMailer">
         <name>IsHTML</name>
         <full_name>IsHTML</full_name>
-        <docblock line="467">
+        <docblock line="468">
           <description><![CDATA[Sets message type to HTML.]]></description>
           <long-description><![CDATA[]]></long-description>
-          <tag line="467" name="param" description="" type="bool" variable="$ishtml">
+          <tag line="468" name="param" description="" type="bool" variable="$ishtml">
             <type by_reference="false">bool</type>
           </tag>
-          <tag line="467" name="return" description="" type="void">
+          <tag line="468" name="return" description="" type="void">
             <type by_reference="false">void</type>
           </tag>
         </docblock>
-        <argument line="472">
+        <argument line="473">
           <name>$ishtml</name>
           <default><![CDATA[true]]></default>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="485" package="PHPMailer">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="486" package="PHPMailer">
         <name>IsSMTP</name>
         <full_name>IsSMTP</full_name>
-        <docblock line="480">
+        <docblock line="481">
           <description><![CDATA[Sets Mailer to send message using SMTP.]]></description>
           <long-description><![CDATA[]]></long-description>
-          <tag line="480" name="return" description="" type="void">
+          <tag line="481" name="return" description="" type="void">
             <type by_reference="false">void</type>
           </tag>
-          <tag line="480" name="deprecated" description=""/>
+          <tag line="481" name="deprecated" description=""/>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="494" package="PHPMailer">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="495" package="PHPMailer">
         <name>IsMail</name>
         <full_name>IsMail</full_name>
-        <docblock line="489">
+        <docblock line="490">
           <description><![CDATA[Sets Mailer to send message using PHP mail() function.]]></description>
           <long-description><![CDATA[]]></long-description>
-          <tag line="489" name="return" description="" type="void">
+          <tag line="490" name="return" description="" type="void">
             <type by_reference="false">void</type>
           </tag>
-          <tag line="489" name="deprecated" description=""/>
+          <tag line="490" name="deprecated" description=""/>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="503" package="PHPMailer">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="504" package="PHPMailer">
         <name>IsSendmail</name>
         <full_name>IsSendmail</full_name>
-        <docblock line="498">
+        <docblock line="499">
           <description><![CDATA[Sets Mailer to send message using the $Sendmail program.]]></description>
           <long-description><![CDATA[]]></long-description>
-          <tag line="498" name="return" description="" type="void">
+          <tag line="499" name="return" description="" type="void">
             <type by_reference="false">void</type>
           </tag>
-          <tag line="498" name="deprecated" description=""/>
+          <tag line="499" name="deprecated" description=""/>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="515" package="PHPMailer">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="516" package="PHPMailer">
         <name>IsQmail</name>
         <full_name>IsQmail</full_name>
-        <docblock line="510">
+        <docblock line="511">
           <description><![CDATA[Sets Mailer to send message using the qmail MTA.]]></description>
           <long-description><![CDATA[]]></long-description>
-          <tag line="510" name="return" description="" type="void">
+          <tag line="511" name="return" description="" type="void">
             <type by_reference="false">void</type>
           </tag>
-          <tag line="510" name="deprecated" description=""/>
+          <tag line="511" name="deprecated" description=""/>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="532" package="PHPMailer">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="533" package="PHPMailer">
         <name>AddAddress</name>
         <full_name>AddAddress</full_name>
-        <docblock line="526">
+        <docblock line="527">
           <description><![CDATA[Adds a "To" address.]]></description>
           <long-description><![CDATA[]]></long-description>
-          <tag line="526" name="param" description="" type="string" variable="$address">
+          <tag line="527" name="param" description="" type="string" variable="$address">
             <type by_reference="false">string</type>
           </tag>
-          <tag line="526" name="param" description="" type="string" variable="$name">
+          <tag line="527" name="param" description="" type="string" variable="$name">
             <type by_reference="false">string</type>
           </tag>
-          <tag line="526" name="return" description="true on success, false if address already used" type="boolean">
+          <tag line="527" name="return" description="true on success, false if address already used" type="boolean">
             <type by_reference="false">boolean</type>
           </tag>
         </docblock>
-        <argument line="532">
+        <argument line="533">
           <name>$address</name>
           <default><![CDATA[]]></default>
           <type/>
         </argument>
-        <argument line="532">
+        <argument line="533">
           <name>$name</name>
           <default><![CDATA['']]></default>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="543" package="PHPMailer">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="544" package="PHPMailer">
         <name>AddCC</name>
         <full_name>AddCC</full_name>
-        <docblock line="536">
+        <docblock line="537">
           <description><![CDATA[Adds a "Cc" address.]]></description>
           <long-description><![CDATA[<p>Note: this function works with the SMTP mailer on win32, not with the "mail" mailer.</p>]]></long-description>
-          <tag line="536" name="param" description="" type="string" variable="$address">
+          <tag line="537" name="param" description="" type="string" variable="$address">
             <type by_reference="false">string</type>
           </tag>
-          <tag line="536" name="param" description="" type="string" variable="$name">
+          <tag line="537" name="param" description="" type="string" variable="$name">
             <type by_reference="false">string</type>
           </tag>
-          <tag line="536" name="return" description="true on success, false if address already used" type="boolean">
+          <tag line="537" name="return" description="true on success, false if address already used" type="boolean">
             <type by_reference="false">boolean</type>
           </tag>
         </docblock>
-        <argument line="543">
+        <argument line="544">
           <name>$address</name>
           <default><![CDATA[]]></default>
           <type/>
         </argument>
-        <argument line="543">
+        <argument line="544">
           <name>$name</name>
           <default><![CDATA['']]></default>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="554" package="PHPMailer">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="555" package="PHPMailer">
         <name>AddBCC</name>
         <full_name>AddBCC</full_name>
-        <docblock line="547">
+        <docblock line="548">
           <description><![CDATA[Adds a "Bcc" address.]]></description>
           <long-description><![CDATA[<p>Note: this function works with the SMTP mailer on win32, not with the "mail" mailer.</p>]]></long-description>
-          <tag line="547" name="param" description="" type="string" variable="$address">
+          <tag line="548" name="param" description="" type="string" variable="$address">
             <type by_reference="false">string</type>
           </tag>
-          <tag line="547" name="param" description="" type="string" variable="$name">
+          <tag line="548" name="param" description="" type="string" variable="$name">
             <type by_reference="false">string</type>
           </tag>
-          <tag line="547" name="return" description="true on success, false if address already used" type="boolean">
+          <tag line="548" name="return" description="true on success, false if address already used" type="boolean">
             <type by_reference="false">boolean</type>
           </tag>
         </docblock>
-        <argument line="554">
+        <argument line="555">
           <name>$address</name>
           <default><![CDATA[]]></default>
           <type/>
         </argument>
-        <argument line="554">
+        <argument line="555">
           <name>$name</name>
           <default><![CDATA['']]></default>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="564" package="PHPMailer">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="565" package="PHPMailer">
         <name>AddReplyTo</name>
         <full_name>AddReplyTo</full_name>
-        <docblock line="558">
+        <docblock line="559">
           <description><![CDATA[Adds a "Reply-to" address.]]></description>
           <long-description><![CDATA[]]></long-description>
-          <tag line="558" name="param" description="" type="string" variable="$address">
+          <tag line="559" name="param" description="" type="string" variable="$address">
             <type by_reference="false">string</type>
           </tag>
-          <tag line="558" name="param" description="" type="string" variable="$name">
+          <tag line="559" name="param" description="" type="string" variable="$name">
             <type by_reference="false">string</type>
           </tag>
-          <tag line="558" name="return" description="" type="boolean">
+          <tag line="559" name="return" description="" type="boolean">
             <type by_reference="false">boolean</type>
           </tag>
         </docblock>
-        <argument line="564">
+        <argument line="565">
           <name>$address</name>
           <default><![CDATA[]]></default>
           <type/>
         </argument>
-        <argument line="564">
+        <argument line="565">
           <name>$name</name>
           <default><![CDATA['']]></default>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="protected" namespace="global" line="577" package="PHPMailer">
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="global" line="578" package="PHPMailer">
         <name>AddAnAddress</name>
         <full_name>AddAnAddress</full_name>
-        <docblock line="568">
+        <docblock line="569">
           <description><![CDATA[Adds an address to one of the recipient arrays
 Addresses that have been added already return false, but do not throw exceptions]]></description>
           <long-description><![CDATA[]]></long-description>
-          <tag line="568" name="param" description="One of 'to', 'cc', 'bcc', 'ReplyTo'" type="string" variable="$kind">
+          <tag line="569" name="param" description="One of 'to', 'cc', 'bcc', 'ReplyTo'" type="string" variable="$kind">
             <type by_reference="false">string</type>
           </tag>
-          <tag line="568" name="param" description="The email address to send to" type="string" variable="$address">
+          <tag line="569" name="param" description="The email address to send to" type="string" variable="$address">
             <type by_reference="false">string</type>
           </tag>
-          <tag line="568" name="param" description="" type="string" variable="$name">
+          <tag line="569" name="param" description="" type="string" variable="$name">
             <type by_reference="false">string</type>
           </tag>
-          <tag line="568" name="return" description="true on success, false if address already used or invalid in some way" type="boolean">
+          <tag line="569" name="return" description="true on success, false if address already used or invalid in some way" type="boolean">
             <type by_reference="false">boolean</type>
           </tag>
-          <tag line="568" name="access" description="protected"/>
+          <tag line="569" name="access" description="protected"/>
         </docblock>
-        <argument line="577">
+        <argument line="578">
           <name>$kind</name>
           <default><![CDATA[]]></default>
           <type/>
         </argument>
-        <argument line="577">
+        <argument line="578">
           <name>$address</name>
           <default><![CDATA[]]></default>
           <type/>
         </argument>
-        <argument line="577">
+        <argument line="578">
           <name>$name</name>
           <default><![CDATA['']]></default>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="622" package="PHPMailer">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="623" package="PHPMailer">
         <name>SetFrom</name>
         <full_name>SetFrom</full_name>
-        <docblock line="615">
+        <docblock line="616">
           <description><![CDATA[Set the From and FromName properties]]></description>
           <long-description><![CDATA[]]></long-description>
-          <tag line="615" name="param" description="" type="string" variable="$address">
+          <tag line="616" name="param" description="" type="string" variable="$address">
             <type by_reference="false">string</type>
           </tag>
-          <tag line="615" name="param" description="" type="string" variable="$name">
+          <tag line="616" name="param" description="" type="string" variable="$name">
             <type by_reference="false">string</type>
           </tag>
-          <tag line="615" name="param" description="Also set Reply-To and Sender" type="int" variable="$auto">
+          <tag line="616" name="param" description="Also set Reply-To and Sender" type="int" variable="$auto">
             <type by_reference="false">int</type>
           </tag>
-          <tag line="615" name="return" description="" type="boolean">
+          <tag line="616" name="return" description="" type="boolean">
             <type by_reference="false">boolean</type>
           </tag>
         </docblock>
-        <argument line="622">
+        <argument line="623">
           <name>$address</name>
           <default><![CDATA[]]></default>
           <type/>
         </argument>
-        <argument line="622">
+        <argument line="623">
           <name>$name</name>
           <default><![CDATA['']]></default>
           <type/>
         </argument>
-        <argument line="622">
+        <argument line="623">
           <name>$auto</name>
           <default><![CDATA[1]]></default>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="true" visibility="public" namespace="global" line="659" package="PHPMailer">
+      <method final="false" abstract="false" static="true" visibility="public" namespace="global" line="660" package="PHPMailer">
         <name>ValidateAddress</name>
         <full_name>ValidateAddress</full_name>
-        <docblock line="648">
+        <docblock line="649">
           <description><![CDATA[Check that a string looks roughly like an email address should
 Static so it can be used without instantiation
 Tries to use PHP built-in validator in the filter extension (from PHP 5.2), falls back to a reasonably competent regex validator
 Conforms approximately to RFC2822]]></description>
           <long-description><![CDATA[]]></long-description>
-          <tag line="648" name="link" description="Original pattern found here" link="http://www.hexillion.com/samples/#Regex"/>
-          <tag line="648" name="param" description="The email address to check" type="string" variable="$address">
+          <tag line="649" name="link" description="Original pattern found here" link="http://www.hexillion.com/samples/#Regex"/>
+          <tag line="649" name="param" description="The email address to check" type="string" variable="$address">
             <type by_reference="false">string</type>
           </tag>
-          <tag line="648" name="return" description="" type="boolean">
+          <tag line="649" name="return" description="" type="boolean">
             <type by_reference="false">boolean</type>
           </tag>
-          <tag line="648" name="static" description=""/>
-          <tag line="648" name="access" description="public"/>
+          <tag line="649" name="static" description=""/>
+          <tag line="649" name="access" description="public"/>
         </docblock>
-        <argument line="659">
+        <argument line="660">
           <name>$address</name>
           <default><![CDATA[]]></default>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="681" package="PHPMailer">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="682" package="PHPMailer">
         <name>Send</name>
         <full_name>Send</full_name>
-        <docblock line="675">
+        <docblock line="676">
           <description><![CDATA[Creates message and assigns Mailer.]]></description>
           <long-description><![CDATA[<p>If the message is
 not sent successfully then it returns false.  Use the ErrorInfo
 variable to view description of the error.</p>]]></long-description>
-          <tag line="675" name="return" description="" type="bool">
+          <tag line="676" name="return" description="" type="bool">
             <type by_reference="false">bool</type>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="699" package="PHPMailer">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="700" package="PHPMailer">
         <name>PreSend</name>
         <full_name>PreSend</full_name>
-        <docblock line="695">
+        <docblock line="696">
           <description><![CDATA[Prep mail by constructing all message entities]]></description>
           <long-description><![CDATA[]]></long-description>
-          <tag line="695" name="return" description="" type="bool">
+          <tag line="696" name="return" description="" type="bool">
             <type by_reference="false">bool</type>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="757" package="PHPMailer">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="758" package="PHPMailer">
         <name>PostSend</name>
         <full_name>PostSend</full_name>
-        <docblock line="752">
+        <docblock line="753">
           <description><![CDATA[Actual Email transport function
 Send the email via the selected mechanism]]></description>
           <long-description><![CDATA[]]></long-description>
-          <tag line="752" name="return" description="" type="bool">
+          <tag line="753" name="return" description="" type="bool">
             <type by_reference="false">bool</type>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="protected" namespace="global" line="796" package="PHPMailer">
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="global" line="797" package="PHPMailer">
         <name>SendmailSend</name>
         <full_name>SendmailSend</full_name>
-        <docblock line="789">
+        <docblock line="790">
           <description><![CDATA[Sends mail using the $Sendmail program.]]></description>
           <long-description><![CDATA[]]></long-description>
-          <tag line="789" name="param" description="The message headers" type="string" variable="$header">
+          <tag line="790" name="param" description="The message headers" type="string" variable="$header">
             <type by_reference="false">string</type>
           </tag>
-          <tag line="789" name="param" description="The message body" type="string" variable="$body">
+          <tag line="790" name="param" description="The message body" type="string" variable="$body">
             <type by_reference="false">string</type>
           </tag>
-          <tag line="789" name="access" description="protected"/>
-          <tag line="789" name="return" description="" type="bool">
+          <tag line="790" name="access" description="protected"/>
+          <tag line="790" name="return" description="" type="bool">
             <type by_reference="false">bool</type>
           </tag>
         </docblock>
-        <argument line="796">
+        <argument line="797">
           <name>$header</name>
           <default><![CDATA[]]></default>
           <type/>
         </argument>
-        <argument line="796">
+        <argument line="797">
           <name>$body</name>
           <default><![CDATA[]]></default>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="protected" namespace="global" line="842" package="PHPMailer">
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="global" line="843" package="PHPMailer">
         <name>MailSend</name>
         <full_name>MailSend</full_name>
-        <docblock line="835">
+        <docblock line="836">
           <description><![CDATA[Sends mail using the PHP mail() function.]]></description>
           <long-description><![CDATA[]]></long-description>
-          <tag line="835" name="param" description="The message headers" type="string" variable="$header">
+          <tag line="836" name="param" description="The message headers" type="string" variable="$header">
             <type by_reference="false">string</type>
           </tag>
-          <tag line="835" name="param" description="The message body" type="string" variable="$body">
+          <tag line="836" name="param" description="The message body" type="string" variable="$body">
             <type by_reference="false">string</type>
           </tag>
-          <tag line="835" name="access" description="protected"/>
-          <tag line="835" name="return" description="" type="bool">
+          <tag line="836" name="access" description="protected"/>
+          <tag line="836" name="return" description="" type="bool">
             <type by_reference="false">bool</type>
           </tag>
         </docblock>
-        <argument line="842">
+        <argument line="843">
           <name>$header</name>
           <default><![CDATA[]]></default>
           <type/>
         </argument>
-        <argument line="842">
+        <argument line="843">
           <name>$body</name>
           <default><![CDATA[]]></default>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="protected" namespace="global" line="889" package="PHPMailer">
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="global" line="890" package="PHPMailer">
         <name>SmtpSend</name>
         <full_name>SmtpSend</full_name>
-        <docblock line="880">
+        <docblock line="881">
           <description><![CDATA[Sends mail via SMTP using PhpSMTP
 Returns false if there is a bad MAIL FROM, RCPT, or DATA input.]]></description>
           <long-description><![CDATA[]]></long-description>
-          <tag line="880" name="param" description="The message headers" type="string" variable="$header">
+          <tag line="881" name="param" description="The message headers" type="string" variable="$header">
             <type by_reference="false">string</type>
           </tag>
-          <tag line="880" name="param" description="The message body" type="string" variable="$body">
+          <tag line="881" name="param" description="The message body" type="string" variable="$body">
             <type by_reference="false">string</type>
           </tag>
-          <tag line="880" name="uses" description="\global\SMTP" refers="\global\SMTP"/>
-          <tag line="880" name="access" description="protected"/>
-          <tag line="880" name="return" description="" type="bool">
+          <tag line="881" name="uses" description="\global\SMTP" refers="\global\SMTP"/>
+          <tag line="881" name="access" description="protected"/>
+          <tag line="881" name="return" description="" type="bool">
             <type by_reference="false">bool</type>
           </tag>
         </docblock>
-        <argument line="889">
+        <argument line="890">
           <name>$header</name>
           <default><![CDATA[]]></default>
           <type/>
         </argument>
-        <argument line="889">
+        <argument line="890">
           <name>$body</name>
           <default><![CDATA[]]></default>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="960" package="PHPMailer">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="961" package="PHPMailer">
         <name>SmtpConnect</name>
         <full_name>SmtpConnect</full_name>
-        <docblock line="953">
+        <docblock line="954">
           <description><![CDATA[Initiates a connection to an SMTP server.]]></description>
           <long-description><![CDATA[<p>Returns false if the operation failed.</p>]]></long-description>
-          <tag line="953" name="uses" description="\global\SMTP" refers="\global\SMTP"/>
-          <tag line="953" name="access" description="public"/>
-          <tag line="953" name="return" description="" type="bool">
+          <tag line="954" name="uses" description="\global\SMTP" refers="\global\SMTP"/>
+          <tag line="954" name="access" description="public"/>
+          <tag line="954" name="return" description="" type="bool">
             <type by_reference="false">bool</type>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="1031" package="PHPMailer">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="1032" package="PHPMailer">
         <name>SmtpClose</name>
         <full_name>SmtpClose</full_name>
-        <docblock line="1027">
+        <docblock line="1028">
           <description><![CDATA[Closes the active SMTP session if one exists.]]></description>
           <long-description><![CDATA[]]></long-description>
-          <tag line="1027" name="return" description="" type="void">
+          <tag line="1028" name="return" description="" type="void">
             <type by_reference="false">void</type>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="1047" package="PHPMailer">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="1048" package="PHPMailer">
         <name>SetLanguage</name>
         <full_name>SetLanguage</full_name>
-        <docblock line="1040">
+        <docblock line="1041">
           <description><![CDATA[Sets the language for all class error messages.]]></description>
           <long-description><![CDATA[<p>Returns false if it cannot load the language file.  The default language is English.</p>]]></long-description>
-          <tag line="1040" name="param" description="ISO 639-1 2-character language code (e.g. Portuguese: &quot;br&quot;)" type="string" variable="$langcode">
+          <tag line="1041" name="param" description="ISO 639-1 2-character language code (e.g. Portuguese: &quot;br&quot;)" type="string" variable="$langcode">
             <type by_reference="false">string</type>
           </tag>
-          <tag line="1040" name="param" description="Path to the language file directory" type="string" variable="$lang_path">
+          <tag line="1041" name="param" description="Path to the language file directory" type="string" variable="$lang_path">
             <type by_reference="false">string</type>
           </tag>
-          <tag line="1040" name="access" description="public"/>
+          <tag line="1041" name="access" description="public"/>
         </docblock>
-        <argument line="1047">
+        <argument line="1048">
           <name>$langcode</name>
           <default><![CDATA['en']]></default>
           <type/>
         </argument>
-        <argument line="1047">
+        <argument line="1048">
           <name>$lang_path</name>
           <default><![CDATA['language/']]></default>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="1081" package="PHPMailer">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="1083" package="PHPMailer">
         <name>GetTranslations</name>
         <full_name>GetTranslations</full_name>
-        <docblock line="1077">
+        <docblock line="1079">
           <description><![CDATA[Return the current array of language strings]]></description>
           <long-description><![CDATA[]]></long-description>
-          <tag line="1077" name="return" description="" type="array">
+          <tag line="1079" name="return" description="" type="array">
             <type by_reference="false">array</type>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="1094" package="PHPMailer">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="1096" package="PHPMailer">
         <name>AddrAppend</name>
         <full_name>AddrAppend</full_name>
-        <docblock line="1089">
+        <docblock line="1091">
           <description><![CDATA[Creates recipient headers.]]></description>
           <long-description><![CDATA[]]></long-description>
-          <tag line="1089" name="access" description="public"/>
-          <tag line="1089" name="return" description="" type="string">
+          <tag line="1091" name="access" description="public"/>
+          <tag line="1091" name="return" description="" type="string">
             <type by_reference="false">string</type>
           </tag>
         </docblock>
-        <argument line="1094">
+        <argument line="1096">
           <name>$type</name>
           <default><![CDATA[]]></default>
           <type/>
         </argument>
-        <argument line="1094">
+        <argument line="1096">
           <name>$addr</name>
           <default><![CDATA[]]></default>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="1111" package="PHPMailer">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="1113" package="PHPMailer">
         <name>AddrFormat</name>
         <full_name>AddrFormat</full_name>
-        <docblock line="1106">
+        <docblock line="1108">
           <description><![CDATA[Formats an address correctly.]]></description>
           <long-description><![CDATA[]]></long-description>
-          <tag line="1106" name="access" description="public"/>
-          <tag line="1106" name="return" description="" type="string">
+          <tag line="1108" name="access" description="public"/>
+          <tag line="1108" name="return" description="" type="string">
             <type by_reference="false">string</type>
           </tag>
         </docblock>
-        <argument line="1111">
+        <argument line="1113">
           <name>$addr</name>
           <default><![CDATA[]]></default>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="1129" package="PHPMailer">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="1131" package="PHPMailer">
         <name>WrapText</name>
         <full_name>WrapText</full_name>
-        <docblock line="1119">
+        <docblock line="1121">
           <description><![CDATA[Wraps message for use with mailers that do not
 automatically perform wrapping and for quoted-printable.]]></description>
           <long-description><![CDATA[<p>Original written by philippe.</p>]]></long-description>
-          <tag line="1119" name="param" description="The message to wrap" type="string" variable="$message">
+          <tag line="1121" name="param" description="The message to wrap" type="string" variable="$message">
             <type by_reference="false">string</type>
           </tag>
-          <tag line="1119" name="param" description="The line length to wrap to" type="integer" variable="$length">
+          <tag line="1121" name="param" description="The line length to wrap to" type="integer" variable="$length">
             <type by_reference="false">integer</type>
           </tag>
-          <tag line="1119" name="param" description="Whether to run in Quoted-Printable mode" type="boolean" variable="$qp_mode">
+          <tag line="1121" name="param" description="Whether to run in Quoted-Printable mode" type="boolean" variable="$qp_mode">
             <type by_reference="false">boolean</type>
           </tag>
-          <tag line="1119" name="access" description="public"/>
-          <tag line="1119" name="return" description="" type="string">
+          <tag line="1121" name="access" description="public"/>
+          <tag line="1121" name="return" description="" type="string">
             <type by_reference="false">string</type>
           </tag>
         </docblock>
-        <argument line="1129">
+        <argument line="1131">
           <name>$message</name>
           <default><![CDATA[]]></default>
           <type/>
         </argument>
-        <argument line="1129">
+        <argument line="1131">
           <name>$length</name>
           <default><![CDATA[]]></default>
           <type/>
         </argument>
-        <argument line="1129">
+        <argument line="1131">
           <name>$qp_mode</name>
           <default><![CDATA[false]]></default>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="1213" package="PHPMailer">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="1215" package="PHPMailer">
         <name>UTF8CharBoundary</name>
         <full_name>UTF8CharBoundary</full_name>
-        <docblock line="1204">
+        <docblock line="1206">
           <description><![CDATA[Finds last character boundary prior to maxLength in a utf-8
 quoted (printable) encoded string.]]></description>
           <long-description><![CDATA[<p>Original written by Colin Brown.</p>]]></long-description>
-          <tag line="1204" name="access" description="public"/>
-          <tag line="1204" name="param" description="utf-8 QP text" type="string" variable="$encodedText">
+          <tag line="1206" name="access" description="public"/>
+          <tag line="1206" name="param" description="utf-8 QP text" type="string" variable="$encodedText">
             <type by_reference="false">string</type>
           </tag>
-          <tag line="1204" name="param" description="find last character boundary prior to this length" type="int" variable="$maxLength">
+          <tag line="1206" name="param" description="find last character boundary prior to this length" type="int" variable="$maxLength">
             <type by_reference="false">int</type>
           </tag>
-          <tag line="1204" name="return" description="" type="int">
+          <tag line="1206" name="return" description="" type="int">
             <type by_reference="false">int</type>
           </tag>
         </docblock>
-        <argument line="1213">
+        <argument line="1215">
           <name>$encodedText</name>
           <default><![CDATA[]]></default>
           <type/>
         </argument>
-        <argument line="1213">
+        <argument line="1215">
           <name>$maxLength</name>
           <default><![CDATA[]]></default>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="1251" package="PHPMailer">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="1253" package="PHPMailer">
         <name>SetWordWrap</name>
         <full_name>SetWordWrap</full_name>
-        <docblock line="1246">
+        <docblock line="1248">
           <description><![CDATA[Set the body wrapping.]]></description>
           <long-description><![CDATA[]]></long-description>
-          <tag line="1246" name="access" description="public"/>
-          <tag line="1246" name="return" description="" type="void">
+          <tag line="1248" name="access" description="public"/>
+          <tag line="1248" name="return" description="" type="void">
             <type by_reference="false">void</type>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="1274" package="PHPMailer">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="1276" package="PHPMailer">
         <name>CreateHeader</name>
         <full_name>CreateHeader</full_name>
-        <docblock line="1269">
+        <docblock line="1271">
           <description><![CDATA[Assembles message header.]]></description>
           <long-description><![CDATA[]]></long-description>
-          <tag line="1269" name="access" description="public"/>
-          <tag line="1269" name="return" description="The assembled header" type="string">
+          <tag line="1271" name="access" description="public"/>
+          <tag line="1271" name="return" description="The assembled header" type="string">
             <type by_reference="false">string</type>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="1367" package="PHPMailer">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="1369" package="PHPMailer">
         <name>GetMailMIME</name>
         <full_name>GetMailMIME</full_name>
-        <docblock line="1362">
+        <docblock line="1364">
           <description><![CDATA[Returns the message MIME.]]></description>
           <long-description><![CDATA[]]></long-description>
-          <tag line="1362" name="access" description="public"/>
-          <tag line="1362" name="return" description="" type="string">
+          <tag line="1364" name="access" description="public"/>
+          <tag line="1364" name="return" description="" type="string">
             <type by_reference="false">string</type>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="1405" package="PHPMailer">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="1407" package="PHPMailer">
         <name>GetSentMIMEMessage</name>
         <full_name>GetSentMIMEMessage</full_name>
-        <docblock line="1400">
+        <docblock line="1402">
           <description><![CDATA[Returns the MIME message (headers and body).]]></description>
           <long-description><![CDATA[<p>Only really valid post PreSend().</p>]]></long-description>
-          <tag line="1400" name="access" description="public"/>
-          <tag line="1400" name="return" description="" type="string">
+          <tag line="1402" name="access" description="public"/>
+          <tag line="1402" name="return" description="" type="string">
             <type by_reference="false">string</type>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="1415" package="PHPMailer">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="1417" package="PHPMailer">
         <name>CreateBody</name>
         <full_name>CreateBody</full_name>
-        <docblock line="1410">
+        <docblock line="1412">
           <description><![CDATA[Assembles the message body.]]></description>
           <long-description><![CDATA[<p>Returns an empty string on failure.</p>]]></long-description>
-          <tag line="1410" name="access" description="public"/>
-          <tag line="1410" name="return" description="The assembled message body" type="string">
+          <tag line="1412" name="access" description="public"/>
+          <tag line="1412" name="return" description="The assembled message body" type="string">
             <type by_reference="false">string</type>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="protected" namespace="global" line="1547" package="PHPMailer">
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="global" line="1549" package="PHPMailer">
         <name>GetBoundary</name>
         <full_name>GetBoundary</full_name>
-        <docblock line="1542">
+        <docblock line="1544">
           <description><![CDATA[Returns the start of a message boundary.]]></description>
           <long-description><![CDATA[]]></long-description>
-          <tag line="1542" name="access" description="protected"/>
-          <tag line="1542" name="return" description="" type="string">
+          <tag line="1544" name="access" description="protected"/>
+          <tag line="1544" name="return" description="" type="string">
             <type by_reference="false">string</type>
           </tag>
         </docblock>
-        <argument line="1547">
+        <argument line="1549">
           <name>$boundary</name>
           <default><![CDATA[]]></default>
           <type/>
         </argument>
-        <argument line="1547">
+        <argument line="1549">
           <name>$charSet</name>
           <default><![CDATA[]]></default>
           <type/>
         </argument>
-        <argument line="1547">
+        <argument line="1549">
           <name>$contentType</name>
           <default><![CDATA[]]></default>
           <type/>
         </argument>
-        <argument line="1547">
+        <argument line="1549">
           <name>$encoding</name>
           <default><![CDATA[]]></default>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="protected" namespace="global" line="1572" package="PHPMailer">
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="global" line="1574" package="PHPMailer">
         <name>EndBoundary</name>
         <full_name>EndBoundary</full_name>
-        <docblock line="1567">
+        <docblock line="1569">
           <description><![CDATA[Returns the end of a message boundary.]]></description>
           <long-description><![CDATA[]]></long-description>
-          <tag line="1567" name="access" description="protected"/>
-          <tag line="1567" name="return" description="" type="string">
+          <tag line="1569" name="access" description="protected"/>
+          <tag line="1569" name="return" description="" type="string">
             <type by_reference="false">string</type>
           </tag>
         </docblock>
-        <argument line="1572">
+        <argument line="1574">
           <name>$boundary</name>
           <default><![CDATA[]]></default>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="protected" namespace="global" line="1581" package="PHPMailer">
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="global" line="1583" package="PHPMailer">
         <name>SetMessageType</name>
         <full_name>SetMessageType</full_name>
-        <docblock line="1576">
+        <docblock line="1578">
           <description><![CDATA[Sets the message type.]]></description>
           <long-description><![CDATA[]]></long-description>
-          <tag line="1576" name="access" description="protected"/>
-          <tag line="1576" name="return" description="" type="void">
+          <tag line="1578" name="access" description="protected"/>
+          <tag line="1578" name="return" description="" type="void">
             <type by_reference="false">void</type>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="1595" package="PHPMailer">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="1597" package="PHPMailer">
         <name>HeaderLine</name>
         <full_name>HeaderLine</full_name>
-        <docblock line="1590">
+        <docblock line="1592">
           <description><![CDATA[Returns a formatted header line.]]></description>
           <long-description><![CDATA[]]></long-description>
-          <tag line="1590" name="access" description="public"/>
-          <tag line="1590" name="return" description="" type="string">
+          <tag line="1592" name="access" description="public"/>
+          <tag line="1592" name="return" description="" type="string">
             <type by_reference="false">string</type>
           </tag>
         </docblock>
-        <argument line="1595">
+        <argument line="1597">
           <name>$name</name>
           <default><![CDATA[]]></default>
           <type/>
         </argument>
-        <argument line="1595">
+        <argument line="1597">
           <name>$value</name>
           <default><![CDATA[]]></default>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="1604" package="PHPMailer">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="1606" package="PHPMailer">
         <name>TextLine</name>
         <full_name>TextLine</full_name>
-        <docblock line="1599">
+        <docblock line="1601">
           <description><![CDATA[Returns a formatted mail line.]]></description>
           <long-description><![CDATA[]]></long-description>
-          <tag line="1599" name="access" description="public"/>
-          <tag line="1599" name="return" description="" type="string">
+          <tag line="1601" name="access" description="public"/>
+          <tag line="1601" name="return" description="" type="string">
             <type by_reference="false">string</type>
           </tag>
         </docblock>
-        <argument line="1604">
+        <argument line="1606">
           <name>$value</name>
           <default><![CDATA[]]></default>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="1622" package="PHPMailer">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="1624" package="PHPMailer">
         <name>AddAttachment</name>
         <full_name>AddAttachment</full_name>
-        <docblock line="1612">
+        <docblock line="1614">
           <description><![CDATA[Adds an attachment from a path on the filesystem.]]></description>
           <long-description><![CDATA[<p>Returns false if the file could not be found
 or accessed.</p>]]></long-description>
-          <tag line="1612" name="param" description="Path to the attachment." type="string" variable="$path">
+          <tag line="1614" name="param" description="Path to the attachment." type="string" variable="$path">
             <type by_reference="false">string</type>
           </tag>
-          <tag line="1612" name="param" description="Overrides the attachment name." type="string" variable="$name">
+          <tag line="1614" name="param" description="Overrides the attachment name." type="string" variable="$name">
             <type by_reference="false">string</type>
           </tag>
-          <tag line="1612" name="param" description="File encoding (see $Encoding)." type="string" variable="$encoding">
+          <tag line="1614" name="param" description="File encoding (see $Encoding)." type="string" variable="$encoding">
             <type by_reference="false">string</type>
           </tag>
-          <tag line="1612" name="param" description="File extension (MIME) type." type="string" variable="$type">
+          <tag line="1614" name="param" description="File extension (MIME) type." type="string" variable="$type">
             <type by_reference="false">string</type>
           </tag>
-          <tag line="1612" name="return" description="" type="bool">
+          <tag line="1614" name="return" description="" type="bool">
             <type by_reference="false">bool</type>
           </tag>
         </docblock>
-        <argument line="1622">
+        <argument line="1624">
           <name>$path</name>
           <default><![CDATA[]]></default>
           <type/>
         </argument>
-        <argument line="1622">
+        <argument line="1624">
           <name>$name</name>
           <default><![CDATA['']]></default>
           <type/>
         </argument>
-        <argument line="1622">
+        <argument line="1624">
           <name>$encoding</name>
           <default><![CDATA['base64']]></default>
           <type/>
         </argument>
-        <argument line="1622">
+        <argument line="1624">
           <name>$type</name>
           <default><![CDATA['application/octet-stream']]></default>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="1662" package="PHPMailer">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="1664" package="PHPMailer">
         <name>GetAttachments</name>
         <full_name>GetAttachments</full_name>
-        <docblock line="1658">
+        <docblock line="1660">
           <description><![CDATA[Return the current array of attachments]]></description>
           <long-description><![CDATA[]]></long-description>
-          <tag line="1658" name="return" description="" type="array">
+          <tag line="1660" name="return" description="" type="array">
             <type by_reference="false">array</type>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="protected" namespace="global" line="1672" package="PHPMailer">
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="global" line="1674" package="PHPMailer">
         <name>AttachAll</name>
         <full_name>AttachAll</full_name>
-        <docblock line="1666">
+        <docblock line="1668">
           <description><![CDATA[Attaches all fs, string, and binary attachments to the message.]]></description>
           <long-description><![CDATA[<p>Returns an empty string on failure.</p>]]></long-description>
-          <tag line="1666" name="access" description="protected"/>
-          <tag line="1666" name="return" description="" type="string">
+          <tag line="1668" name="access" description="protected"/>
+          <tag line="1668" name="return" description="" type="string">
             <type by_reference="false">string</type>
           </tag>
         </docblock>
-        <argument line="1672">
+        <argument line="1674">
           <name>$disposition_type</name>
           <default><![CDATA[]]></default>
           <type/>
         </argument>
-        <argument line="1672">
+        <argument line="1674">
           <name>$boundary</name>
           <default><![CDATA[]]></default>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="protected" namespace="global" line="1743" package="PHPMailer">
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="global" line="1745" package="PHPMailer">
         <name>EncodeFile</name>
         <full_name>EncodeFile</full_name>
-        <docblock line="1734">
+        <docblock line="1736">
           <description><![CDATA[Encodes attachment in requested format.]]></description>
           <long-description><![CDATA[<p>Returns an empty string on failure.</p>]]></long-description>
-          <tag line="1734" name="param" description="The full path to the file" type="string" variable="$path">
+          <tag line="1736" name="param" description="The full path to the file" type="string" variable="$path">
             <type by_reference="false">string</type>
           </tag>
-          <tag line="1734" name="param" description="The encoding to use; one of 'base64', '7bit', '8bit', 'binary', 'quoted-printable'" type="string" variable="$encoding">
+          <tag line="1736" name="param" description="The encoding to use; one of 'base64', '7bit', '8bit', 'binary', 'quoted-printable'" type="string" variable="$encoding">
             <type by_reference="false">string</type>
           </tag>
-          <tag line="1734" name="see" description="\global\EncodeFile()" refers="\global\EncodeFile()"/>
-          <tag line="1734" name="access" description="protected"/>
-          <tag line="1734" name="return" description="" type="string">
+          <tag line="1736" name="see" description="\global\EncodeFile()" refers="\global\EncodeFile()"/>
+          <tag line="1736" name="access" description="protected"/>
+          <tag line="1736" name="return" description="" type="string">
             <type by_reference="false">string</type>
           </tag>
         </docblock>
-        <argument line="1743">
+        <argument line="1745">
           <name>$path</name>
           <default><![CDATA[]]></default>
           <type/>
         </argument>
-        <argument line="1743">
+        <argument line="1745">
           <name>$encoding</name>
           <default><![CDATA['base64']]></default>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="1785" package="PHPMailer">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="1787" package="PHPMailer">
         <name>EncodeString</name>
         <full_name>EncodeString</full_name>
-        <docblock line="1777">
+        <docblock line="1779">
           <description><![CDATA[Encodes string to requested format.]]></description>
           <long-description><![CDATA[<p>Returns an empty string on failure.</p>]]></long-description>
-          <tag line="1777" name="param" description="The text to encode" type="string" variable="$str">
+          <tag line="1779" name="param" description="The text to encode" type="string" variable="$str">
             <type by_reference="false">string</type>
           </tag>
-          <tag line="1777" name="param" description="The encoding to use; one of 'base64', '7bit', '8bit', 'binary', 'quoted-printable'" type="string" variable="$encoding">
+          <tag line="1779" name="param" description="The encoding to use; one of 'base64', '7bit', '8bit', 'binary', 'quoted-printable'" type="string" variable="$encoding">
             <type by_reference="false">string</type>
           </tag>
-          <tag line="1777" name="access" description="public"/>
-          <tag line="1777" name="return" description="" type="string">
+          <tag line="1779" name="access" description="public"/>
+          <tag line="1779" name="return" description="" type="string">
             <type by_reference="false">string</type>
           </tag>
         </docblock>
-        <argument line="1785">
+        <argument line="1787">
           <name>$str</name>
           <default><![CDATA[]]></default>
           <type/>
         </argument>
-        <argument line="1785">
+        <argument line="1787">
           <name>$encoding</name>
           <default><![CDATA['base64']]></default>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="1816" package="PHPMailer">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="1818" package="PHPMailer">
         <name>EncodeHeader</name>
         <full_name>EncodeHeader</full_name>
-        <docblock line="1811">
+        <docblock line="1813">
           <description><![CDATA[Encode a header string to best (shortest) of Q, B, quoted or none.]]></description>
           <long-description><![CDATA[]]></long-description>
-          <tag line="1811" name="access" description="public"/>
-          <tag line="1811" name="return" description="" type="string">
+          <tag line="1813" name="access" description="public"/>
+          <tag line="1813" name="return" description="" type="string">
             <type by_reference="false">string</type>
           </tag>
         </docblock>
-        <argument line="1816">
+        <argument line="1818">
           <name>$str</name>
           <default><![CDATA[]]></default>
           <type/>
         </argument>
-        <argument line="1816">
+        <argument line="1818">
           <name>$position</name>
           <default><![CDATA['text']]></default>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="1877" package="PHPMailer">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="1879" package="PHPMailer">
         <name>HasMultiBytes</name>
         <full_name>HasMultiBytes</full_name>
-        <docblock line="1871">
+        <docblock line="1873">
           <description><![CDATA[Checks if a string contains multibyte characters.]]></description>
           <long-description><![CDATA[]]></long-description>
-          <tag line="1871" name="access" description="public"/>
-          <tag line="1871" name="param" description="multi-byte text to wrap encode" type="string" variable="$str">
+          <tag line="1873" name="access" description="public"/>
+          <tag line="1873" name="param" description="multi-byte text to wrap encode" type="string" variable="$str">
             <type by_reference="false">string</type>
           </tag>
-          <tag line="1871" name="return" description="" type="bool">
+          <tag line="1873" name="return" description="" type="bool">
             <type by_reference="false">bool</type>
           </tag>
         </docblock>
-        <argument line="1877">
+        <argument line="1879">
           <name>$str</name>
           <default><![CDATA[]]></default>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="1893" package="PHPMailer">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="1895" package="PHPMailer">
         <name>Base64EncodeWrapMB</name>
         <full_name>Base64EncodeWrapMB</full_name>
-        <docblock line="1885">
+        <docblock line="1887">
           <description><![CDATA[Correctly encodes and wraps long multibyte strings for mail headers
 without breaking lines within a character.]]></description>
           <long-description><![CDATA[<p>Adapted from a function by paravoid at http://uk.php.net/manual/en/function.mb-encode-mimeheader.php</p>]]></long-description>
-          <tag line="1885" name="access" description="public"/>
-          <tag line="1885" name="param" description="multi-byte text to wrap encode" type="string" variable="$str">
+          <tag line="1887" name="access" description="public"/>
+          <tag line="1887" name="param" description="multi-byte text to wrap encode" type="string" variable="$str">
             <type by_reference="false">string</type>
           </tag>
-          <tag line="1885" name="return" description="" type="string">
+          <tag line="1887" name="return" description="" type="string">
             <type by_reference="false">string</type>
           </tag>
         </docblock>
-        <argument line="1893">
+        <argument line="1895">
           <name>$str</name>
           <default><![CDATA[]]></default>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="1933" package="PHPMailer">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="1935" package="PHPMailer">
         <name>EncodeQPphp</name>
         <full_name>EncodeQPphp</full_name>
-        <docblock line="1925">
+        <docblock line="1927">
           <description><![CDATA[Encode string to quoted-printable.]]></description>
           <long-description><![CDATA[<p>Only uses standard PHP, slow, but will always work</p>]]></long-description>
-          <tag line="1925" name="access" description="public"/>
-          <tag line="1925" name="param" description="the text to encode" type="string" variable="$string">
+          <tag line="1927" name="access" description="public"/>
+          <tag line="1927" name="param" description="the text to encode" type="string" variable="$string">
             <type by_reference="false">string</type>
           </tag>
-          <tag line="1925" name="param" description="Number of chars allowed on a line before wrapping" type="integer" variable="$line_max">
+          <tag line="1927" name="param" description="Number of chars allowed on a line before wrapping" type="integer" variable="$line_max">
             <type by_reference="false">integer</type>
           </tag>
-          <tag line="1925" name="return" description="" type="string">
+          <tag line="1927" name="return" description="" type="string">
             <type by_reference="false">string</type>
           </tag>
         </docblock>
-        <argument line="1933">
+        <argument line="1935">
           <name>$input</name>
           <default><![CDATA['']]></default>
           <type/>
         </argument>
-        <argument line="1933">
+        <argument line="1935">
           <name>$line_max</name>
           <default><![CDATA[76]]></default>
           <type/>
         </argument>
-        <argument line="1933">
+        <argument line="1935">
           <name>$space_conv</name>
           <default><![CDATA[false]]></default>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="1986" package="PHPMailer">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="1988" package="PHPMailer">
         <name>EncodeQP</name>
         <full_name>EncodeQP</full_name>
-        <docblock line="1974">
+        <docblock line="1976">
           <description><![CDATA[Encode string to RFC2045 (6.7) quoted-printable format
 Uses a PHP5 stream filter to do the encoding about 64x faster than the old version
 Also results in same content as you started with after decoding]]></description>
           <long-description><![CDATA[]]></long-description>
-          <tag line="1974" name="see" description="\global\EncodeQPphp()" refers="\global\EncodeQPphp()"/>
-          <tag line="1974" name="access" description="public"/>
-          <tag line="1974" name="param" description="the text to encode" type="string" variable="$string">
+          <tag line="1976" name="see" description="\global\EncodeQPphp()" refers="\global\EncodeQPphp()"/>
+          <tag line="1976" name="access" description="public"/>
+          <tag line="1976" name="param" description="the text to encode" type="string" variable="$string">
             <type by_reference="false">string</type>
           </tag>
-          <tag line="1974" name="param" description="Number of chars allowed on a line before wrapping" type="integer" variable="$line_max">
+          <tag line="1976" name="param" description="Number of chars allowed on a line before wrapping" type="integer" variable="$line_max">
             <type by_reference="false">integer</type>
           </tag>
-          <tag line="1974" name="param" description="Dummy param for compatibility with existing EncodeQP function" type="boolean" variable="$space_conv">
+          <tag line="1976" name="param" description="Dummy param for compatibility with existing EncodeQP function" type="boolean" variable="$space_conv">
             <type by_reference="false">boolean</type>
           </tag>
-          <tag line="1974" name="return" description="" type="string">
+          <tag line="1976" name="return" description="" type="string">
             <type by_reference="false">string</type>
           </tag>
-          <tag line="1974" name="author" description="Marcus Bointon"/>
+          <tag line="1976" name="author" description="Marcus Bointon"/>
         </docblock>
-        <argument line="1986">
+        <argument line="1988">
           <name>$string</name>
           <default><![CDATA[]]></default>
           <type/>
         </argument>
-        <argument line="1986">
+        <argument line="1988">
           <name>$line_max</name>
           <default><![CDATA[76]]></default>
           <type/>
         </argument>
-        <argument line="1986">
+        <argument line="1988">
           <name>$space_conv</name>
           <default><![CDATA[false]]></default>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="2015" package="PHPMailer">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="2017" package="PHPMailer">
         <name>EncodeQ</name>
         <full_name>EncodeQ</full_name>
-        <docblock line="2007">
+        <docblock line="2009">
           <description><![CDATA[Encode string to q encoding.]]></description>
           <long-description><![CDATA[]]></long-description>
-          <tag line="2007" name="link" description="http://tools.ietf.org/html/rfc2047" link="http://tools.ietf.org/html/rfc2047"/>
-          <tag line="2007" name="param" description="the text to encode" type="string" variable="$str">
+          <tag line="2009" name="link" description="http://tools.ietf.org/html/rfc2047" link="http://tools.ietf.org/html/rfc2047"/>
+          <tag line="2009" name="param" description="the text to encode" type="string" variable="$str">
             <type by_reference="false">string</type>
           </tag>
-          <tag line="2007" name="param" description="Where the text is going to be used, see the RFC for what that means" type="string" variable="$position">
+          <tag line="2009" name="param" description="Where the text is going to be used, see the RFC for what that means" type="string" variable="$position">
             <type by_reference="false">string</type>
           </tag>
-          <tag line="2007" name="access" description="public"/>
-          <tag line="2007" name="return" description="" type="string">
+          <tag line="2009" name="access" description="public"/>
+          <tag line="2009" name="return" description="" type="string">
             <type by_reference="false">string</type>
           </tag>
         </docblock>
-        <argument line="2015">
+        <argument line="2017">
           <name>$str</name>
           <default><![CDATA[]]></default>
           <type/>
         </argument>
-        <argument line="2015">
+        <argument line="2017">
           <name>$position</name>
           <default><![CDATA['text']]></default>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="2057" package="PHPMailer">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="2059" package="PHPMailer">
         <name>AddStringAttachment</name>
         <full_name>AddStringAttachment</full_name>
-        <docblock line="2047">
+        <docblock line="2049">
           <description><![CDATA[Adds a string or binary attachment (non-filesystem) to the list.]]></description>
           <long-description><![CDATA[<p>This method can be used to attach ascii or binary data,
 such as a BLOB record from a database.</p>]]></long-description>
-          <tag line="2047" name="param" description="String attachment data." type="string" variable="$string">
+          <tag line="2049" name="param" description="String attachment data." type="string" variable="$string">
             <type by_reference="false">string</type>
           </tag>
-          <tag line="2047" name="param" description="Name of the attachment." type="string" variable="$filename">
+          <tag line="2049" name="param" description="Name of the attachment." type="string" variable="$filename">
             <type by_reference="false">string</type>
           </tag>
-          <tag line="2047" name="param" description="File encoding (see $Encoding)." type="string" variable="$encoding">
+          <tag line="2049" name="param" description="File encoding (see $Encoding)." type="string" variable="$encoding">
             <type by_reference="false">string</type>
           </tag>
-          <tag line="2047" name="param" description="File extension (MIME) type." type="string" variable="$type">
+          <tag line="2049" name="param" description="File extension (MIME) type." type="string" variable="$type">
             <type by_reference="false">string</type>
           </tag>
-          <tag line="2047" name="return" description="" type="void">
+          <tag line="2049" name="return" description="" type="void">
             <type by_reference="false">void</type>
           </tag>
         </docblock>
-        <argument line="2057">
+        <argument line="2059">
           <name>$string</name>
           <default><![CDATA[]]></default>
           <type/>
         </argument>
-        <argument line="2057">
+        <argument line="2059">
           <name>$filename</name>
           <default><![CDATA[]]></default>
           <type/>
         </argument>
-        <argument line="2057">
+        <argument line="2059">
           <name>$encoding</name>
           <default><![CDATA['base64']]></default>
           <type/>
         </argument>
-        <argument line="2057">
+        <argument line="2059">
           <name>$type</name>
           <default><![CDATA['application/octet-stream']]></default>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="2084" package="PHPMailer">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="2086" package="PHPMailer">
         <name>AddEmbeddedImage</name>
         <full_name>AddEmbeddedImage</full_name>
-        <docblock line="2071">
+        <docblock line="2073">
           <description><![CDATA[Adds an embedded attachment.]]></description>
           <long-description><![CDATA[<p>This can include images, sounds, and
 just about any other document.  Make sure to set the $type to an
 image type.  For JPEG images use "image/jpeg" and for GIF images
 use "image/gif".</p>]]></long-description>
-          <tag line="2071" name="param" description="Path to the attachment." type="string" variable="$path">
+          <tag line="2073" name="param" description="Path to the attachment." type="string" variable="$path">
             <type by_reference="false">string</type>
           </tag>
-          <tag line="2071" name="param" description="Content ID of the attachment. Use this to identify the Id for accessing the image in an HTML form." type="string" variable="$cid">
+          <tag line="2073" name="param" description="Content ID of the attachment. Use this to identify the Id for accessing the image in an HTML form." type="string" variable="$cid">
             <type by_reference="false">string</type>
           </tag>
-          <tag line="2071" name="param" description="Overrides the attachment name." type="string" variable="$name">
+          <tag line="2073" name="param" description="Overrides the attachment name." type="string" variable="$name">
             <type by_reference="false">string</type>
           </tag>
-          <tag line="2071" name="param" description="File encoding (see $Encoding)." type="string" variable="$encoding">
+          <tag line="2073" name="param" description="File encoding (see $Encoding)." type="string" variable="$encoding">
             <type by_reference="false">string</type>
           </tag>
-          <tag line="2071" name="param" description="File extension (MIME) type." type="string" variable="$type">
+          <tag line="2073" name="param" description="File extension (MIME) type." type="string" variable="$type">
             <type by_reference="false">string</type>
           </tag>
-          <tag line="2071" name="return" description="" type="bool">
+          <tag line="2073" name="return" description="" type="bool">
             <type by_reference="false">bool</type>
           </tag>
         </docblock>
-        <argument line="2084">
+        <argument line="2086">
           <name>$path</name>
           <default><![CDATA[]]></default>
           <type/>
         </argument>
-        <argument line="2084">
+        <argument line="2086">
           <name>$cid</name>
           <default><![CDATA[]]></default>
           <type/>
         </argument>
-        <argument line="2084">
+        <argument line="2086">
           <name>$name</name>
           <default><![CDATA['']]></default>
           <type/>
         </argument>
-        <argument line="2084">
+        <argument line="2086">
           <name>$encoding</name>
           <default><![CDATA['base64']]></default>
           <type/>
         </argument>
-        <argument line="2084">
+        <argument line="2086">
           <name>$type</name>
           <default><![CDATA['application/octet-stream']]></default>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="2111" package="PHPMailer">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="2113" package="PHPMailer">
         <name>AddStringEmbeddedImage</name>
         <full_name>AddStringEmbeddedImage</full_name>
-        <argument line="2111">
+        <argument line="2113">
           <name>$string</name>
           <default><![CDATA[]]></default>
           <type/>
         </argument>
-        <argument line="2111">
+        <argument line="2113">
           <name>$cid</name>
           <default><![CDATA[]]></default>
           <type/>
         </argument>
-        <argument line="2111">
+        <argument line="2113">
           <name>$filename</name>
           <default><![CDATA['']]></default>
           <type/>
         </argument>
-        <argument line="2111">
+        <argument line="2113">
           <name>$encoding</name>
           <default><![CDATA['base64']]></default>
           <type/>
         </argument>
-        <argument line="2111">
+        <argument line="2113">
           <name>$type</name>
           <default><![CDATA['application/octet-stream']]></default>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="2130" package="PHPMailer">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="2132" package="PHPMailer">
         <name>InlineImageExists</name>
         <full_name>InlineImageExists</full_name>
-        <docblock line="2125">
+        <docblock line="2127">
           <description><![CDATA[Returns true if an inline attachment is present.]]></description>
           <long-description><![CDATA[]]></long-description>
-          <tag line="2125" name="access" description="public"/>
-          <tag line="2125" name="return" description="" type="bool">
+          <tag line="2127" name="access" description="public"/>
+          <tag line="2127" name="return" description="" type="bool">
             <type by_reference="false">bool</type>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="2139" package="PHPMailer">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="2141" package="PHPMailer">
         <name>AttachmentExists</name>
         <full_name>AttachmentExists</full_name>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="2148" package="PHPMailer">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="2150" package="PHPMailer">
         <name>AlternativeExists</name>
         <full_name>AlternativeExists</full_name>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="2160" package="PHPMailer">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="2162" package="PHPMailer">
         <name>ClearAddresses</name>
         <full_name>ClearAddresses</full_name>
-        <docblock line="2156">
+        <docblock line="2158">
           <description><![CDATA[Clears all recipients assigned in the TO array.]]></description>
           <long-description><![CDATA[<p>Returns void.</p>]]></long-description>
-          <tag line="2156" name="return" description="" type="void">
+          <tag line="2158" name="return" description="" type="void">
             <type by_reference="false">void</type>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="2171" package="PHPMailer">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="2173" package="PHPMailer">
         <name>ClearCCs</name>
         <full_name>ClearCCs</full_name>
-        <docblock line="2167">
+        <docblock line="2169">
           <description><![CDATA[Clears all recipients assigned in the CC array.]]></description>
           <long-description><![CDATA[<p>Returns void.</p>]]></long-description>
-          <tag line="2167" name="return" description="" type="void">
+          <tag line="2169" name="return" description="" type="void">
             <type by_reference="false">void</type>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="2182" package="PHPMailer">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="2184" package="PHPMailer">
         <name>ClearBCCs</name>
         <full_name>ClearBCCs</full_name>
-        <docblock line="2178">
+        <docblock line="2180">
           <description><![CDATA[Clears all recipients assigned in the BCC array.]]></description>
           <long-description><![CDATA[<p>Returns void.</p>]]></long-description>
-          <tag line="2178" name="return" description="" type="void">
+          <tag line="2180" name="return" description="" type="void">
             <type by_reference="false">void</type>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="2193" package="PHPMailer">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="2195" package="PHPMailer">
         <name>ClearReplyTos</name>
         <full_name>ClearReplyTos</full_name>
-        <docblock line="2189">
+        <docblock line="2191">
           <description><![CDATA[Clears all recipients assigned in the ReplyTo array.]]></description>
           <long-description><![CDATA[<p>Returns void.</p>]]></long-description>
-          <tag line="2189" name="return" description="" type="void">
+          <tag line="2191" name="return" description="" type="void">
             <type by_reference="false">void</type>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="2202" package="PHPMailer">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="2204" package="PHPMailer">
         <name>ClearAllRecipients</name>
         <full_name>ClearAllRecipients</full_name>
-        <docblock line="2197">
+        <docblock line="2199">
           <description><![CDATA[Clears all recipients assigned in the TO, CC and BCC
 array.]]></description>
           <long-description><![CDATA[<p>Returns void.</p>]]></long-description>
-          <tag line="2197" name="return" description="" type="void">
+          <tag line="2199" name="return" description="" type="void">
             <type by_reference="false">void</type>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="2214" package="PHPMailer">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="2216" package="PHPMailer">
         <name>ClearAttachments</name>
         <full_name>ClearAttachments</full_name>
-        <docblock line="2209">
+        <docblock line="2211">
           <description><![CDATA[Clears all previously set filesystem, string, and binary
 attachments.]]></description>
           <long-description><![CDATA[<p>Returns void.</p>]]></long-description>
-          <tag line="2209" name="return" description="" type="void">
+          <tag line="2211" name="return" description="" type="void">
             <type by_reference="false">void</type>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="2222" package="PHPMailer">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="2224" package="PHPMailer">
         <name>ClearCustomHeaders</name>
         <full_name>ClearCustomHeaders</full_name>
-        <docblock line="2218">
+        <docblock line="2220">
           <description><![CDATA[Clears all custom headers.]]></description>
           <long-description><![CDATA[<p>Returns void.</p>]]></long-description>
-          <tag line="2218" name="return" description="" type="void">
+          <tag line="2220" name="return" description="" type="void">
             <type by_reference="false">void</type>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="protected" namespace="global" line="2235" package="PHPMailer">
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="global" line="2237" package="PHPMailer">
         <name>SetError</name>
         <full_name>SetError</full_name>
-        <docblock line="2230">
+        <docblock line="2232">
           <description><![CDATA[Adds the error message to the error container.]]></description>
           <long-description><![CDATA[]]></long-description>
-          <tag line="2230" name="access" description="protected"/>
-          <tag line="2230" name="return" description="" type="void">
+          <tag line="2232" name="access" description="protected"/>
+          <tag line="2232" name="return" description="" type="void">
             <type by_reference="false">void</type>
           </tag>
         </docblock>
-        <argument line="2235">
+        <argument line="2237">
           <name>$msg</name>
           <default><![CDATA[]]></default>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="true" visibility="public" namespace="global" line="2252" package="PHPMailer">
+      <method final="false" abstract="false" static="true" visibility="public" namespace="global" line="2254" package="PHPMailer">
         <name>RFCDate</name>
         <full_name>RFCDate</full_name>
-        <docblock line="2246">
+        <docblock line="2248">
           <description><![CDATA[Returns the proper RFC 822 formatted date.]]></description>
           <long-description><![CDATA[]]></long-description>
-          <tag line="2246" name="access" description="public"/>
-          <tag line="2246" name="return" description="" type="string">
+          <tag line="2248" name="access" description="public"/>
+          <tag line="2248" name="return" description="" type="string">
             <type by_reference="false">string</type>
           </tag>
-          <tag line="2246" name="static" description=""/>
+          <tag line="2248" name="static" description=""/>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="protected" namespace="global" line="2267" package="PHPMailer">
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="global" line="2269" package="PHPMailer">
         <name>ServerHostname</name>
         <full_name>ServerHostname</full_name>
-        <docblock line="2262">
+        <docblock line="2264">
           <description><![CDATA[Returns the server hostname or 'localhost.localdomain' if unknown.]]></description>
           <long-description><![CDATA[]]></long-description>
-          <tag line="2262" name="access" description="protected"/>
-          <tag line="2262" name="return" description="" type="string">
+          <tag line="2264" name="access" description="protected"/>
+          <tag line="2264" name="return" description="" type="string">
             <type by_reference="false">string</type>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="protected" namespace="global" line="2284" package="PHPMailer">
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="global" line="2286" package="PHPMailer">
         <name>Lang</name>
         <full_name>Lang</full_name>
-        <docblock line="2279">
+        <docblock line="2281">
           <description><![CDATA[Returns a message in the appropriate language.]]></description>
           <long-description><![CDATA[]]></long-description>
-          <tag line="2279" name="access" description="protected"/>
-          <tag line="2279" name="return" description="" type="string">
+          <tag line="2281" name="access" description="protected"/>
+          <tag line="2281" name="return" description="" type="string">
             <type by_reference="false">string</type>
           </tag>
         </docblock>
-        <argument line="2284">
+        <argument line="2286">
           <name>$key</name>
           <default><![CDATA[]]></default>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="2301" package="PHPMailer">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="2303" package="PHPMailer">
         <name>IsError</name>
         <full_name>IsError</full_name>
-        <docblock line="2296">
+        <docblock line="2298">
           <description><![CDATA[Returns true if an error occurred.]]></description>
           <long-description><![CDATA[]]></long-description>
-          <tag line="2296" name="access" description="public"/>
-          <tag line="2296" name="return" description="" type="bool">
+          <tag line="2298" name="access" description="public"/>
+          <tag line="2298" name="return" description="" type="bool">
             <type by_reference="false">bool</type>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="2311" package="PHPMailer">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="2313" package="PHPMailer">
         <name>FixEOL</name>
         <full_name>FixEOL</full_name>
-        <docblock line="2305">
+        <docblock line="2307">
           <description><![CDATA[Changes every end of line from CRLF, CR or LF to $this->LE.]]></description>
           <long-description><![CDATA[]]></long-description>
-          <tag line="2305" name="access" description="public"/>
-          <tag line="2305" name="param" description="String to FixEOL" type="string" variable="$str">
+          <tag line="2307" name="access" description="public"/>
+          <tag line="2307" name="param" description="String to FixEOL" type="string" variable="$str">
             <type by_reference="false">string</type>
           </tag>
-          <tag line="2305" name="return" description="" type="string">
+          <tag line="2307" name="return" description="" type="string">
             <type by_reference="false">string</type>
           </tag>
         </docblock>
-        <argument line="2311">
+        <argument line="2313">
           <name>$str</name>
           <default><![CDATA[]]></default>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="2329" package="PHPMailer">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="2331" package="PHPMailer">
         <name>AddCustomHeader</name>
         <full_name>AddCustomHeader</full_name>
-        <docblock line="2321">
+        <docblock line="2323">
           <description><![CDATA[Adds a custom header.]]></description>
           <long-description><![CDATA[<p>$name value can be overloaded to contain
 both header name and value (name:value)</p>]]></long-description>
-          <tag line="2321" name="access" description="public"/>
-          <tag line="2321" name="param" description="custom header name" type="string" variable="$name">
+          <tag line="2323" name="access" description="public"/>
+          <tag line="2323" name="param" description="custom header name" type="string" variable="$name">
             <type by_reference="false">string</type>
           </tag>
-          <tag line="2321" name="param" description="header value" type="string" variable="$value">
+          <tag line="2323" name="param" description="header value" type="string" variable="$value">
             <type by_reference="false">string</type>
           </tag>
-          <tag line="2321" name="return" description="" type="void">
+          <tag line="2323" name="return" description="" type="void">
             <type by_reference="false">void</type>
           </tag>
         </docblock>
-        <argument line="2329">
+        <argument line="2331">
           <name>$name</name>
           <default><![CDATA[]]></default>
           <type/>
         </argument>
-        <argument line="2329">
+        <argument line="2331">
           <name>$value</name>
           <default><![CDATA[null]]></default>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="2345" package="PHPMailer">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="2347" package="PHPMailer">
         <name>MsgHTML</name>
         <full_name>MsgHTML</full_name>
-        <docblock line="2338">
+        <docblock line="2340">
           <description><![CDATA[Evaluates the message and returns modifications for inline images and backgrounds]]></description>
           <long-description><![CDATA[]]></long-description>
-          <tag line="2338" name="access" description="public"/>
-          <tag line="2338" name="param" description="Text to be HTML modified" type="string" variable="$message">
+          <tag line="2340" name="access" description="public"/>
+          <tag line="2340" name="param" description="Text to be HTML modified" type="string" variable="$message">
             <type by_reference="false">string</type>
           </tag>
-          <tag line="2338" name="param" description="baseline directory for path" type="string" variable="$basedir">
+          <tag line="2340" name="param" description="baseline directory for path" type="string" variable="$basedir">
             <type by_reference="false">string</type>
           </tag>
-          <tag line="2338" name="return" description="" type="\$message">
+          <tag line="2340" name="return" description="" type="\$message">
             <type by_reference="false">\$message</type>
           </tag>
         </docblock>
-        <argument line="2345">
+        <argument line="2347">
           <name>$message</name>
           <default><![CDATA[]]></default>
           <type/>
         </argument>
-        <argument line="2345">
+        <argument line="2347">
           <name>$basedir</name>
           <default><![CDATA['']]></default>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="true" visibility="public" namespace="global" line="2386" package="PHPMailer">
+      <method final="false" abstract="false" static="true" visibility="public" namespace="global" line="2388" package="PHPMailer">
         <name>_mime_types</name>
         <full_name>_mime_types</full_name>
-        <docblock line="2379">
+        <docblock line="2381">
           <description><![CDATA[Gets the MIME type of the embedded or inline image]]></description>
           <long-description><![CDATA[]]></long-description>
-          <tag line="2379" name="param" description="File extension" type="string" variable="$ext">
+          <tag line="2381" name="param" description="File extension" type="string" variable="$ext">
             <type by_reference="false">string</type>
           </tag>
-          <tag line="2379" name="access" description="public"/>
-          <tag line="2379" name="return" description="MIME type of ext" type="string">
+          <tag line="2381" name="access" description="public"/>
+          <tag line="2381" name="return" description="MIME type of ext" type="string">
             <type by_reference="false">string</type>
           </tag>
-          <tag line="2379" name="static" description=""/>
+          <tag line="2381" name="static" description=""/>
         </docblock>
-        <argument line="2386">
+        <argument line="2388">
           <name>$ext</name>
           <default><![CDATA['']]></default>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="2491" package="PHPMailer">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="2493" package="PHPMailer">
         <name>set</name>
         <full_name>set</full_name>
-        <docblock line="2479">
+        <docblock line="2481">
           <description><![CDATA[Set (or reset) Class Objects (variables)]]></description>
           <long-description><![CDATA[<p>Usage Example:
 $page->set('X-Priority', '3');</p>]]></long-description>
-          <tag line="2479" name="access" description="public"/>
-          <tag line="2479" name="param" description="Parameter Name" type="string" variable="$name">
+          <tag line="2481" name="access" description="public"/>
+          <tag line="2481" name="param" description="Parameter Name" type="string" variable="$name">
             <type by_reference="false">string</type>
           </tag>
-          <tag line="2479" name="param" description="Parameter Value NOTE: will not work with arrays, there are no arrays to set/reset" type="mixed" variable="$value">
+          <tag line="2481" name="param" description="Parameter Value NOTE: will not work with arrays, there are no arrays to set/reset" type="mixed" variable="$value">
             <type by_reference="false">mixed</type>
           </tag>
-          <tag line="2479" name="todo" description="Should this not be using __set() magic function?"/>
+          <tag line="2481" name="todo" description="Should this not be using __set() magic function?"/>
         </docblock>
-        <argument line="2491">
+        <argument line="2493">
           <name>$name</name>
           <default><![CDATA[]]></default>
           <type/>
         </argument>
-        <argument line="2491">
+        <argument line="2493">
           <name>$value</name>
           <default><![CDATA['']]></default>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="2513" package="PHPMailer">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="2515" package="PHPMailer">
         <name>SecureHeader</name>
         <full_name>SecureHeader</full_name>
-        <docblock line="2507">
+        <docblock line="2509">
           <description><![CDATA[Strips newlines to prevent header injection.]]></description>
           <long-description><![CDATA[]]></long-description>
-          <tag line="2507" name="access" description="public"/>
-          <tag line="2507" name="param" description="String" type="string" variable="$str">
+          <tag line="2509" name="access" description="public"/>
+          <tag line="2509" name="param" description="String" type="string" variable="$str">
             <type by_reference="false">string</type>
           </tag>
-          <tag line="2507" name="return" description="" type="string">
+          <tag line="2509" name="return" description="" type="string">
             <type by_reference="false">string</type>
           </tag>
         </docblock>
-        <argument line="2513">
+        <argument line="2515">
           <name>$str</name>
           <default><![CDATA[]]></default>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="2524" package="PHPMailer">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="2526" package="PHPMailer">
         <name>Sign</name>
         <full_name>Sign</full_name>
-        <docblock line="2517">
+        <docblock line="2519">
           <description><![CDATA[Set the private key file and password to sign the message.]]></description>
           <long-description><![CDATA[]]></long-description>
-          <tag line="2517" name="access" description="public"/>
-          <tag line="2517" name="param" description="Parameter File Name" type="string" variable="$key_filename">
+          <tag line="2519" name="access" description="public"/>
+          <tag line="2519" name="param" description="Parameter File Name" type="string" variable="$key_filename">
             <type by_reference="false">string</type>
           </tag>
-          <tag line="2517" name="param" description="Password for private key" type="string" variable="$key_pass">
+          <tag line="2519" name="param" description="Password for private key" type="string" variable="$key_pass">
             <type by_reference="false">string</type>
           </tag>
         </docblock>
-        <argument line="2524">
+        <argument line="2526">
           <name>$cert_filename</name>
           <default><![CDATA[]]></default>
           <type/>
         </argument>
-        <argument line="2524">
+        <argument line="2526">
           <name>$key_filename</name>
           <default><![CDATA[]]></default>
           <type/>
         </argument>
-        <argument line="2524">
+        <argument line="2526">
           <name>$key_pass</name>
           <default><![CDATA[]]></default>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="2537" package="PHPMailer">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="2539" package="PHPMailer">
         <name>DKIM_QP</name>
         <full_name>DKIM_QP</full_name>
-        <docblock line="2530">
+        <docblock line="2532">
           <description><![CDATA[Set the private key file and password to sign the message.]]></description>
           <long-description><![CDATA[]]></long-description>
-          <tag line="2530" name="access" description="public"/>
-          <tag line="2530" name="param" description="Parameter File Name" type="string" variable="$key_filename">
+          <tag line="2532" name="access" description="public"/>
+          <tag line="2532" name="param" description="Parameter File Name" type="string" variable="$key_filename">
             <type by_reference="false">string</type>
           </tag>
-          <tag line="2530" name="param" description="Password for private key" type="string" variable="$key_pass">
+          <tag line="2532" name="param" description="Password for private key" type="string" variable="$key_pass">
             <type by_reference="false">string</type>
           </tag>
         </docblock>
-        <argument line="2537">
+        <argument line="2539">
           <name>$txt</name>
           <default><![CDATA[]]></default>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="2557" package="PHPMailer">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="2559" package="PHPMailer">
         <name>DKIM_Sign</name>
         <full_name>DKIM_Sign</full_name>
-        <docblock line="2551">
+        <docblock line="2553">
           <description><![CDATA[Generate DKIM signature]]></description>
           <long-description><![CDATA[]]></long-description>
-          <tag line="2551" name="access" description="public"/>
-          <tag line="2551" name="param" description="Header" type="string" variable="$s">
+          <tag line="2553" name="access" description="public"/>
+          <tag line="2553" name="param" description="Header" type="string" variable="$s">
             <type by_reference="false">string</type>
           </tag>
         </docblock>
-        <argument line="2557">
+        <argument line="2559">
           <name>$s</name>
           <default><![CDATA[]]></default>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="2575" package="PHPMailer">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="2577" package="PHPMailer">
         <name>DKIM_HeaderC</name>
         <full_name>DKIM_HeaderC</full_name>
-        <docblock line="2569">
+        <docblock line="2571">
           <description><![CDATA[Generate DKIM Canonicalization Header]]></description>
           <long-description><![CDATA[]]></long-description>
-          <tag line="2569" name="access" description="public"/>
-          <tag line="2569" name="param" description="Header" type="string" variable="$s">
+          <tag line="2571" name="access" description="public"/>
+          <tag line="2571" name="param" description="Header" type="string" variable="$s">
             <type by_reference="false">string</type>
           </tag>
         </docblock>
-        <argument line="2575">
+        <argument line="2577">
           <name>$s</name>
           <default><![CDATA[]]></default>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="2594" package="PHPMailer">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="2596" package="PHPMailer">
         <name>DKIM_BodyC</name>
         <full_name>DKIM_BodyC</full_name>
-        <docblock line="2588">
+        <docblock line="2590">
           <description><![CDATA[Generate DKIM Canonicalization Body]]></description>
           <long-description><![CDATA[]]></long-description>
-          <tag line="2588" name="access" description="public"/>
-          <tag line="2588" name="param" description="Message Body" type="string" variable="$body">
+          <tag line="2590" name="access" description="public"/>
+          <tag line="2590" name="param" description="Message Body" type="string" variable="$body">
             <type by_reference="false">string</type>
           </tag>
         </docblock>
-        <argument line="2594">
+        <argument line="2596">
           <name>$body</name>
           <default><![CDATA[]]></default>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="2614" package="PHPMailer">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="2616" package="PHPMailer">
         <name>DKIM_Add</name>
         <full_name>DKIM_Add</full_name>
-        <docblock line="2606">
+        <docblock line="2608">
           <description><![CDATA[Create the DKIM header, body, as new header]]></description>
           <long-description><![CDATA[]]></long-description>
-          <tag line="2606" name="access" description="public"/>
-          <tag line="2606" name="param" description="Header lines" type="string" variable="$headers_line">
+          <tag line="2608" name="access" description="public"/>
+          <tag line="2608" name="param" description="Header lines" type="string" variable="$headers_line">
             <type by_reference="false">string</type>
           </tag>
-          <tag line="2606" name="param" description="Subject" type="string" variable="$subject">
+          <tag line="2608" name="param" description="Subject" type="string" variable="$subject">
             <type by_reference="false">string</type>
           </tag>
-          <tag line="2606" name="param" description="Body" type="string" variable="$body">
+          <tag line="2608" name="param" description="Body" type="string" variable="$body">
             <type by_reference="false">string</type>
           </tag>
         </docblock>
-        <argument line="2614">
+        <argument line="2616">
           <name>$headers_line</name>
           <default><![CDATA[]]></default>
           <type/>
         </argument>
-        <argument line="2614">
+        <argument line="2616">
           <name>$subject</name>
           <default><![CDATA[]]></default>
           <type/>
         </argument>
-        <argument line="2614">
+        <argument line="2616">
           <name>$body</name>
           <default><![CDATA[]]></default>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="protected" namespace="global" line="2652" package="PHPMailer">
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="global" line="2654" package="PHPMailer">
         <name>doCallback</name>
         <full_name>doCallback</full_name>
-        <docblock line="2649">
+        <docblock line="2651">
           <description><![CDATA[Perform callback]]></description>
           <long-description><![CDATA[]]></long-description>
         </docblock>
-        <argument line="2652">
+        <argument line="2654">
           <name>$isSent</name>
           <default><![CDATA[]]></default>
           <type/>
         </argument>
-        <argument line="2652">
+        <argument line="2654">
           <name>$to</name>
           <default><![CDATA[]]></default>
           <type/>
         </argument>
-        <argument line="2652">
+        <argument line="2654">
           <name>$cc</name>
           <default><![CDATA[]]></default>
           <type/>
         </argument>
-        <argument line="2652">
+        <argument line="2654">
           <name>$bcc</name>
           <default><![CDATA[]]></default>
           <type/>
         </argument>
-        <argument line="2652">
+        <argument line="2654">
           <name>$subject</name>
           <default><![CDATA[]]></default>
           <type/>
         </argument>
-        <argument line="2652">
+        <argument line="2654">
           <name>$body</name>
           <default><![CDATA[]]></default>
           <type/>
         </argument>
-        <argument line="2652">
+        <argument line="2654">
           <name>$from</name>
           <default><![CDATA[null]]></default>
           <type/>
         </argument>
       </method>
     </class>
-    <class final="false" abstract="false" namespace="global" line="2663" package="PHPMailer">
+    <class final="false" abstract="false" namespace="global" line="2665" package="PHPMailer">
       <extends>\Exception</extends>
       <name>phpmailerException</name>
       <full_name>\phpmailerException</full_name>
-      <docblock line="2660">
+      <docblock line="2662">
         <description><![CDATA[Exception handling]]></description>
         <long-description><![CDATA[]]></long-description>
       </docblock>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="2664" package="PHPMailer">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="2666" package="PHPMailer">
         <name>errorMessage</name>
         <full_name>errorMessage</full_name>
       </method>
     </class>
     <markers>
-      <todo line="1520">check this worked</todo>
+      <todo line="1522">check this worked</todo>
     </markers>
     <parse_markers>
-      <error line="395" code="50018">No DocBlock was found for property $smtp</error>
-      <error line="396" code="50018">No DocBlock was found for property $to</error>
-      <error line="397" code="50018">No DocBlock was found for property $cc</error>
-      <error line="398" code="50018">No DocBlock was found for property $bcc</error>
-      <error line="399" code="50018">No DocBlock was found for property $ReplyTo</error>
-      <error line="400" code="50018">No DocBlock was found for property $all_recipients</error>
-      <error line="401" code="50018">No DocBlock was found for property $attachment</error>
-      <error line="402" code="50018">No DocBlock was found for property $CustomHeader</error>
-      <error line="403" code="50018">No DocBlock was found for property $message_type</error>
-      <error line="404" code="50018">No DocBlock was found for property $boundary</error>
-      <error line="405" code="50018">No DocBlock was found for property $language</error>
-      <error line="406" code="50018">No DocBlock was found for property $error_count</error>
-      <error line="407" code="50018">No DocBlock was found for property $sign_cert_file</error>
-      <error line="408" code="50018">No DocBlock was found for property $sign_key_file</error>
-      <error line="409" code="50018">No DocBlock was found for property $sign_key_pass</error>
-      <error line="410" code="50018">No DocBlock was found for property $exceptions</error>
-      <error line="1089" code="50015">Argument $type is missing from the Docblock of AddrAppend()</error>
-      <error line="1089" code="50015">Argument $addr is missing from the Docblock of AddrAppend()</error>
-      <error line="1106" code="50015">Argument $addr is missing from the Docblock of AddrFormat()</error>
-      <error line="1542" code="50015">Argument $boundary is missing from the Docblock of GetBoundary()</error>
-      <error line="1542" code="50015">Argument $charSet is missing from the Docblock of GetBoundary()</error>
-      <error line="1542" code="50015">Argument $contentType is missing from the Docblock of GetBoundary()</error>
-      <error line="1542" code="50015">Argument $encoding is missing from the Docblock of GetBoundary()</error>
-      <error line="1567" code="50015">Argument $boundary is missing from the Docblock of EndBoundary()</error>
-      <error line="1590" code="50015">Argument $name is missing from the Docblock of HeaderLine()</error>
-      <error line="1590" code="50015">Argument $value is missing from the Docblock of HeaderLine()</error>
-      <error line="1599" code="50015">Argument $value is missing from the Docblock of TextLine()</error>
-      <error line="1666" code="50015">Argument $disposition_type is missing from the Docblock of AttachAll()</error>
-      <error line="1666" code="50015">Argument $boundary is missing from the Docblock of AttachAll()</error>
-      <error line="1811" code="50015">Argument $str is missing from the Docblock of EncodeHeader()</error>
-      <error line="1811" code="50015">Argument $position is missing from the Docblock of EncodeHeader()</error>
-      <error line="1925" code="50014">Name of argument $input does not match with the DocBlock's name $string in EncodeQPphp()</error>
-      <error line="1925" code="50015">Argument $space_conv is missing from the Docblock of EncodeQPphp()</error>
-      <notice line="1925" code="50013">Parameter $string could not be found in EncodeQPphp()</notice>
-      <error line="2111" code="50010">No DocBlock was found for method AddStringEmbeddedImage()</error>
-      <error line="2139" code="50010">No DocBlock was found for method AttachmentExists()</error>
-      <error line="2148" code="50010">No DocBlock was found for method AlternativeExists()</error>
-      <error line="2230" code="50015">Argument $msg is missing from the Docblock of SetError()</error>
-      <error line="2279" code="50015">Argument $key is missing from the Docblock of Lang()</error>
-      <error line="2517" code="50014">Name of argument $cert_filename does not match with the DocBlock's name $key_filename in Sign()</error>
-      <error line="2517" code="50014">Name of argument $key_filename does not match with the DocBlock's name $key_pass in Sign()</error>
-      <error line="2517" code="50015">Argument $key_pass is missing from the Docblock of Sign()</error>
-      <error line="2530" code="50014">Name of argument $txt does not match with the DocBlock's name $key_filename in DKIM_QP()</error>
-      <notice line="2530" code="50013">Parameter $key_filename could not be found in DKIM_QP()</notice>
-      <notice line="2530" code="50013">Parameter $key_pass could not be found in DKIM_QP()</notice>
-      <error line="2649" code="50015">Argument $isSent is missing from the Docblock of doCallback()</error>
-      <error line="2649" code="50015">Argument $to is missing from the Docblock of doCallback()</error>
-      <error line="2649" code="50015">Argument $cc is missing from the Docblock of doCallback()</error>
-      <error line="2649" code="50015">Argument $bcc is missing from the Docblock of doCallback()</error>
-      <error line="2649" code="50015">Argument $subject is missing from the Docblock of doCallback()</error>
-      <error line="2649" code="50015">Argument $body is missing from the Docblock of doCallback()</error>
-      <error line="2649" code="50015">Argument $from is missing from the Docblock of doCallback()</error>
-      <error line="2664" code="50010">No DocBlock was found for method errorMessage()</error>
+      <error line="396" code="50018">No DocBlock was found for property $smtp</error>
+      <error line="397" code="50018">No DocBlock was found for property $to</error>
+      <error line="398" code="50018">No DocBlock was found for property $cc</error>
+      <error line="399" code="50018">No DocBlock was found for property $bcc</error>
+      <error line="400" code="50018">No DocBlock was found for property $ReplyTo</error>
+      <error line="401" code="50018">No DocBlock was found for property $all_recipients</error>
+      <error line="402" code="50018">No DocBlock was found for property $attachment</error>
+      <error line="403" code="50018">No DocBlock was found for property $CustomHeader</error>
+      <error line="404" code="50018">No DocBlock was found for property $message_type</error>
+      <error line="405" code="50018">No DocBlock was found for property $boundary</error>
+      <error line="406" code="50018">No DocBlock was found for property $language</error>
+      <error line="407" code="50018">No DocBlock was found for property $error_count</error>
+      <error line="408" code="50018">No DocBlock was found for property $sign_cert_file</error>
+      <error line="409" code="50018">No DocBlock was found for property $sign_key_file</error>
+      <error line="410" code="50018">No DocBlock was found for property $sign_key_pass</error>
+      <error line="411" code="50018">No DocBlock was found for property $exceptions</error>
+      <error line="1091" code="50015">Argument $type is missing from the Docblock of AddrAppend()</error>
+      <error line="1091" code="50015">Argument $addr is missing from the Docblock of AddrAppend()</error>
+      <error line="1108" code="50015">Argument $addr is missing from the Docblock of AddrFormat()</error>
+      <error line="1544" code="50015">Argument $boundary is missing from the Docblock of GetBoundary()</error>
+      <error line="1544" code="50015">Argument $charSet is missing from the Docblock of GetBoundary()</error>
+      <error line="1544" code="50015">Argument $contentType is missing from the Docblock of GetBoundary()</error>
+      <error line="1544" code="50015">Argument $encoding is missing from the Docblock of GetBoundary()</error>
+      <error line="1569" code="50015">Argument $boundary is missing from the Docblock of EndBoundary()</error>
+      <error line="1592" code="50015">Argument $name is missing from the Docblock of HeaderLine()</error>
+      <error line="1592" code="50015">Argument $value is missing from the Docblock of HeaderLine()</error>
+      <error line="1601" code="50015">Argument $value is missing from the Docblock of TextLine()</error>
+      <error line="1668" code="50015">Argument $disposition_type is missing from the Docblock of AttachAll()</error>
+      <error line="1668" code="50015">Argument $boundary is missing from the Docblock of AttachAll()</error>
+      <error line="1813" code="50015">Argument $str is missing from the Docblock of EncodeHeader()</error>
+      <error line="1813" code="50015">Argument $position is missing from the Docblock of EncodeHeader()</error>
+      <error line="1927" code="50014">Name of argument $input does not match with the DocBlock's name $string in EncodeQPphp()</error>
+      <error line="1927" code="50015">Argument $space_conv is missing from the Docblock of EncodeQPphp()</error>
+      <notice line="1927" code="50013">Parameter $string could not be found in EncodeQPphp()</notice>
+      <error line="2113" code="50010">No DocBlock was found for method AddStringEmbeddedImage()</error>
+      <error line="2141" code="50010">No DocBlock was found for method AttachmentExists()</error>
+      <error line="2150" code="50010">No DocBlock was found for method AlternativeExists()</error>
+      <error line="2232" code="50015">Argument $msg is missing from the Docblock of SetError()</error>
+      <error line="2281" code="50015">Argument $key is missing from the Docblock of Lang()</error>
+      <error line="2519" code="50014">Name of argument $cert_filename does not match with the DocBlock's name $key_filename in Sign()</error>
+      <error line="2519" code="50014">Name of argument $key_filename does not match with the DocBlock's name $key_pass in Sign()</error>
+      <error line="2519" code="50015">Argument $key_pass is missing from the Docblock of Sign()</error>
+      <error line="2532" code="50014">Name of argument $txt does not match with the DocBlock's name $key_filename in DKIM_QP()</error>
+      <notice line="2532" code="50013">Parameter $key_filename could not be found in DKIM_QP()</notice>
+      <notice line="2532" code="50013">Parameter $key_pass could not be found in DKIM_QP()</notice>
+      <error line="2651" code="50015">Argument $isSent is missing from the Docblock of doCallback()</error>
+      <error line="2651" code="50015">Argument $to is missing from the Docblock of doCallback()</error>
+      <error line="2651" code="50015">Argument $cc is missing from the Docblock of doCallback()</error>
+      <error line="2651" code="50015">Argument $bcc is missing from the Docblock of doCallback()</error>
+      <error line="2651" code="50015">Argument $subject is missing from the Docblock of doCallback()</error>
+      <error line="2651" code="50015">Argument $body is missing from the Docblock of doCallback()</error>
+      <error line="2651" code="50015">Argument $from is missing from the Docblock of doCallback()</error>
+      <error line="2666" code="50010">No DocBlock was found for method errorMessage()</error>
     </parse_markers>
   </file>
-  <file path="class.pop3.php" hash="078dbcf3d03d0bffc0c24ea805741f6b" package="PHPMailer">
+  <file path="class.pop3.php" hash="83a438a7f85fd9bebe28cfae74897139" package="PHPMailer">
     <docblock line="25">
       <description><![CDATA[PHPMailer - PHP POP Before SMTP Authentication Class
 NOTE: Designed for use with PHP version 5 and up]]></description>
@@ -2491,7 +2494,7 @@ NOTE: Designed for use with PHP version 5 and up]]></description>
       <full_name>\POP3</full_name>
       <docblock line="37">
         <description><![CDATA[POP Before SMTP Authentication Class
-Version 5.2.2-beta1]]></description>
+Version 5.2.2]]></description>
         <long-description><![CDATA[<p>Orig Author: Richard Davey (rich@corephp.co.uk)
 Modifications: Andy Prevost
 Modifications: Jim Jagielski
@@ -2611,7 +2614,7 @@ required for POP3 connection, authentication and disconnection.</p>]]></long-des
       </property>
       <property final="false" static="false" visibility="public" line="120" namespace="global" package="PHPMailer">
         <name>$Version</name>
-        <default><![CDATA['5.2.2-beta1']]></default>
+        <default><![CDATA['5.2.2']]></default>
         <docblock line="116">
           <description><![CDATA[Sets the POP3 PHPMailer Version number]]></description>
           <long-description><![CDATA[]]></long-description>
@@ -2889,7 +2892,7 @@ required for POP3 connection, authentication and disconnection.</p>]]></long-des
       <error line="141" code="50015">Argument $debug_level is missing from the Docblock of Authorise()</error>
     </parse_markers>
   </file>
-  <file path="class.smtp.php" hash="c13c4a26ae5bfa245517cc919d6f6473" package="PHPMailer">
+  <file path="class.smtp.php" hash="0e11570a63ffdba23a5d20a2b47d8c8d" package="PHPMailer">
     <docblock line="25">
       <description><![CDATA[PHPMailer - PHP SMTP email transport class
 NOTE: Designed for use with PHP version 5 and up]]></description>
@@ -2902,7 +2905,7 @@ NOTE: Designed for use with PHP version 5 and up]]></description>
       <tag line="25" name="copyright" description="2010 - 2012 Jim Jagielski"/>
       <tag line="25" name="license" description="http://www.gnu.org/copyleft/lesser.html Distributed under the Lesser General Public License (LGPL)"/>
     </docblock>
-    <include line="315" type="Require Once" package="PHPMailer">
+    <include line="349" type="Require Once" package="PHPMailer">
       <name>ntlm_sasl_client.php</name>
     </include>
     <class final="false" abstract="false" namespace="global" line="45" package="PHPMailer">
@@ -2929,7 +2932,7 @@ original author: Chris Ryan</p>]]></long-description>
         <name>$CRLF</name>
         <default><![CDATA["\r\n"]]></default>
         <docblock line="52">
-          <description><![CDATA[SMTP reply line ending]]></description>
+          <description><![CDATA[SMTP reply line ending (don't change)]]></description>
           <long-description><![CDATA[<p>@var string</p>]]></long-description>
         </docblock>
       </property>
@@ -2984,7 +2987,7 @@ original author: Chris Ryan</p>]]></long-description>
       </property>
       <property final="false" static="false" visibility="public" line="93" namespace="global" package="PHPMailer">
         <name>$Version</name>
-        <default><![CDATA['5.2.2-beta1']]></default>
+        <default><![CDATA['5.2.2']]></default>
         <docblock line="89">
           <description><![CDATA[Sets the SMTP PHPMailer Version number]]></description>
           <long-description><![CDATA[]]></long-description>
@@ -3119,35 +3122,35 @@ Hello() method.  Returns true if successfully authenticated.</p>]]></long-descri
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="374" package="PHPMailer">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="408" package="PHPMailer">
         <name>Connected</name>
         <full_name>Connected</full_name>
-        <docblock line="369">
+        <docblock line="403">
           <description><![CDATA[Returns true if connected to a server otherwise false]]></description>
           <long-description><![CDATA[]]></long-description>
-          <tag line="369" name="access" description="public"/>
-          <tag line="369" name="return" description="" type="bool">
+          <tag line="403" name="access" description="public"/>
+          <tag line="403" name="return" description="" type="bool">
             <type by_reference="false">bool</type>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="397" package="PHPMailer">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="431" package="PHPMailer">
         <name>Close</name>
         <full_name>Close</full_name>
-        <docblock line="390">
+        <docblock line="424">
           <description><![CDATA[Closes the socket and cleans up the state of the class.]]></description>
           <long-description><![CDATA[<p>It is not considered good to use this function without
 first trying to use QUIT.</p>]]></long-description>
-          <tag line="390" name="access" description="public"/>
-          <tag line="390" name="return" description="" type="void">
+          <tag line="424" name="access" description="public"/>
+          <tag line="424" name="return" description="" type="void">
             <type by_reference="false">void</type>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="430" package="PHPMailer">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="464" package="PHPMailer">
         <name>Data</name>
         <full_name>Data</full_name>
-        <docblock line="411">
+        <docblock line="445">
           <description><![CDATA[Issues a data command and sends the msg_data to the server
 finializing the mail transaction.]]></description>
           <long-description><![CDATA[<p>$msg_data is the message
@@ -3164,21 +3167,21 @@ and the message body being seperated by and additional <CRLF>.</p>
     SMTP CODE FAILURE: 552,554,451,452
 SMTP CODE FAILURE: 451,554
 SMTP CODE ERROR  : 500,501,503,421</p>]]></long-description>
-          <tag line="411" name="access" description="public"/>
-          <tag line="411" name="return" description="" type="bool">
+          <tag line="445" name="access" description="public"/>
+          <tag line="445" name="return" description="" type="bool">
             <type by_reference="false">bool</type>
           </tag>
         </docblock>
-        <argument line="430">
+        <argument line="464">
           <name>$msg_data</name>
           <default><![CDATA[]]></default>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="567" package="PHPMailer">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="601" package="PHPMailer">
         <name>Hello</name>
         <full_name>Hello</full_name>
-        <docblock line="555">
+        <docblock line="589">
           <description><![CDATA[Sends the HELO command to the smtp server.]]></description>
           <long-description><![CDATA[<p>This makes sure that we and the server are in
 the same known state.</p>
@@ -3187,43 +3190,43 @@ the same known state.</p>
 
 <p>SMTP CODE SUCCESS: 250
 SMTP CODE ERROR  : 500, 501, 504, 421</p>]]></long-description>
-          <tag line="555" name="access" description="public"/>
-          <tag line="555" name="return" description="" type="bool">
+          <tag line="589" name="access" description="public"/>
+          <tag line="589" name="return" description="" type="bool">
             <type by_reference="false">bool</type>
           </tag>
         </docblock>
-        <argument line="567">
+        <argument line="601">
           <name>$host</name>
           <default><![CDATA['']]></default>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="private" namespace="global" line="597" package="PHPMailer">
+      <method final="false" abstract="false" static="false" visibility="private" namespace="global" line="631" package="PHPMailer">
         <name>SendHello</name>
         <full_name>SendHello</full_name>
-        <docblock line="592">
+        <docblock line="626">
           <description><![CDATA[Sends a HELO/EHLO command.]]></description>
           <long-description><![CDATA[]]></long-description>
-          <tag line="592" name="access" description="private"/>
-          <tag line="592" name="return" description="" type="bool">
+          <tag line="626" name="access" description="private"/>
+          <tag line="626" name="return" description="" type="bool">
             <type by_reference="false">bool</type>
           </tag>
         </docblock>
-        <argument line="597">
+        <argument line="631">
           <name>$hello</name>
           <default><![CDATA[]]></default>
           <type/>
         </argument>
-        <argument line="597">
+        <argument line="631">
           <name>$host</name>
           <default><![CDATA[]]></default>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="637" package="PHPMailer">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="671" package="PHPMailer">
         <name>Mail</name>
         <full_name>Mail</full_name>
-        <docblock line="623">
+        <docblock line="657">
           <description><![CDATA[Starts a mail transaction from the email address specified in
 $from.]]></description>
           <long-description><![CDATA[<p>Returns true if successful or false otherwise. If True
@@ -3235,42 +3238,42 @@ commands may be called followed by a Data command.</p>
 <p>SMTP CODE SUCCESS: 250
 SMTP CODE SUCCESS: 552,451,452
 SMTP CODE SUCCESS: 500,501,421</p>]]></long-description>
-          <tag line="623" name="access" description="public"/>
-          <tag line="623" name="return" description="" type="bool">
+          <tag line="657" name="access" description="public"/>
+          <tag line="657" name="return" description="" type="bool">
             <type by_reference="false">bool</type>
           </tag>
         </docblock>
-        <argument line="637">
+        <argument line="671">
           <name>$from</name>
           <default><![CDATA[]]></default>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="680" package="PHPMailer">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="714" package="PHPMailer">
         <name>Quit</name>
         <full_name>Quit</full_name>
-        <docblock line="669">
+        <docblock line="703">
           <description><![CDATA[Sends the quit command to the server and then closes the socket
 if there is no error or the $close_on_error argument is true.]]></description>
           <long-description><![CDATA[<p>Implements from rfc 821: QUIT <CRLF></p>
 
 <p>SMTP CODE SUCCESS: 221
 SMTP CODE ERROR  : 500</p>]]></long-description>
-          <tag line="669" name="access" description="public"/>
-          <tag line="669" name="return" description="" type="bool">
+          <tag line="703" name="access" description="public"/>
+          <tag line="703" name="return" description="" type="bool">
             <type by_reference="false">bool</type>
           </tag>
         </docblock>
-        <argument line="680">
+        <argument line="714">
           <name>$close_on_error</name>
           <default><![CDATA[true]]></default>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="733" package="PHPMailer">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="767" package="PHPMailer">
         <name>Recipient</name>
         <full_name>Recipient</full_name>
-        <docblock line="721">
+        <docblock line="755">
           <description><![CDATA[Sends the command RCPT to the SMTP server with the TO: argument of $to.]]></description>
           <long-description><![CDATA[<p>Returns true if the recipient was accepted false if it was rejected.</p>
 
@@ -3279,21 +3282,21 @@ SMTP CODE ERROR  : 500</p>]]></long-description>
 <p>SMTP CODE SUCCESS: 250,251
 SMTP CODE FAILURE: 550,551,552,553,450,451,452
 SMTP CODE ERROR  : 500,501,503,421</p>]]></long-description>
-          <tag line="721" name="access" description="public"/>
-          <tag line="721" name="return" description="" type="bool">
+          <tag line="755" name="access" description="public"/>
+          <tag line="755" name="return" description="" type="bool">
             <type by_reference="false">bool</type>
           </tag>
         </docblock>
-        <argument line="733">
+        <argument line="767">
           <name>$to</name>
           <default><![CDATA[]]></default>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="776" package="PHPMailer">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="810" package="PHPMailer">
         <name>Reset</name>
         <full_name>Reset</full_name>
-        <docblock line="764">
+        <docblock line="798">
           <description><![CDATA[Sends the RSET command to abort and transaction that is
 currently in progress.]]></description>
           <long-description><![CDATA[<p>Returns true if successful false
@@ -3303,16 +3306,16 @@ otherwise.</p>
 
 <p>SMTP CODE SUCCESS: 250
 SMTP CODE ERROR  : 500,501,504,421</p>]]></long-description>
-          <tag line="764" name="access" description="public"/>
-          <tag line="764" name="return" description="" type="bool">
+          <tag line="798" name="access" description="public"/>
+          <tag line="798" name="return" description="" type="bool">
             <type by_reference="false">bool</type>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="824" package="PHPMailer">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="858" package="PHPMailer">
         <name>SendAndMail</name>
         <full_name>SendAndMail</full_name>
-        <docblock line="808">
+        <docblock line="842">
           <description><![CDATA[Starts a mail transaction from the email address specified in
 $from.]]></description>
           <long-description><![CDATA[<p>Returns true if successful or false otherwise. If True
@@ -3326,21 +3329,21 @@ in and send them an email.</p>
 <p>SMTP CODE SUCCESS: 250
 SMTP CODE SUCCESS: 552,451,452
 SMTP CODE SUCCESS: 500,501,502,421</p>]]></long-description>
-          <tag line="808" name="access" description="public"/>
-          <tag line="808" name="return" description="" type="bool">
+          <tag line="842" name="access" description="public"/>
+          <tag line="842" name="return" description="" type="bool">
             <type by_reference="false">bool</type>
           </tag>
         </docblock>
-        <argument line="824">
+        <argument line="858">
           <name>$from</name>
           <default><![CDATA[]]></default>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="868" package="PHPMailer">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="902" package="PHPMailer">
         <name>Turn</name>
         <full_name>Turn</full_name>
-        <docblock line="855">
+        <docblock line="889">
           <description><![CDATA[This is an optional command for SMTP that this class does not
 support.]]></description>
           <long-description><![CDATA[<p>This method is here to make the RFC821 Definition
@@ -3351,35 +3354,35 @@ complete for this class and <strong>may</strong> be implimented in the future</p
 <p>SMTP CODE SUCCESS: 250
 SMTP CODE FAILURE: 502
 SMTP CODE ERROR  : 500, 503</p>]]></long-description>
-          <tag line="855" name="access" description="public"/>
-          <tag line="855" name="return" description="" type="bool">
+          <tag line="889" name="access" description="public"/>
+          <tag line="889" name="return" description="" type="bool">
             <type by_reference="false">bool</type>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="882" package="PHPMailer">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="916" package="PHPMailer">
         <name>getError</name>
         <full_name>getError</full_name>
-        <docblock line="877">
+        <docblock line="911">
           <description><![CDATA[Get the current error]]></description>
           <long-description><![CDATA[]]></long-description>
-          <tag line="877" name="access" description="public"/>
-          <tag line="877" name="return" description="" type="array">
+          <tag line="911" name="access" description="public"/>
+          <tag line="911" name="return" description="" type="array">
             <type by_reference="false">array</type>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="private" namespace="global" line="899" package="PHPMailer">
+      <method final="false" abstract="false" static="false" visibility="private" namespace="global" line="933" package="PHPMailer">
         <name>get_lines</name>
         <full_name>get_lines</full_name>
-        <docblock line="890">
+        <docblock line="924">
           <description><![CDATA[Read in as many lines as possible
 either before eof or socket timeout occurs on the operation.]]></description>
           <long-description><![CDATA[<p>With SMTP we can tell if we have more lines to read if the
 4th character is '-' symbol. If it is a space then we don't
 need to read anything else.</p>]]></long-description>
-          <tag line="890" name="access" description="private"/>
-          <tag line="890" name="return" description="" type="string">
+          <tag line="924" name="access" description="private"/>
+          <tag line="924" name="return" description="" type="string">
             <type by_reference="false">string</type>
           </tag>
         </docblock>
@@ -3397,14 +3400,14 @@ need to read anything else.</p>]]></long-description>
       <error line="242" code="50015">Argument $authtype is missing from the Docblock of Authenticate()</error>
       <error line="242" code="50015">Argument $realm is missing from the Docblock of Authenticate()</error>
       <error line="242" code="50015">Argument $workstation is missing from the Docblock of Authenticate()</error>
-      <error line="411" code="50015">Argument $msg_data is missing from the Docblock of Data()</error>
-      <error line="555" code="50015">Argument $host is missing from the Docblock of Hello()</error>
-      <error line="592" code="50015">Argument $hello is missing from the Docblock of SendHello()</error>
-      <error line="592" code="50015">Argument $host is missing from the Docblock of SendHello()</error>
-      <error line="623" code="50015">Argument $from is missing from the Docblock of Mail()</error>
-      <error line="669" code="50015">Argument $close_on_error is missing from the Docblock of Quit()</error>
-      <error line="721" code="50015">Argument $to is missing from the Docblock of Recipient()</error>
-      <error line="808" code="50015">Argument $from is missing from the Docblock of SendAndMail()</error>
+      <error line="445" code="50015">Argument $msg_data is missing from the Docblock of Data()</error>
+      <error line="589" code="50015">Argument $host is missing from the Docblock of Hello()</error>
+      <error line="626" code="50015">Argument $hello is missing from the Docblock of SendHello()</error>
+      <error line="626" code="50015">Argument $host is missing from the Docblock of SendHello()</error>
+      <error line="657" code="50015">Argument $from is missing from the Docblock of Mail()</error>
+      <error line="703" code="50015">Argument $close_on_error is missing from the Docblock of Quit()</error>
+      <error line="755" code="50015">Argument $to is missing from the Docblock of Recipient()</error>
+      <error line="842" code="50015">Argument $from is missing from the Docblock of SendAndMail()</error>
     </parse_markers>
   </file>
   <package name="PHPMailer" full_name="PHPMailer"/>
