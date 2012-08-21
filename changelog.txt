@@ -3,7 +3,7 @@ ChangeLog
 NOTE: THIS VERSION OF PHPMAILER IS DESIGNED FOR PHP5/PHP6.
       IT WILL NOT WORK WITH PHP4.
   
-Version 5.2.2-beta3 (????)
+Version 5.2.2 (????)
   * Added in AUTH PLAIN SMTP authentication
 
 Version 5.2.2-beta2 (August 17, 2012)

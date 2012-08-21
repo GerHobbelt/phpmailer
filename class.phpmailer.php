@@ -2,7 +2,7 @@
 /*~ class.phpmailer.php
 .---------------------------------------------------------------------------.
 |  Software: PHPMailer - PHP email class                                    |
-|   Version: 5.2.2-beta3                                                          |
+|   Version: 5.2.2                                                          |
 |      Site: https://code.google.com/a/apache-extras.org/p/phpmailer/       |
 | ------------------------------------------------------------------------- |
 |     Admin: Jim Jagielski (project admininistrator)                        |
@@ -380,7 +380,7 @@ class PHPMailer {
    * Sets the PHPMailer Version number
    * @var string
    */
-  public $Version         = '5.2.2-beta3';
+  public $Version         = '5.2.2';
 
   /**
    * What to use in the X-Mailer header
@@ -1047,23 +1047,24 @@ class PHPMailer {
   function SetLanguage($langcode = 'en', $lang_path = 'language/') {
     //Define full set of translatable strings
     $PHPMAILER_LANG = array(
-      'provide_address' => 'You must provide at least one recipient email address.',
+      'authenticate'         => 'SMTP Error: Could not authenticate.',
+      'connect_host'         => 'SMTP Error: Could not connect to SMTP host.',
+      'data_not_accepted'    => 'SMTP Error: Data not accepted.',
+      'empty_message'        => 'Message body empty',
+      'encoding'             => 'Unknown encoding: ',
+      'execute'              => 'Could not execute: ',
+      'file_access'          => 'Could not access file: ',
+      'file_open'            => 'File Error: Could not open file: ',
+      'from_failed'          => 'The following From address failed: ',
+      'instantiate'          => 'Could not instantiate mail function.',
+      'invalid_address'      => 'Invalid address',
       'mailer_not_supported' => ' mailer is not supported.',
-      'execute' => 'Could not execute: ',
-      'instantiate' => 'Could not instantiate mail function.',
-      'authenticate' => 'SMTP Error: Could not authenticate.',
-      'from_failed' => 'The following From address failed: ',
-      'recipients_failed' => 'SMTP Error: The following recipients failed: ',
-      'data_not_accepted' => 'SMTP Error: Data not accepted.',
-      'connect_host' => 'SMTP Error: Could not connect to SMTP host.',
-      'file_access' => 'Could not access file: ',
-      'file_open' => 'File Error: Could not open file: ',
-      'encoding' => 'Unknown encoding: ',
-      'signing' => 'Signing Error: ',
-      'smtp_error' => 'SMTP server error: ',
-      'empty_message' => 'Message body empty',
-      'invalid_address' => 'Invalid address',
-      'variable_set' => 'Cannot set or reset variable: '
+      'provide_address'      => 'You must provide at least one recipient email address.',
+      'recipients_failed'    => 'SMTP Error: The following recipients failed: ',
+      'signing'              => 'Signing Error: ',
+      'smtp_connect_failed'  => 'SMTP Connect() failed.',
+      'smtp_error'           => 'SMTP server error: ',
+      'variable_set'         => 'Cannot set or reset variable: '
     );
     //Overwrite language-specific strings. This way we'll never have missing translations - no more "language string failed to load"!
     $l = true;
