@@ -4,6 +4,7 @@ NOTE: THIS VERSION OF PHPMAILER IS DESIGNED FOR PHP5/PHP6.
       IT WILL NOT WORK WITH PHP4.
   
 Version 5.2.2 (????)
+  * ValidateAddress() no longer uses broken FILTER_VALIDATE_EMAIL
   * Added in AUTH PLAIN SMTP authentication
 
 Version 5.2.2-beta2 (August 17, 2012)
