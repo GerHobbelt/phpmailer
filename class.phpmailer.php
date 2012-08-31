@@ -953,7 +953,7 @@ class PHPMailer {
    * @return bool
    */
   public function SmtpConnect() {
-    if(is_null($this->smtp)) {
+    if ($this->smtp === null) {
       $this->smtp = new SMTP();
     }
 
@@ -1024,7 +1024,7 @@ class PHPMailer {
    * @return void
    */
   public function SmtpClose() {
-    if(!is_null($this->smtp)) {
+    if ($this->smtp !== null) {
       if($this->smtp->Connected()) {
         $this->smtp->Quit();
         $this->smtp->Close();
@@ -1891,7 +1891,9 @@ class PHPMailer {
     $start = "=?".$this->CharSet."?B?";
     $end = "?=";
     $encoded = "";
-    $lf = (is_null($lf) ? $this->LE : $lf);
+    if ($lf === null) {
+      $lf = $this->LE;
+    }
 
     $mb_length = mb_strlen($str, $this->CharSet);
     // Each line must have length <= 75, including $start and $end
@@ -2233,7 +2235,7 @@ class PHPMailer {
    */
   protected function SetError($msg) {
     $this->error_count++;
-    if ($this->Mailer == 'smtp' and !is_null($this->smtp)) {
+    if (($this->Mailer == 'smtp') and ($this->smtp !== null)) {
       $lasterror = $this->smtp->getError();
       if (!empty($lasterror) and array_key_exists('smtp_msg', $lasterror)) {
         $msg .= '<p>' . $this->Lang('smtp_error') . $lasterror['smtp_msg'] . "</p>\n";
