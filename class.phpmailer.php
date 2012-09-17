@@ -322,34 +322,38 @@ class PHPMailer {
   public $LE              = "\n";
 
    /**
-   * Used with DKIM DNS Resource Record
+   * Used with DKIM Signing
+   * required parameter if DKIM is enabled
+   *
+   * domain selector example domainkey
    * @var string
    */
-  public $DKIM_selector   = 'phpmailer';
+  public $DKIM_selector   = '';
 
   /**
-   * Used with DKIM DNS Resource Record
-   * optional, in format of email address 'you@yourdomain.com'
+   * Used with DKIM Signing
+   * required if DKIM is enabled, in format of email address 'you@yourdomain.com' typically used as the source of the email
    * @var string
    */
   public $DKIM_identity   = '';
 
   /**
-   * Used with DKIM DNS Resource Record
+   * Used with DKIM Signing
+   * optional parameter if your private key requires a passphras
    * @var string
    */
   public $DKIM_passphrase   = '';
 
   /**
-   * Used with DKIM DNS Resource Record
-   * optional, in format of email address 'you@yourdomain.com'
+   * Used with DKIM Singing
+   * required if DKIM is enabled, in format of email address 'domain.com'
    * @var string
    */
   public $DKIM_domain     = '';
 
   /**
-   * Used with DKIM DNS Resource Record
-   * optional, in format of email address 'you@yourdomain.com'
+   * Used with DKIM Signing
+   * required if DKIM is enabled, path to private key file
    * @var string
    */
   public $DKIM_private    = '';
@@ -728,7 +732,7 @@ class PHPMailer {
       }
 
       // digitally sign with DKIM if enabled
-      if ($this->DKIM_domain && $this->DKIM_private) {
+      if (!empty($this->DKIM_domain) && !empty($this->DKIM_private) && !empty($this->DKIM_selector) && !empty($this->DKIM_domain) && file_exists($this->DKIM_private)) {
         $header_dkim = $this->DKIM_Add($this->MIMEHeader, $this->EncodeHeader($this->SecureHeader($this->Subject)), $this->MIMEBody);
         $this->MIMEHeader = str_replace("\r\n", "\n", $header_dkim) . $this->MIMEHeader;
       }
