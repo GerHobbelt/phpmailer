@@ -1,4 +1,5 @@
 <?php
+namespace Thirdparty\Mailer;
 /*~ class.smtp.php
 .---------------------------------------------------------------------------.
 |  Software: PHPMailer - PHP email class                                    |
