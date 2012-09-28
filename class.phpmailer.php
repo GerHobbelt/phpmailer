@@ -385,7 +385,7 @@ class PHPMailer {
    * Sets the PHPMailer Version number
    * @var string
    */
-  public $Version         = '5.2.2';
+  public $Version         = '5.2.2-rc1';
 
   /**
    * What to use in the X-Mailer header
@@ -652,7 +652,7 @@ class PHPMailer {
 
   /**
    * Check that a string looks roughly like an email address should
-   * Static so it can be used without instantiation
+   * Static so it can be used without instantiation, public so people can overload
    * Conforms to RFC5322: Uses *correct* regex on which FILTER_VALIDATE_EMAIL is
    * based; So why not use FILTER_VALIDATE_EMAIL? Because it was broken to
    * not allow a@b type valid addresses :(

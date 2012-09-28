@@ -3,7 +3,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
 <meta charset="utf-8">
-<title>PHPMailer version 5.2.2 » \PHPMailer</title>
+<title>PHPMailer version 5.2.2-rc1 » \PHPMailer</title>
 <meta name="author" content="Mike van Riel">
 <meta name="description" content="">
 <link href="../css/template.css" rel="stylesheet" media="all">
@@ -15,7 +15,7 @@
 <body>
 <div class="navbar navbar-fixed-top">
 <div class="navbar-inner"><div class="container">
-<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a><a class="brand" href="../index.html">PHPMailer version 5.2.2</a><div class="nav-collapse"><ul class="nav">
+<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a><a class="brand" href="../index.html">PHPMailer version 5.2.2-rc1</a><div class="nav-collapse"><ul class="nav">
 <li class="dropdown">
 <a href="#api" class="dropdown-toggle" data-toggle="dropdown">
                                     API Documentation <b class="caret"></b></a><ul class="dropdown-menu"></ul>
@@ -133,12 +133,14 @@ Send the email via the selected mechanism</span><pre>PostSend()</pre></a></li>
 quoted (printable) encoded string."><span class="description">Finds last character boundary prior to maxLength in a utf-8
 quoted (printable) encoded string.</span><pre>UTF8CharBoundary()</pre></a></li>
 <li class="method public "><a href="#ValidateAddress" title="ValidateAddress :: Check that a string looks roughly like an email address should
-Static so it can be used without instantiation
-Tries to use PHP built-in validator in the filter extension (from PHP 5.2), falls back to a reasonably competent regex validator
-Conforms approximately to RFC2822"><span class="description">Check that a string looks roughly like an email address should
-Static so it can be used without instantiation
-Tries to use PHP built-in validator in the filter extension (from PHP 5.2), falls back to a reasonably competent regex validator
-Conforms approximately to RFC2822</span><pre>ValidateAddress()</pre></a></li>
+Static so it can be used without instantiation, public so people can overload
+Conforms to RFC5322: Uses *correct* regex on which FILTER_VALIDATE_EMAIL is
+based; So why not use FILTER_VALIDATE_EMAIL? Because it was broken to
+not allow a@b type valid addresses :("><span class="description">Check that a string looks roughly like an email address should
+Static so it can be used without instantiation, public so people can overload
+Conforms to RFC5322: Uses *correct* regex on which FILTER_VALIDATE_EMAIL is
+based; So why not use FILTER_VALIDATE_EMAIL? Because it was broken to
+not allow a@b type valid addresses :(</span><pre>ValidateAddress()</pre></a></li>
 <li class="method public "><a href="#WrapText" title="WrapText :: Wraps message for use with mailers that do not
 automatically perform wrapping and for quoted-printable."><span class="description">Wraps message for use with mailers that do not
 automatically perform wrapping and for quoted-printable.</span><pre>WrapText()</pre></a></li>
@@ -180,17 +182,21 @@ but it will do)</span><pre>mail_passthru()</pre></a></li>
 <li class="property public "><a href="#%24CharSet" title="$CharSet :: Sets the CharSet of the message."><span class="description">Sets the CharSet of the message.</span><pre>$CharSet</pre></a></li>
 <li class="property public "><a href="#%24ConfirmReadingTo" title="$ConfirmReadingTo :: Sets the email address that a reading confirmation will be sent."><span class="description">Sets the email address that a reading confirmation will be sent.</span><pre>$ConfirmReadingTo</pre></a></li>
 <li class="property public "><a href="#%24ContentType" title="$ContentType :: Sets the Content-type of the message."><span class="description">Sets the Content-type of the message.</span><pre>$ContentType</pre></a></li>
-<li class="property public "><a href="#%24DKIM_domain" title="$DKIM_domain :: Used with DKIM DNS Resource Record
-optional, in format of email address 'you@yourdomain.com'"><span class="description">Used with DKIM DNS Resource Record
-optional, in format of email address 'you@yourdomain.com'</span><pre>$DKIM_domain</pre></a></li>
-<li class="property public "><a href="#%24DKIM_identity" title="$DKIM_identity :: Used with DKIM DNS Resource Record
-optional, in format of email address 'you@yourdomain.com'"><span class="description">Used with DKIM DNS Resource Record
-optional, in format of email address 'you@yourdomain.com'</span><pre>$DKIM_identity</pre></a></li>
-<li class="property public "><a href="#%24DKIM_passphrase" title="$DKIM_passphrase :: Used with DKIM DNS Resource Record"><span class="description">Used with DKIM DNS Resource Record</span><pre>$DKIM_passphrase</pre></a></li>
-<li class="property public "><a href="#%24DKIM_private" title="$DKIM_private :: Used with DKIM DNS Resource Record
-optional, in format of email address 'you@yourdomain.com'"><span class="description">Used with DKIM DNS Resource Record
-optional, in format of email address 'you@yourdomain.com'</span><pre>$DKIM_private</pre></a></li>
-<li class="property public "><a href="#%24DKIM_selector" title="$DKIM_selector :: Used with DKIM DNS Resource Record"><span class="description">Used with DKIM DNS Resource Record</span><pre>$DKIM_selector</pre></a></li>
+<li class="property public "><a href="#%24DKIM_domain" title="$DKIM_domain :: Used with DKIM Singing
+required if DKIM is enabled, in format of email address 'domain.com'"><span class="description">Used with DKIM Singing
+required if DKIM is enabled, in format of email address 'domain.com'</span><pre>$DKIM_domain</pre></a></li>
+<li class="property public "><a href="#%24DKIM_identity" title="$DKIM_identity :: Used with DKIM Signing
+required if DKIM is enabled, in format of email address 'you@yourdomain.com' typically used as the source of the email"><span class="description">Used with DKIM Signing
+required if DKIM is enabled, in format of email address 'you@yourdomain.com' typically used as the source of the email</span><pre>$DKIM_identity</pre></a></li>
+<li class="property public "><a href="#%24DKIM_passphrase" title="$DKIM_passphrase :: Used with DKIM Signing
+optional parameter if your private key requires a passphras"><span class="description">Used with DKIM Signing
+optional parameter if your private key requires a passphras</span><pre>$DKIM_passphrase</pre></a></li>
+<li class="property public "><a href="#%24DKIM_private" title="$DKIM_private :: Used with DKIM Signing
+required if DKIM is enabled, path to private key file"><span class="description">Used with DKIM Signing
+required if DKIM is enabled, path to private key file</span><pre>$DKIM_private</pre></a></li>
+<li class="property public "><a href="#%24DKIM_selector" title="$DKIM_selector :: Used with DKIM Signing
+required parameter if DKIM is enabled"><span class="description">Used with DKIM Signing
+required parameter if DKIM is enabled</span><pre>$DKIM_selector</pre></a></li>
 <li class="property public "><a href="#%24Debugoutput" title="$Debugoutput :: Sets the function/method to use for debugging output."><span class="description">Sets the function/method to use for debugging output.</span><pre>$Debugoutput</pre></a></li>
 <li class="property public "><a href="#%24Encoding" title="$Encoding :: Sets the Encoding of the message."><span class="description">Sets the Encoding of the message.</span><pre>$Encoding</pre></a></li>
 <li class="property public "><a href="#%24ErrorInfo" title="$ErrorInfo :: Holds the most recent mailer error message."><span class="description">Holds the most recent mailer error message.</span><pre>$ErrorInfo</pre></a></li>
@@ -550,7 +556,7 @@ such as a BLOB record from a database.</p></p>
 <a name="Base64EncodeWrapMB" id="Base64EncodeWrapMB"></a><div class="element clickable method public Base64EncodeWrapMB" data-toggle="collapse" data-target=".Base64EncodeWrapMB .collapse">
 <h2>Correctly encodes and wraps long multibyte strings for mail headers
 without breaking lines within a character.</h2>
-<pre>Base64EncodeWrapMB(string $str) : string</pre>
+<pre>Base64EncodeWrapMB(string $str, string $lf) : string</pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description">
 <p class="long_description"><p>Adapted from a function by paravoid at http://uk.php.net/manual/en/function.mb-encode-mimeheader.php</p></p>
@@ -562,6 +568,10 @@ without breaking lines within a character.</h2>
 <div class="subelement argument">
 <h4>$str</h4>
 <code>string</code><p>multi-byte text to wrap encode</p>
+</div>
+<div class="subelement argument">
+<h4>$lf</h4>
+<code>string</code><p>string to use as linefeed/end-of-line</p>
 </div>
 <h3>Returns</h3>
 <div class="subelement response"><code>string</code></div>
@@ -1299,9 +1309,10 @@ quoted (printable) encoded string.</h2>
 </div>
 <a name="ValidateAddress" id="ValidateAddress"></a><div class="element clickable method public ValidateAddress" data-toggle="collapse" data-target=".ValidateAddress .collapse">
 <h2>Check that a string looks roughly like an email address should
-Static so it can be used without instantiation
-Tries to use PHP built-in validator in the filter extension (from PHP 5.2), falls back to a reasonably competent regex validator
-Conforms approximately to RFC2822</h2>
+Static so it can be used without instantiation, public so people can overload
+Conforms to RFC5322: Uses *correct* regex on which FILTER_VALIDATE_EMAIL is
+based; So why not use FILTER_VALIDATE_EMAIL? Because it was broken to
+not allow a@b type valid addresses :(</h2>
 <pre>ValidateAddress(string $address) : boolean</pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description">
@@ -1309,7 +1320,11 @@ Conforms approximately to RFC2822</h2>
 <table class="table table-bordered">
 <tr>
 <th>link</th>
-<td><a href="http://www.hexillion.com/samples/#Regex">Original pattern found here</a></td>
+<td><a href="http://squiloople.com/2009/12/20/email-address-validation/">http://squiloople.com/2009/12/20/email-address-validation/</a></td>
+</tr>
+<tr>
+<th>copyright</th>
+<td>regex Copyright Michael Rushton 2009-10 | http://squiloople.com/ | Feel free to use and redistribute this code. But please keep this copyright notice.</td>
 </tr>
 <tr>
 <th>static</th>
@@ -1807,37 +1822,39 @@ If HTML then run IsHTML(true).</p></p></div></div>
 <div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
 </div>
 <a name="%24DKIM_domain" id="$DKIM_domain"> </a><div class="element clickable property public $DKIM_domain" data-toggle="collapse" data-target=".$DKIM_domain .collapse">
-<h2>Used with DKIM DNS Resource Record
-optional, in format of email address 'you@yourdomain.com'</h2>
+<h2>Used with DKIM Singing
+required if DKIM is enabled, in format of email address 'domain.com'</h2>
 <pre>$DKIM_domain : string</pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
 </div>
 <a name="%24DKIM_identity" id="$DKIM_identity"> </a><div class="element clickable property public $DKIM_identity" data-toggle="collapse" data-target=".$DKIM_identity .collapse">
-<h2>Used with DKIM DNS Resource Record
-optional, in format of email address 'you@yourdomain.com'</h2>
+<h2>Used with DKIM Signing
+required if DKIM is enabled, in format of email address 'you@yourdomain.com' typically used as the source of the email</h2>
 <pre>$DKIM_identity : string</pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
 </div>
 <a name="%24DKIM_passphrase" id="$DKIM_passphrase"> </a><div class="element clickable property public $DKIM_passphrase" data-toggle="collapse" data-target=".$DKIM_passphrase .collapse">
-<h2>Used with DKIM DNS Resource Record</h2>
+<h2>Used with DKIM Signing
+optional parameter if your private key requires a passphras</h2>
 <pre>$DKIM_passphrase : string</pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
 </div>
 <a name="%24DKIM_private" id="$DKIM_private"> </a><div class="element clickable property public $DKIM_private" data-toggle="collapse" data-target=".$DKIM_private .collapse">
-<h2>Used with DKIM DNS Resource Record
-optional, in format of email address 'you@yourdomain.com'</h2>
+<h2>Used with DKIM Signing
+required if DKIM is enabled, path to private key file</h2>
 <pre>$DKIM_private : string</pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
 </div>
 <a name="%24DKIM_selector" id="$DKIM_selector"> </a><div class="element clickable property public $DKIM_selector" data-toggle="collapse" data-target=".$DKIM_selector .collapse">
-<h2>Used with DKIM DNS Resource Record</h2>
+<h2>Used with DKIM Signing
+required parameter if DKIM is enabled</h2>
 <pre>$DKIM_selector : string</pre>
 <div class="labels"></div>
-<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
+<div class="row collapse"><div class="detail-description"><p class="long_description"><p>domain selector example domainkey</p></p></div></div>
 </div>
 <a name="%24Debugoutput" id="$Debugoutput"> </a><div class="element clickable property public $Debugoutput" data-toggle="collapse" data-target=".$Debugoutput .collapse">
 <h2>Sets the function/method to use for debugging output.</h2>
@@ -2243,7 +2260,7 @@ See http://php.net/is_callable manual page for more details.</p>
 <div class="row"><footer class="span12">
             Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
             Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.0.0a8</a> and<br>
-            generated on 2012-08-21T16:35:40-04:00.<br></footer></div>
+            generated on 2012-09-28T08:08:05-04:00.<br></footer></div>
 </div>
 </body>
 </html>

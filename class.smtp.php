@@ -90,7 +90,7 @@ class SMTP {
    * Sets the SMTP PHPMailer Version number
    * @var string
    */
-  public $Version         = '5.2.2';
+  public $Version         = '5.2.2-rc1';
 
   /////////////////////////////////////////////////
   // PROPERTIES, PRIVATE AND PROTECTED
