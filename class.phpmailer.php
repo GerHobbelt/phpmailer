@@ -1429,7 +1429,7 @@ class PHPMailer {
         $body .= $this->AttachAll("inline", $this->boundary[1]);
         break;
       case 'attach':
-        $body .= $this->GetBoundary($this->boundary[1], '', 'text/plain', '');
+        $body .= $this->GetBoundary($this->boundary[1], '', '', '');
         $body .= $this->EncodeString($this->Body, $this->Encoding);
         $body .= $this->LE.$this->LE;
         $body .= $this->AttachAll("attachment", $this->boundary[1]);
