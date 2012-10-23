@@ -794,7 +794,7 @@ class PHPMailer {
    */
   protected function SendmailSend($header, $body) {
     if ($this->Sender != '') {
-      $sendmail = sprintf("%s -oi -f %s -t", escapeshellcmd($this->Sendmail), escapeshellarg($this->Sender));
+      $sendmail = sprintf("%s -oi -f%s -t", escapeshellcmd($this->Sendmail), escapeshellarg($this->Sender));
     } else {
       $sendmail = sprintf("%s -oi -t", escapeshellcmd($this->Sendmail));
     }
@@ -848,7 +848,7 @@ class PHPMailer {
     if (empty($this->Sender)) {
       $params = "-oi ";
     } else {
-      $params = sprintf("-oi -f %s", $this->Sender);
+      $params = sprintf("-oi -f%s", $this->Sender);
     }
     if ($this->Sender != '' and !ini_get('safe_mode')) {
       $old_from = ini_get('sendmail_from');
