@@ -2623,6 +2623,8 @@ class PHPMailer {
     $DKIMtime             = time() ; // Signature Timestamp = seconds since 00:00:00 - Jan 1, 1970 (UTC time zone)
     $subject_header       = "Subject: $subject";
     $headers              = explode($this->LE, $headers_line);
+	$from_header          = "";
+	$to_header            = "";
     foreach($headers as $header) {
       if (strpos($header, 'From:') === 0) {
         $from_header = $header;
