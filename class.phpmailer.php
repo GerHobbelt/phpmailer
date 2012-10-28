@@ -202,6 +202,13 @@ class PHPMailer {
    */
   public $MessageID         = '';
 
+  /**
+   * Sets the message Date to be used in the Date header.
+   * If empty, the current date will be added.
+   * @var string
+   */
+  public $MessageDate       = '';
+
   /////////////////////////////////////////////////
   // PROPERTIES FOR SMTP
   /////////////////////////////////////////////////
@@ -1280,7 +1287,12 @@ class PHPMailer {
     $this->boundary[2] = 'b2_' . $uniq_id;
     $this->boundary[3] = 'b3_' . $uniq_id;
 
-    $result .= $this->HeaderLine('Date', self::RFCDate());
+    if ($this->MessageDate == '') {
+      $result .= $this->HeaderLine('Date', self::RFCDate());
+    } else {
+      $result .= $this->HeaderLine('Date', $this->MessageDate);
+    }
+
     if ($this->ReturnPath) {
       $result .= $this->HeaderLine('Return-Path', trim($this->ReturnPath));
     } elseif ($this->Sender == '') {
