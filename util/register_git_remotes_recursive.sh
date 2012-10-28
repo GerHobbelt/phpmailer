@@ -10,7 +10,7 @@ pushd .. ; git remote add kyle_mathews git://github.com/KyleAMathews/phpmailer.g
 pushd .. ; git remote add marcfruchter git://github.com/marcfruchter/PHPMailer.git ; popd
 pushd .. ; git remote add mwhite git://github.com/mwhite/phpmailer.git ; popd
 pushd .. ; git remote add qoqa git://github.com/qoqa/phpmailer.git ; popd
-pushd .. ; git remote add svn ../phpmailer ; popd
+pushd .. ; git remote add svn ../phpmailer-svn/phpmailer ; popd
 pushd .. ; git remote add synchro git://github.com/Synchro/PHPMailer.git ; popd
 pushd .. ; git remote add willi_gant git://github.com/WilliGant/PHPMailer.git ; popd
 
