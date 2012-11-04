@@ -1015,10 +1015,10 @@ class PHPMailer {
           }
         }
         $index++;
-        if (!$connection) {
-          $rtn = false;
-          throw new phpmailerException($this->Lang('connect_host'));
-        }
+      }
+      if (!$connection) {
+        $rtn = false;
+        throw new phpmailerException($this->Lang('connect_host'));
       }
     } catch (phpmailerException $e) {
       $this->smtp->Reset();
