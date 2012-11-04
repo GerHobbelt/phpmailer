@@ -392,7 +392,7 @@ class PHPMailer {
    * Sets the PHPMailer Version number
    * @var string
    */
-  public $Version         = '5.2.2-rc1';
+  public $Version         = '5.2.2-rc2';
 
   /**
    * What to use in the X-Mailer header

@@ -3,7 +3,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
 <meta charset="utf-8">
-<title>PHPMailer version 5.2.2-rc1 » \PHPMailer</title>
+<title>PHPMailer version 5.2.2-rc2 » \PHPMailer</title>
 <meta name="author" content="Mike van Riel">
 <meta name="description" content="">
 <link href="../css/template.css" rel="stylesheet" media="all">
@@ -15,7 +15,7 @@
 <body>
 <div class="navbar navbar-fixed-top">
 <div class="navbar-inner"><div class="container">
-<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a><a class="brand" href="../index.html">PHPMailer version 5.2.2-rc1</a><div class="nav-collapse"><ul class="nav">
+<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a><a class="brand" href="../index.html">PHPMailer version 5.2.2-rc2</a><div class="nav-collapse"><ul class="nav">
 <li class="dropdown">
 <a href="#api" class="dropdown-toggle" data-toggle="dropdown">
                                     API Documentation <b class="caret"></b></a><ul class="dropdown-menu"></ul>
@@ -211,6 +211,7 @@ and as default HELO string.</span><pre>$Hostname</pre></a></li>
 NOTE: The default remains '\n'."><span class="description">Provides the ability to change the generic line ending
 NOTE: The default remains '\n'.</span><pre>$LE</pre></a></li>
 <li class="property public "><a href="#%24Mailer" title='$Mailer :: Method to send mail: ("mail", "sendmail", or "smtp").'><span class="description">Method to send mail: ("mail", "sendmail", or "smtp").</span><pre>$Mailer</pre></a></li>
+<li class="property public "><a href="#%24MessageDate" title="$MessageDate :: Sets the message Date to be used in the Date header."><span class="description">Sets the message Date to be used in the Date header.</span><pre>$MessageDate</pre></a></li>
 <li class="property public "><a href="#%24MessageID" title="$MessageID :: Sets the message ID to be used in the Message-Id header."><span class="description">Sets the message ID to be used in the Message-Id header.</span><pre>$MessageID</pre></a></li>
 <li class="property public "><a href="#%24Password" title="$Password :: Sets SMTP password."><span class="description">Sets SMTP password.</span><pre>$Password</pre></a></li>
 <li class="property public "><a href="#%24PluginDir" title="$PluginDir :: Path to PHPMailer plugins."><span class="description">Path to PHPMailer plugins.</span><pre>$PluginDir</pre></a></li>
@@ -1925,6 +1926,12 @@ NOTE: The default remains '\n'.</h2>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
 </div>
+<a name="%24MessageDate" id="$MessageDate"> </a><div class="element clickable property public $MessageDate" data-toggle="collapse" data-target=".$MessageDate .collapse">
+<h2>Sets the message Date to be used in the Date header.</h2>
+<pre>$MessageDate : string</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><p class="long_description"><p>If empty, the current date will be added.</p></p></div></div>
+</div>
 <a name="%24MessageID" id="$MessageID"> </a><div class="element clickable property public $MessageID" data-toggle="collapse" data-target=".$MessageID .collapse">
 <h2>Sets the message ID to be used in the Message-Id header.</h2>
 <pre>$MessageID : string</pre>
@@ -2260,7 +2267,7 @@ See http://php.net/is_callable manual page for more details.</p>
 <div class="row"><footer class="span12">
             Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
             Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.0.0a8</a> and<br>
-            generated on 2012-09-28T08:08:05-04:00.<br></footer></div>
+            generated on 2012-11-04T10:58:41-05:00.<br></footer></div>
 </div>
 </body>
 </html>
