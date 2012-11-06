@@ -3,7 +3,7 @@ ChangeLog
 NOTE: THIS VERSION OF PHPMAILER IS DESIGNED FOR PHP5/PHP6.
       IT WILL NOT WORK WITH PHP4.
   
-Version 5.2.2-rc2 (XXX XX, 2012)
+Version 5.2.2-rc2 (November 6, 2012)
   * Fix SMTP server rotation (Bugz: 118)
   * Allow override of autogen'ed 'Date' header (for Drupal's
     og_mailinglist module)
