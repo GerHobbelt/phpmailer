@@ -3,7 +3,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
 <meta charset="utf-8">
-<title>PHPMailer version 5.2.2-rc2 » \SMTP</title>
+<title>PHPMailer » \SMTP</title>
 <meta name="author" content="Mike van Riel">
 <meta name="description" content="">
 <link href="../css/template.css" rel="stylesheet" media="all">
@@ -15,10 +15,13 @@
 <body>
 <div class="navbar navbar-fixed-top">
 <div class="navbar-inner"><div class="container">
-<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a><a class="brand" href="../index.html">PHPMailer version 5.2.2-rc2</a><div class="nav-collapse"><ul class="nav">
+<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a><a class="brand" href="../index.html">PHPMailer</a><div class="nav-collapse"><ul class="nav">
 <li class="dropdown">
 <a href="#api" class="dropdown-toggle" data-toggle="dropdown">
-                                    API Documentation <b class="caret"></b></a><ul class="dropdown-menu"></ul>
+                                    API Documentation <b class="caret"></b></a><ul class="dropdown-menu">
+<li><a>Packages</a></li>
+<li><a href="../packages/PHPMailer.html"><i class="icon-folder-open"></i> PHPMailer</a></li>
+</ul>
 </li>
 <li class="dropdown" id="charts-menu">
 <a href="#charts" class="dropdown-toggle" data-toggle="dropdown">
@@ -28,7 +31,7 @@
 <a href="#reports" class="dropdown-toggle" data-toggle="dropdown">
                                     Reports <b class="caret"></b></a><ul class="dropdown-menu">
 <li><a href="../errors.html"><i class="icon-remove-sign"></i> Errors 
-                <span class="label label-info">76</span></a></li>
+                <span class="label label-info">23</span></a></li>
 <li><a href="../markers.html"><i class="icon-map-marker"></i> Markers 
                 <ul><li>todo 
                 <span class="label label-info">2</span>
@@ -98,9 +101,9 @@ either before eof or socket timeout occurs on the operation.</span><pre>get_line
 <li class="property public "><a href="#%24do_debug" title="$do_debug :: Sets whether debugging is turned on"><span class="description">Sets whether debugging is turned on</span><pre>$do_debug</pre></a></li>
 <li class="property public "><a href="#%24do_verp" title="$do_verp :: Sets VERP use on/off (default is off)"><span class="description">Sets VERP use on/off (default is off)</span><pre>$do_verp</pre></a></li>
 <li class="nav-header private">» Private</li>
-<li class="property private "><a href="#%24error" title="$error :: "><span class="description">$error</span><pre>$error</pre></a></li>
-<li class="property private "><a href="#%24helo_rply" title="$helo_rply :: "><span class="description">$helo_rply</span><pre>$helo_rply</pre></a></li>
-<li class="property private "><a href="#%24smtp_conn" title="$smtp_conn :: "><span class="description">$smtp_conn</span><pre>$smtp_conn</pre></a></li>
+<li class="property private "><a href="#%24error" title="$error :: "><span class="description">&lt;p&gt;Error message, if any, for the last call&lt;/p&gt;</span><pre>$error</pre></a></li>
+<li class="property private "><a href="#%24helo_rply" title="$helo_rply :: "><span class="description">&lt;p&gt;The reply the server sent to us for HELO&lt;/p&gt;</span><pre>$helo_rply</pre></a></li>
+<li class="property private "><a href="#%24smtp_conn" title="$smtp_conn :: "><span class="description">&lt;p&gt;The socket to the server&lt;/p&gt;</span><pre>$smtp_conn</pre></a></li>
 </ul>
 </div>
 <div class="span8">
@@ -114,18 +117,25 @@ either before eof or socket timeout occurs on the operation.</span><pre>get_line
 </li>
 </ul>
 <div href="../classes/SMTP.html" class="element class">
-<p class="short_description">SMTP is rfc 821 compliant and implements all the rfc 821 SMTP
-commands except TURN which will always return a not implemented
-error.</p>
+<p class="short_description">PHP RFC821 SMTP client</p>
 <div class="details">
-<p class="long_description"><p>SMTP also provides some utility methods for sending mail
-to an SMTP server.
-original author: Chris Ryan</p></p>
+<p class="long_description"><p>Implements all the RFC 821 SMTP commands except TURN which will always return a not implemented error.
+SMTP also provides some utility methods for sending mail to an SMTP server.</p></p>
+<table class="table table-bordered">
+<tr>
+<th>author</th>
+<td><a href="">Chris Ryan</a></td>
+</tr>
+<tr>
+<th>package</th>
+<td><a href="../packages/PHPMailer.html">PHPMailer</a></td>
+</tr>
+</table>
 <h3>
 <i class="icon-custom icon-method"></i> Methods</h3>
 <a name="Authenticate" id="Authenticate"></a><div class="element clickable method public Authenticate" data-toggle="collapse" data-target=".Authenticate .collapse">
 <h2>Performs SMTP authentication.</h2>
-<pre>Authenticate($username, $password, $authtype, $realm, $workstation) : bool</pre>
+<pre>Authenticate(string $username, string $password, string $authtype, string $realm, string $workstation) : bool</pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description">
 <p class="long_description"><p>Must be run after running the
@@ -137,23 +147,23 @@ Hello() method.  Returns true if successfully authenticated.</p></p>
 <h3>Parameters</h3>
 <div class="subelement argument">
 <h4>$username</h4>
-<code></code>
+<code>string</code>
 </div>
 <div class="subelement argument">
 <h4>$password</h4>
-<code></code>
+<code>string</code>
 </div>
 <div class="subelement argument">
 <h4>$authtype</h4>
-<code></code>
+<code>string</code>
 </div>
 <div class="subelement argument">
 <h4>$realm</h4>
-<code></code>
+<code>string</code>
 </div>
 <div class="subelement argument">
 <h4>$workstation</h4>
-<code></code>
+<code>string</code>
 </div>
 <h3>Returns</h3>
 <div class="subelement response"><code>bool</code></div>
@@ -174,7 +184,7 @@ first trying to use QUIT.</p></p>
 </div>
 <a name="Connect" id="Connect"></a><div class="element clickable method public Connect" data-toggle="collapse" data-target=".Connect .collapse">
 <h2>Connect to the server specified on the port specified.</h2>
-<pre>Connect($host, $port, $tval) : bool</pre>
+<pre>Connect(string $host, int $port, int $tval) : bool</pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description">
 <p class="long_description"><p>If the port is not specified use the default SMTP_PORT.
@@ -192,15 +202,15 @@ SMTP CODE FAILURE: 421</p></p>
 <h3>Parameters</h3>
 <div class="subelement argument">
 <h4>$host</h4>
-<code></code>
+<code>string</code>
 </div>
 <div class="subelement argument">
 <h4>$port</h4>
-<code></code>
+<code>int</code>
 </div>
 <div class="subelement argument">
 <h4>$tval</h4>
-<code></code>
+<code>int</code>
 </div>
 <h3>Returns</h3>
 <div class="subelement response"><code>bool</code></div>
@@ -223,7 +233,7 @@ SMTP CODE FAILURE: 421</p></p>
 <a name="Data" id="Data"></a><div class="element clickable method public Data" data-toggle="collapse" data-target=".Data .collapse">
 <h2>Issues a data command and sends the msg_data to the server
 finializing the mail transaction.</h2>
-<pre>Data($msg_data) : bool</pre>
+<pre>Data(string $msg_data) : bool</pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description">
 <p class="long_description"><p>$msg_data is the message
@@ -247,7 +257,7 @@ SMTP CODE ERROR  : 500,501,503,421</p></p>
 <h3>Parameters</h3>
 <div class="subelement argument">
 <h4>$msg_data</h4>
-<code></code>
+<code>string</code>
 </div>
 <h3>Returns</h3>
 <div class="subelement response"><code>bool</code></div>
@@ -255,7 +265,7 @@ SMTP CODE ERROR  : 500,501,503,421</p></p>
 </div>
 <a name="Hello" id="Hello"></a><div class="element clickable method public Hello" data-toggle="collapse" data-target=".Hello .collapse">
 <h2>Sends the HELO command to the smtp server.</h2>
-<pre>Hello($host) : bool</pre>
+<pre>Hello(string $host) : bool</pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description">
 <p class="long_description"><p>This makes sure that we and the server are in
@@ -272,7 +282,7 @@ SMTP CODE ERROR  : 500, 501, 504, 421</p></p>
 <h3>Parameters</h3>
 <div class="subelement argument">
 <h4>$host</h4>
-<code></code>
+<code>string</code>
 </div>
 <h3>Returns</h3>
 <div class="subelement response"><code>bool</code></div>
@@ -281,7 +291,7 @@ SMTP CODE ERROR  : 500, 501, 504, 421</p></p>
 <a name="Mail" id="Mail"></a><div class="element clickable method public Mail" data-toggle="collapse" data-target=".Mail .collapse">
 <h2>Starts a mail transaction from the email address specified in
 $from.</h2>
-<pre>Mail($from) : bool</pre>
+<pre>Mail(string $from) : bool</pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description">
 <p class="long_description"><p>Returns true if successful or false otherwise. If True
@@ -300,7 +310,7 @@ SMTP CODE SUCCESS: 500,501,421</p></p>
 <h3>Parameters</h3>
 <div class="subelement argument">
 <h4>$from</h4>
-<code></code>
+<code>string</code>
 </div>
 <h3>Returns</h3>
 <div class="subelement response"><code>bool</code></div>
@@ -309,7 +319,7 @@ SMTP CODE SUCCESS: 500,501,421</p></p>
 <a name="Quit" id="Quit"></a><div class="element clickable method public Quit" data-toggle="collapse" data-target=".Quit .collapse">
 <h2>Sends the quit command to the server and then closes the socket
 if there is no error or the $close_on_error argument is true.</h2>
-<pre>Quit($close_on_error) : bool</pre>
+<pre>Quit(bool $close_on_error) : bool</pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description">
 <p class="long_description"><p>Implements from rfc 821: QUIT <CRLF></p>
@@ -323,7 +333,7 @@ SMTP CODE ERROR  : 500</p></p>
 <h3>Parameters</h3>
 <div class="subelement argument">
 <h4>$close_on_error</h4>
-<code></code>
+<code>bool</code>
 </div>
 <h3>Returns</h3>
 <div class="subelement response"><code>bool</code></div>
@@ -331,7 +341,7 @@ SMTP CODE ERROR  : 500</p></p>
 </div>
 <a name="Recipient" id="Recipient"></a><div class="element clickable method public Recipient" data-toggle="collapse" data-target=".Recipient .collapse">
 <h2>Sends the command RCPT to the SMTP server with the TO: argument of $to.</h2>
-<pre>Recipient($to) : bool</pre>
+<pre>Recipient(string $to) : bool</pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description">
 <p class="long_description"><p>Returns true if the recipient was accepted false if it was rejected.</p>
@@ -348,7 +358,7 @@ SMTP CODE ERROR  : 500,501,503,421</p></p>
 <h3>Parameters</h3>
 <div class="subelement argument">
 <h4>$to</h4>
-<code></code>
+<code>string</code>
 </div>
 <h3>Returns</h3>
 <div class="subelement response"><code>bool</code></div>
@@ -378,7 +388,7 @@ SMTP CODE ERROR  : 500,501,504,421</p></p>
 <a name="SendAndMail" id="SendAndMail"></a><div class="element clickable method public SendAndMail" data-toggle="collapse" data-target=".SendAndMail .collapse">
 <h2>Starts a mail transaction from the email address specified in
 $from.</h2>
-<pre>SendAndMail($from) : bool</pre>
+<pre>SendAndMail(string $from) : bool</pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description">
 <p class="long_description"><p>Returns true if successful or false otherwise. If True
@@ -399,7 +409,7 @@ SMTP CODE SUCCESS: 500,501,502,421</p></p>
 <h3>Parameters</h3>
 <div class="subelement argument">
 <h4>$from</h4>
-<code></code>
+<code>string</code>
 </div>
 <h3>Returns</h3>
 <div class="subelement response"><code>bool</code></div>
@@ -446,7 +456,7 @@ SMTP CODE ERROR  : 500, 503</p></p>
 </div>
 <a name="__construct" id="__construct"></a><div class="element clickable method public __construct" data-toggle="collapse" data-target=".__construct .collapse">
 <h2>Initialize the class so that the data is in a known state.</h2>
-<pre>__construct() : void</pre>
+<pre>__construct() : <a href="../classes/SMTP.html">\SMTP</a></pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description">
 <p class="long_description"></p>
@@ -454,6 +464,8 @@ SMTP CODE ERROR  : 500, 503</p></p>
 <th>access</th>
 <td>public</td>
 </tr></table>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/SMTP.html">\SMTP</a></code></div>
 </div></div>
 </div>
 <a name="getError" id="getError"></a><div class="element clickable method public getError" data-toggle="collapse" data-target=".getError .collapse">
@@ -472,7 +484,7 @@ SMTP CODE ERROR  : 500, 503</p></p>
 </div>
 <a name="SendHello" id="SendHello"></a><div class="element clickable method private SendHello" data-toggle="collapse" data-target=".SendHello .collapse">
 <h2>Sends a HELO/EHLO command.</h2>
-<pre>SendHello($hello, $host) : bool</pre>
+<pre>SendHello(string $hello, string $host) : bool</pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description">
 <p class="long_description"></p>
@@ -483,11 +495,11 @@ SMTP CODE ERROR  : 500, 503</p></p>
 <h3>Parameters</h3>
 <div class="subelement argument">
 <h4>$hello</h4>
-<code></code>
+<code>string</code>
 </div>
 <div class="subelement argument">
 <h4>$host</h4>
-<code></code>
+<code>string</code>
 </div>
 <h3>Returns</h3>
 <div class="subelement response"><code>bool</code></div>
@@ -574,20 +586,20 @@ need to read anything else.</p></p>
 <div class="row collapse"><div class="detail-description"><p class="long_description"><p>@var bool</p></p></div></div>
 </div>
 <a name="%24error" id="$error"> </a><div class="element clickable property private $error" data-toggle="collapse" data-target=".$error .collapse">
-<h2>$error</h2>
-<pre>$error </pre>
+<h2>&lt;p&gt;Error message, if any, for the last call&lt;/p&gt;</h2>
+<pre>$error : string</pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
 </div>
 <a name="%24helo_rply" id="$helo_rply"> </a><div class="element clickable property private $helo_rply" data-toggle="collapse" data-target=".$helo_rply .collapse">
-<h2>$helo_rply</h2>
-<pre>$helo_rply </pre>
+<h2>&lt;p&gt;The reply the server sent to us for HELO&lt;/p&gt;</h2>
+<pre>$helo_rply : string</pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
 </div>
 <a name="%24smtp_conn" id="$smtp_conn"> </a><div class="element clickable property private $smtp_conn" data-toggle="collapse" data-target=".$smtp_conn .collapse">
-<h2>$smtp_conn</h2>
-<pre>$smtp_conn </pre>
+<h2>&lt;p&gt;The socket to the server&lt;/p&gt;</h2>
+<pre>$smtp_conn : resource</pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
 </div>
@@ -598,7 +610,7 @@ need to read anything else.</p></p>
 <div class="row"><footer class="span12">
             Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
             Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.0.0a8</a> and<br>
-            generated on 2012-11-06T10:46:14-05:00.<br></footer></div>
+            generated on 2012-11-26T15:22:57-05:00.<br></footer></div>
 </div>
 </body>
 </html>

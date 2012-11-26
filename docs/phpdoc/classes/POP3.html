@@ -3,7 +3,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
 <meta charset="utf-8">
-<title>PHPMailer version 5.2.2-rc2 » \POP3</title>
+<title>PHPMailer » \POP3</title>
 <meta name="author" content="Mike van Riel">
 <meta name="description" content="">
 <link href="../css/template.css" rel="stylesheet" media="all">
@@ -15,10 +15,13 @@
 <body>
 <div class="navbar navbar-fixed-top">
 <div class="navbar-inner"><div class="container">
-<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a><a class="brand" href="../index.html">PHPMailer version 5.2.2-rc2</a><div class="nav-collapse"><ul class="nav">
+<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a><a class="brand" href="../index.html">PHPMailer</a><div class="nav-collapse"><ul class="nav">
 <li class="dropdown">
 <a href="#api" class="dropdown-toggle" data-toggle="dropdown">
-                                    API Documentation <b class="caret"></b></a><ul class="dropdown-menu"></ul>
+                                    API Documentation <b class="caret"></b></a><ul class="dropdown-menu">
+<li><a>Packages</a></li>
+<li><a href="../packages/PHPMailer.html"><i class="icon-folder-open"></i> PHPMailer</a></li>
+</ul>
 </li>
 <li class="dropdown" id="charts-menu">
 <a href="#charts" class="dropdown-toggle" data-toggle="dropdown">
@@ -28,7 +31,7 @@
 <a href="#reports" class="dropdown-toggle" data-toggle="dropdown">
                                     Reports <b class="caret"></b></a><ul class="dropdown-menu">
 <li><a href="../errors.html"><i class="icon-remove-sign"></i> Errors 
-                <span class="label label-info">76</span></a></li>
+                <span class="label label-info">23</span></a></li>
 <li><a href="../markers.html"><i class="icon-map-marker"></i> Markers 
                 <ul><li>todo 
                 <span class="label label-info">2</span>
@@ -78,9 +81,10 @@
 <li class="property public "><a href="#%24tval" title="$tval :: POP3 Timeout Value"><span class="description">POP3 Timeout Value</span><pre>$tval</pre></a></li>
 <li class="property public "><a href="#%24username" title="$username :: POP3 Username"><span class="description">POP3 Username</span><pre>$username</pre></a></li>
 <li class="nav-header private">» Private</li>
-<li class="property private "><a href="#%24connected" title="$connected :: "><span class="description">$connected</span><pre>$connected</pre></a></li>
-<li class="property private "><a href="#%24error" title="$error :: "><span class="description">$error</span><pre>$error</pre></a></li>
-<li class="property private "><a href="#%24pop_conn" title="$pop_conn :: "><span class="description">$pop_conn</span><pre>$pop_conn</pre></a></li>
+<li class="property private "><a href="#%24connected" title="$connected :: "><span class="description">&lt;p&gt;Are we connected?&lt;/p&gt;
+</span><pre>$connected</pre></a></li>
+<li class="property private "><a href="#%24error" title="$error :: "><span class="description">&lt;p&gt;Error container&lt;/p&gt;</span><pre>$error</pre></a></li>
+<li class="property private "><a href="#%24pop_conn" title="$pop_conn :: "><span class="description">&lt;p&gt;Resource handle for the POP connection socket&lt;/p&gt;</span><pre>$pop_conn</pre></a></li>
 </ul>
 </div>
 <div class="span8">
@@ -94,30 +98,27 @@
 </li>
 </ul>
 <div href="../classes/POP3.html" class="element class">
-<p class="short_description">POP Before SMTP Authentication Class
-Version 5.2.2</p>
+<p class="short_description">PHP POP-Before-SMTP Authentication Class</p>
 <div class="details">
-<p class="long_description"><p>Orig Author: Richard Davey (rich@corephp.co.uk)
-Modifications: Andy Prevost
-Modifications: Jim Jagielski
-License: LGPL, see PHPMailer License</p>
-
-<p>Specifically for PHPMailer to allow POP before SMTP authentication.
-Does not yet work with APOP - if you have an APOP account, contact Jim Jagielski
-and we can test changes to this script.</p>
-
-<p>This class is based on the structure of the SMTP class originally authored by Chris Ryan</p>
-
-<p>This class is rfc 1939 compliant and implements all the commands
-required for POP3 connection, authentication and disconnection.</p></p>
+<p class="long_description"><p>Version 5.2.2</p></p>
 <table class="table table-bordered">
+<tr>
+<th>license</th>
+<td><a href="">: LGPL, see PHPMailer License
+Specifically for PHPMailer to allow POP before SMTP authentication.
+Does not yet work with APOP - if you have an APOP account, contact Jim Jagielski
+and we can test changes to this script.
+This class is based on the structure of the SMTP class originally authored by Chris Ryan
+This class is rfc 1939 compliant and implements all the commands
+required for POP3 connection, authentication and disconnection.</a></td>
+</tr>
 <tr>
 <th>package</th>
 <td><a href="../packages/PHPMailer.html">PHPMailer</a></td>
 </tr>
 <tr>
 <th>author</th>
-<td><a href="">Richard Davey (orig)</a></td>
+<td><a href="mailto:rich@corephp.co.uk">Richard Davey (orig)</a></td>
 </tr>
 <tr>
 <th>author</th>
@@ -132,7 +133,7 @@ required for POP3 connection, authentication and disconnection.</p></p>
 <i class="icon-custom icon-method"></i> Methods</h3>
 <a name="Authorise" id="Authorise"></a><div class="element clickable method public Authorise" data-toggle="collapse" data-target=".Authorise .collapse">
 <h2>Combination of public events - connect, login, disconnect</h2>
-<pre>Authorise(string $host, integer $port, integer $tval, string $username, string $password, $debug_level) </pre>
+<pre>Authorise(string $host, bool | int $port, bool | int $tval, string $username, string $password, int $debug_level) : bool</pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description">
 <p class="long_description"></p>
@@ -147,11 +148,11 @@ required for POP3 connection, authentication and disconnection.</p></p>
 </div>
 <div class="subelement argument">
 <h4>$port</h4>
-<code>integer</code>
+<code>boolint</code>
 </div>
 <div class="subelement argument">
 <h4>$tval</h4>
-<code>integer</code>
+<code>boolint</code>
 </div>
 <div class="subelement argument">
 <h4>$username</h4>
@@ -163,13 +164,15 @@ required for POP3 connection, authentication and disconnection.</p></p>
 </div>
 <div class="subelement argument">
 <h4>$debug_level</h4>
-<code></code>
+<code>int</code>
 </div>
+<h3>Returns</h3>
+<div class="subelement response"><code>bool</code></div>
 </div></div>
 </div>
 <a name="Connect" id="Connect"></a><div class="element clickable method public Connect" data-toggle="collapse" data-target=".Connect .collapse">
 <h2>Connect to the POP3 server</h2>
-<pre>Connect(string $host, integer $port, integer $tval) : boolean</pre>
+<pre>Connect(string $host, bool | int $port, integer $tval) : boolean</pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description">
 <p class="long_description"></p>
@@ -184,7 +187,7 @@ required for POP3 connection, authentication and disconnection.</p></p>
 </div>
 <div class="subelement argument">
 <h4>$port</h4>
-<code>integer</code>
+<code>boolint</code>
 </div>
 <div class="subelement argument">
 <h4>$tval</h4>
@@ -404,20 +407,21 @@ required for POP3 connection, authentication and disconnection.</p></p>
 <div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
 </div>
 <a name="%24connected" id="$connected"> </a><div class="element clickable property private $connected" data-toggle="collapse" data-target=".$connected .collapse">
-<h2>$connected</h2>
-<pre>$connected </pre>
+<h2>&lt;p&gt;Are we connected?&lt;/p&gt;
+</h2>
+<pre>$connected : boolean</pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
 </div>
 <a name="%24error" id="$error"> </a><div class="element clickable property private $error" data-toggle="collapse" data-target=".$error .collapse">
-<h2>$error</h2>
-<pre>$error </pre>
+<h2>&lt;p&gt;Error container&lt;/p&gt;</h2>
+<pre>$error : array</pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
 </div>
 <a name="%24pop_conn" id="$pop_conn"> </a><div class="element clickable property private $pop_conn" data-toggle="collapse" data-target=".$pop_conn .collapse">
-<h2>$pop_conn</h2>
-<pre>$pop_conn </pre>
+<h2>&lt;p&gt;Resource handle for the POP connection socket&lt;/p&gt;</h2>
+<pre>$pop_conn : resource</pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
 </div>
@@ -428,7 +432,7 @@ required for POP3 connection, authentication and disconnection.</p></p>
 <div class="row"><footer class="span12">
             Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
             Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.0.0a8</a> and<br>
-            generated on 2012-11-06T10:46:14-05:00.<br></footer></div>
+            generated on 2012-11-26T15:22:57-05:00.<br></footer></div>
 </div>
 </body>
 </html>
