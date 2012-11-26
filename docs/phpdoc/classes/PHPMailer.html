@@ -31,7 +31,7 @@
 <a href="#reports" class="dropdown-toggle" data-toggle="dropdown">
                                     Reports <b class="caret"></b></a><ul class="dropdown-menu">
 <li><a href="../errors.html"><i class="icon-remove-sign"></i> Errors 
-                <span class="label label-info">23</span></a></li>
+                <span class="label label-info">22</span></a></li>
 <li><a href="../markers.html"><i class="icon-map-marker"></i> Markers 
                 <ul><li>todo 
                 <span class="label label-info">2</span>
@@ -66,8 +66,7 @@
 <li class="method public "><a href="#AddEmbeddedImageString" title="AddEmbeddedImageString :: Adds an embedded attachment as a string."><span class="description">Adds an embedded attachment as a string.</span><pre>AddEmbeddedImageString()</pre></a></li>
 <li class="method public "><a href="#AddReplyTo" title='AddReplyTo :: Adds a "Reply-to" address.'><span class="description">Adds a "Reply-to" address.</span><pre>AddReplyTo()</pre></a></li>
 <li class="method public "><a href="#AddStringAttachment" title="AddStringAttachment :: Adds a string or binary attachment (non-filesystem) to the list."><span class="description">Adds a string or binary attachment (non-filesystem) to the list.</span><pre>AddStringAttachment()</pre></a></li>
-<li class="method public "><a href="#AddStringEmbeddedImage" title="AddStringEmbeddedImage :: "><span class="description">AddStringEmbeddedImage()
-        </span><pre>AddStringEmbeddedImage()</pre></a></li>
+<li class="method public "><a href="#AddStringEmbeddedImage" title="AddStringEmbeddedImage :: Adds an embedded stringified attachment."><span class="description">Adds an embedded stringified attachment.</span><pre>AddStringEmbeddedImage()</pre></a></li>
 <li class="method public "><a href="#AddrAppend" title="AddrAppend :: Creates recipient headers."><span class="description">Creates recipient headers.</span><pre>AddrAppend()</pre></a></li>
 <li class="method public "><a href="#AddrFormat" title="AddrFormat :: Formats an address correctly."><span class="description">Formats an address correctly.</span><pre>AddrFormat()</pre></a></li>
 <li class="method public "><a href="#AlternativeExists" title="AlternativeExists :: Does this message have an alternative body set?"><span class="description">Does this message have an alternative body set?</span><pre>AlternativeExists()</pre></a></li>
@@ -516,33 +515,34 @@ such as a BLOB record from a database.</p></p>
 </div></div>
 </div>
 <a name="AddStringEmbeddedImage" id="AddStringEmbeddedImage"></a><div class="element clickable method public AddStringEmbeddedImage" data-toggle="collapse" data-target=".AddStringEmbeddedImage .collapse">
-<h2>AddStringEmbeddedImage()
-        </h2>
-<pre>AddStringEmbeddedImage($string, $cid, $filename, $encoding, $type) </pre>
+<h2>Adds an embedded stringified attachment.</h2>
+<pre>AddStringEmbeddedImage(string $string, string $cid, string $name, string $encoding, string $type) : bool</pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description">
-<p class="long_description"></p>
+<p class="long_description"><p>This can include images, sounds, and
+just about any other document.  Make sure to set the $type to an
+image type.  For JPEG images use "image/jpeg" and for GIF images
+use "image/gif".</p></p>
 <h3>Parameters</h3>
 <div class="subelement argument">
 <h4>$string</h4>
-<code></code>
-</div>
+<code>string</code><p>The attachment.</p></div>
 <div class="subelement argument">
 <h4>$cid</h4>
-<code></code>
-</div>
+<code>string</code><p>Content ID of the attachment. Use this to identify the Id for accessing the image in an HTML form.</p></div>
 <div class="subelement argument">
-<h4>$filename</h4>
-<code></code>
-</div>
+<h4>$name</h4>
+<code>string</code><p>Overrides the attachment name.</p></div>
 <div class="subelement argument">
 <h4>$encoding</h4>
-<code></code>
+<code>string</code><p>File encoding (see $Encoding).</p>
 </div>
 <div class="subelement argument">
 <h4>$type</h4>
-<code></code>
+<code>string</code><p>File extension (MIME) type.</p>
 </div>
+<h3>Returns</h3>
+<div class="subelement response"><code>bool</code></div>
 </div></div>
 </div>
 <a name="AddrAppend" id="AddrAppend"></a><div class="element clickable method public AddrAppend" data-toggle="collapse" data-target=".AddrAppend .collapse">
@@ -2468,7 +2468,7 @@ See http://php.net/is_callable manual page for more details.</p>
 <div class="row"><footer class="span12">
             Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
             Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.0.0a8</a> and<br>
-            generated on 2012-11-26T15:22:57-05:00.<br></footer></div>
+            generated on 2012-11-26T15:30:09-05:00.<br></footer></div>
 </div>
 </body>
 </html>

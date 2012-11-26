@@ -2241,7 +2241,20 @@ class PHPMailer {
     return true;
   }
 
-  public function AddStringEmbeddedImage($string, $cid, $filename = '', $encoding = 'base64', $type = 'application/octet-stream') {
+  /**
+   * Adds an embedded stringified attachment.  This can include images, sounds, and
+   * just about any other document.  Make sure to set the $type to an
+   * image type.  For JPEG images use "image/jpeg" and for GIF images
+   * use "image/gif".
+   * @param string $string The attachment.
+   * @param string $cid Content ID of the attachment.  Use this to identify
+   *        the Id for accessing the image in an HTML form.
+   * @param string $name Overrides the attachment name.
+   * @param string $encoding File encoding (see $Encoding).
+   * @param string $type File extension (MIME) type.
+   * @return bool
+   */
+  public function AddStringEmbeddedImage($string, $cid, $name = '', $encoding = 'base64', $type = 'application/octet-stream') {
     // Append to $attachment array
     $this->attachment[] = array(
       0 => $string,
