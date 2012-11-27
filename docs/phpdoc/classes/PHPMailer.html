@@ -63,7 +63,6 @@
 <li class="method public "><a href="#AddCC" title='AddCC :: Adds a "Cc" address.'><span class="description">Adds a "Cc" address.</span><pre>AddCC()</pre></a></li>
 <li class="method public "><a href="#AddCustomHeader" title="AddCustomHeader :: Adds a custom header."><span class="description">Adds a custom header.</span><pre>AddCustomHeader()</pre></a></li>
 <li class="method public "><a href="#AddEmbeddedImage" title="AddEmbeddedImage :: Adds an embedded attachment."><span class="description">Adds an embedded attachment.</span><pre>AddEmbeddedImage()</pre></a></li>
-<li class="method public "><a href="#AddEmbeddedImageString" title="AddEmbeddedImageString :: Adds an embedded attachment as a string."><span class="description">Adds an embedded attachment as a string.</span><pre>AddEmbeddedImageString()</pre></a></li>
 <li class="method public "><a href="#AddReplyTo" title='AddReplyTo :: Adds a "Reply-to" address.'><span class="description">Adds a "Reply-to" address.</span><pre>AddReplyTo()</pre></a></li>
 <li class="method public "><a href="#AddStringAttachment" title="AddStringAttachment :: Adds a string or binary attachment (non-filesystem) to the list."><span class="description">Adds a string or binary attachment (non-filesystem) to the list.</span><pre>AddStringAttachment()</pre></a></li>
 <li class="method public "><a href="#AddStringEmbeddedImage" title="AddStringEmbeddedImage :: Adds an embedded stringified attachment."><span class="description">Adds an embedded stringified attachment.</span><pre>AddStringEmbeddedImage()</pre></a></li>
@@ -421,38 +420,6 @@ use "image/gif".</p></p>
 <div class="subelement argument">
 <h4>$path</h4>
 <code>string</code><p>Path to the attachment.</p></div>
-<div class="subelement argument">
-<h4>$cid</h4>
-<code>string</code><p>Content ID of the attachment. Use this to identify the Id for accessing the image in an HTML form.</p></div>
-<div class="subelement argument">
-<h4>$name</h4>
-<code>string</code><p>Overrides the attachment name.</p></div>
-<div class="subelement argument">
-<h4>$encoding</h4>
-<code>string</code><p>File encoding (see $Encoding).</p>
-</div>
-<div class="subelement argument">
-<h4>$type</h4>
-<code>string</code><p>File extension (MIME) type.</p>
-</div>
-<h3>Returns</h3>
-<div class="subelement response"><code>bool</code></div>
-</div></div>
-</div>
-<a name="AddEmbeddedImageString" id="AddEmbeddedImageString"></a><div class="element clickable method public AddEmbeddedImageString" data-toggle="collapse" data-target=".AddEmbeddedImageString .collapse">
-<h2>Adds an embedded attachment as a string.</h2>
-<pre>AddEmbeddedImageString(string $string, string $cid, string $name, string $encoding, string $type) : bool</pre>
-<div class="labels"></div>
-<div class="row collapse"><div class="detail-description">
-<p class="long_description"><p>This can include images, sounds, and
-just about any other document.  Make sure to set the $type to an
-image type.  For JPEG images use "image/jpeg" and for GIF images
-use "image/gif".</p></p>
-<h3>Parameters</h3>
-<div class="subelement argument">
-<h4>$string</h4>
-<code>string</code><p>The attachment encoded in "encoding"</p>
-</div>
 <div class="subelement argument">
 <h4>$cid</h4>
 <code>string</code><p>Content ID of the attachment. Use this to identify the Id for accessing the image in an HTML form.</p></div>
@@ -2468,7 +2435,7 @@ See http://php.net/is_callable manual page for more details.</p>
 <div class="row"><footer class="span12">
             Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
             Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.0.0a8</a> and<br>
-            generated on 2012-11-26T15:30:09-05:00.<br></footer></div>
+            generated on 2012-11-27T08:54:57-05:00.<br></footer></div>
 </div>
 </body>
 </html>
