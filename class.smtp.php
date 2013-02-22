@@ -2,7 +2,7 @@
 /*~ class.smtp.php
 .---------------------------------------------------------------------------.
 |  Software: PHPMailer - PHP email class                                    |
-|   Version: 2.0.3                                                            |
+|   Version: 2.0.5                                                            |
 |      Site: https://code.google.com/a/apache-extras.org/p/phpmailer/       |
 | ------------------------------------------------------------------------- |
 |     Admin: Jim Jagielski (project admininistrator)                        |
@@ -1034,7 +1034,7 @@ class SMTP
    */
   function get_lines() {
     $data = "";
-    while($str == @fgets($this->smtp_conn,515)) {
+    while($str = @fgets($this->smtp_conn,515)) {
       if($this->do_debug >= 4) {
         echo "SMTP -> get_lines(): \$data was \"$data\"" .
                  $this->CRLF;

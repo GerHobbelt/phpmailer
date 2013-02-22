@@ -2,7 +2,7 @@
 /*~ class.phpmailer.php
 .---------------------------------------------------------------------------.
 |  Software: PHPMailer - PHP email class                                    |
-|   Version: 2.0.3                                                            |
+|   Version: 2.0.5                                                            |
 |      Site: https://code.google.com/a/apache-extras.org/p/phpmailer/       |
 | ------------------------------------------------------------------------- |
 |     Admin: Jim Jagielski (project admininistrator)                        |
@@ -137,7 +137,7 @@ class PHPMailer {
    * Holds PHPMailer version.
    * @var string
    */
-  var $Version           = "2.0.3";
+  var $Version           = "2.0.5";
 
   /**
    * Sets the email address that a reading confirmation will be sent.
@@ -254,7 +254,7 @@ class PHPMailer {
   var $boundary        = array();
   var $language        = array();
   var $error_count     = 0;
-  var $LE              = "\r\n";
+  var $LE              = "\n";
   var $sign_cert_file  = "";
   var $sign_key_file   = "";
   var $sign_key_pass   = "";
@@ -587,7 +587,7 @@ class PHPMailer {
     /* Retry while there is no connection */
     while($index < count($hosts) && $connection == false) {
       $hostinfo = array();
-      if(eregi('^(.+):([0-9]+)$', $hosts[$index], $hostinfo)) {
+      if(preg_match('/^(.+):([0-9]+)$/i', $hosts[$index], $hostinfo)) {
         $host = $hostinfo[1];
         $port = $hostinfo[2];
       } else {
@@ -935,7 +935,7 @@ class PHPMailer {
     switch($this->message_type) {
       case 'plain':
         $result .= $this->HeaderLine('Content-Transfer-Encoding', $this->Encoding);
-        $result .= sprintf("Content-Type: %s; charset=\"%s\"", $this->ContentType, $this->CharSet);
+        $result .= sprintf("Content-Type: %s; charset=\"%s\"%s", $this->ContentType, $this->CharSet, $this->LE);
         break;
       case 'attachments':
         /* fall through */
