@@ -608,6 +608,7 @@ class PHPMailer
      * @see PHPMailer::$Debugoutput
      * @see PHPMailer::$SMTPDebug
      * @param string $str
+     * @access protected
      */
     protected function edebug($str)
     {
@@ -668,7 +669,7 @@ class PHPMailer
     public function isSendmail()
     {
         if (!stristr(ini_get('sendmail_path'), 'sendmail')) {
-            $this->Sendmail = '/var/qmail/bin/sendmail';
+      $this->Sendmail = '/usr/sbin/sendmail';
         }
         $this->Mailer = 'sendmail';
     }
@@ -679,10 +680,10 @@ class PHPMailer
      */
     public function isQmail()
     {
-        if (stristr(ini_get('sendmail_path'), 'qmail')) {
-            $this->Sendmail = '/var/qmail/bin/sendmail';
+    if (!stristr(ini_get('sendmail_path'), 'qmail')) {
+      $this->Sendmail = '/var/qmail/bin/qmail-inject';
         }
-        $this->Mailer = 'sendmail';
+    $this->Mailer = 'qmail';
     }
 
     /**
@@ -996,6 +997,7 @@ class PHPMailer
             // Choose the mailer and send through it
             switch ($this->Mailer) {
                 case 'sendmail':
+        case 'qmail':
                     return $this->sendmailSend($this->MIMEHeader, $this->MIMEBody);
                 case 'smtp':
                     return $this->smtpSend($this->MIMEHeader, $this->MIMEBody);
@@ -1026,9 +1028,17 @@ class PHPMailer
     protected function sendmailSend($header, $body)
     {
         if ($this->Sender != '') {
-            $sendmail = sprintf("%s -oi -f%s -t", escapeshellcmd($this->Sendmail), escapeshellarg($this->Sender));
+            if ($this->Mailer == 'qmail') {
+                $sendmail = sprintf("%s -f%s", escapeshellcmd($this->Sendmail), escapeshellarg($this->Sender));
+            } else {
+                $sendmail = sprintf("%s -oi -f%s -t", escapeshellcmd($this->Sendmail), escapeshellarg($this->Sender));
+            }
         } else {
-            $sendmail = sprintf("%s -oi -t", escapeshellcmd($this->Sendmail));
+            if ($this->Mailer == 'qmail') {
+                $sendmail = sprintf("%s", escapeshellcmd($this->Sendmail));
+            } else {
+                $sendmail = sprintf("%s -oi -t", escapeshellcmd($this->Sendmail));
+            }
         }
         if ($this->SingleTo === true) {
             foreach ($this->SingleToArray as $val) {
@@ -1081,7 +1091,7 @@ class PHPMailer
         $to = implode(', ', $toArr);
 
         if (empty($this->Sender)) {
-            $params = " ";
+            $params = "-oi ";
         } else {
             $params = sprintf("-f%s", $this->Sender);
         }
@@ -1592,7 +1602,7 @@ class PHPMailer
         }
 
         // sendmail and mail() extract Bcc from the header before sending
-        if ((($this->Mailer == 'sendmail') || ($this->Mailer == 'mail')) && (count($this->bcc) > 0)) {
+        if ((($this->Mailer == 'sendmail') || ($this->Mailer == 'qmail') || ($this->Mailer == 'mail')) && (count($this->bcc) > 0)) {
             $result .= $this->addrAppend('Bcc', $this->bcc);
         }
 
