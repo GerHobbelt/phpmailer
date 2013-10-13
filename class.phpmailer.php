@@ -676,7 +676,7 @@ class PHPMailer
     public function isSendmail()
     {
         if (!stristr(ini_get('sendmail_path'), 'sendmail')) {
-      $this->Sendmail = '/usr/sbin/sendmail';
+            $this->Sendmail = '/usr/sbin/sendmail';
         }
         $this->Mailer = 'sendmail';
     }
@@ -687,10 +687,10 @@ class PHPMailer
      */
     public function isQmail()
     {
-    if (!stristr(ini_get('sendmail_path'), 'qmail')) {
-      $this->Sendmail = '/var/qmail/bin/qmail-inject';
+        if (!stristr(ini_get('sendmail_path'), 'qmail')) {
+            $this->Sendmail = '/var/qmail/bin/qmail-inject';
         }
-    $this->Mailer = 'qmail';
+        $this->Mailer = 'qmail';
     }
 
     /**
@@ -1016,7 +1016,7 @@ class PHPMailer
             // Choose the mailer and send through it
             switch ($this->Mailer) {
                 case 'sendmail':
-        case 'qmail':
+                case 'qmail':
                     return $this->sendmailSend($this->MIMEHeader, $this->MIMEBody);
                 case 'smtp':
                     return $this->smtpSend($this->MIMEHeader, $this->MIMEBody);
