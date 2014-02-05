@@ -8,6 +8,17 @@
 * Cope with spaces around SMTP host specs
 * Fix processing of multiple hosts in connect string
 * Added Galician translation (Thanks to @donatorouco)
+* Autoloader now prepends
+* Minor docs update
+* Add Latvian translation (Thanks to @eddsstudio)
+* Add Belarusian translation (Thanks to @amaksymiuk)
+* Make autoloader work better on older PHP versions
+* Avoid double-encoding if mbstring is overloading mail()
+* Add Portuguese translation (Thanks to @Jonadabe)
+* Make quoted-printable encoder respect line ending setting
+* Improve Chinese translation (Thanks to @PeterDaveHello)
+* Add Georgian translation (Thanks to @akalongman)
+* Add Greek translation (Thanks to @lenasterg)
 
 ## Version 5.2.7 (September 12th 2013)
 * Add Ukranian translation from @Krezalis
