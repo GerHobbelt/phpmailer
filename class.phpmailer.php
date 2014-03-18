@@ -1572,7 +1572,6 @@ class PHPMailer
         return $maxLength;
     }
 
-
     /**
      * Set the body wrapping.
      * @access public
@@ -1777,16 +1776,28 @@ class PHPMailer
 
         $this->setWordWrap();
 
+        $bodyEncoding = $this->Encoding;
+        $bodyCharSet = $this->CharSet;
+        if (!$this->has8bitChars($this->Body)) {
+            $bodyEncoding = '7bit';
+            $bodyCharSet = 'us-ascii';
+        }
+        $altBodyEncoding = $this->Encoding;
+        $altBodyCharSet = $this->CharSet;
+        if (!$this->has8bitChars($this->AltBody)) {
+            $altBodyEncoding = '7bit';
+            $altBodyCharSet = 'us-ascii';
+        }
         switch ($this->message_type) {
             case 'inline':
-                $body .= $this->getBoundary($this->boundary[1], '', '', '');
-                $body .= $this->encodeString($this->Body, $this->Encoding);
+                $body .= $this->getBoundary($this->boundary[1], $bodyCharSet, '', $bodyEncoding);
+                $body .= $this->encodeString($this->Body, $bodyEncoding);
                 $body .= $this->LE . $this->LE;
                 $body .= $this->attachAll('inline', $this->boundary[1]);
                 break;
             case 'attach':
-                $body .= $this->getBoundary($this->boundary[1], '', '', '');
-                $body .= $this->encodeString($this->Body, $this->Encoding);
+                $body .= $this->getBoundary($this->boundary[1], $bodyCharSet, '', $bodyEncoding);
+                $body .= $this->encodeString($this->Body, $bodyEncoding);
                 $body .= $this->LE . $this->LE;
                 $body .= $this->attachAll('attachment', $this->boundary[1]);
                 break;
@@ -1795,19 +1806,19 @@ class PHPMailer
                 $body .= $this->headerLine('Content-Type', 'multipart/related;');
                 $body .= $this->textLine("\tboundary=\"" . $this->boundary[2] . '"');
                 $body .= $this->LE;
-                $body .= $this->getBoundary($this->boundary[2], '', '', '');
-                $body .= $this->encodeString($this->Body, $this->Encoding);
+                $body .= $this->getBoundary($this->boundary[2], $bodyCharSet, '', $bodyEncoding);
+                $body .= $this->encodeString($this->Body, $bodyEncoding);
                 $body .= $this->LE . $this->LE;
                 $body .= $this->attachAll('inline', $this->boundary[2]);
                 $body .= $this->LE;
                 $body .= $this->attachAll('attachment', $this->boundary[1]);
                 break;
             case 'alt':
-                $body .= $this->getBoundary($this->boundary[1], '', 'text/plain', '');
-                $body .= $this->encodeString($this->AltBody, $this->Encoding);
+                $body .= $this->getBoundary($this->boundary[1], $altBodyCharSet, 'text/plain', $altBodyEncoding);
+                $body .= $this->encodeString($this->AltBody, $altBodyEncoding);
                 $body .= $this->LE . $this->LE;
-                $body .= $this->getBoundary($this->boundary[1], '', 'text/html', '');
-                $body .= $this->encodeString($this->Body, $this->Encoding);
+                $body .= $this->getBoundary($this->boundary[1], $bodyCharSet, 'text/html', $bodyEncoding);
+                $body .= $this->encodeString($this->Body, $bodyEncoding);
                 $body .= $this->LE . $this->LE;
                 if (!empty($this->Ical)) {
                     $body .= $this->getBoundary($this->boundary[1], '', 'text/calendar; method=REQUEST', '');
@@ -1817,15 +1828,15 @@ class PHPMailer
                 $body .= $this->endBoundary($this->boundary[1]);
                 break;
             case 'alt_inline':
-                $body .= $this->getBoundary($this->boundary[1], '', 'text/plain', '');
-                $body .= $this->encodeString($this->AltBody, $this->Encoding);
+                $body .= $this->getBoundary($this->boundary[1], $altBodyCharSet, 'text/plain', $altBodyEncoding);
+                $body .= $this->encodeString($this->AltBody, $altBodyEncoding);
                 $body .= $this->LE . $this->LE;
                 $body .= $this->textLine('--' . $this->boundary[1]);
                 $body .= $this->headerLine('Content-Type', 'multipart/related;');
                 $body .= $this->textLine("\tboundary=\"" . $this->boundary[2] . '"');
                 $body .= $this->LE;
-                $body .= $this->getBoundary($this->boundary[2], '', 'text/html', '');
-                $body .= $this->encodeString($this->Body, $this->Encoding);
+                $body .= $this->getBoundary($this->boundary[2], $bodyCharSet, 'text/html', $bodyEncoding);
+                $body .= $this->encodeString($this->Body, $bodyEncoding);
                 $body .= $this->LE . $this->LE;
                 $body .= $this->attachAll('inline', $this->boundary[2]);
                 $body .= $this->LE;
@@ -1836,11 +1847,11 @@ class PHPMailer
                 $body .= $this->headerLine('Content-Type', 'multipart/alternative;');
                 $body .= $this->textLine("\tboundary=\"" . $this->boundary[2] . '"');
                 $body .= $this->LE;
-                $body .= $this->getBoundary($this->boundary[2], '', 'text/plain', '');
-                $body .= $this->encodeString($this->AltBody, $this->Encoding);
+                $body .= $this->getBoundary($this->boundary[2], $altBodyCharSet, 'text/plain', $altBodyEncoding);
+                $body .= $this->encodeString($this->AltBody, $altBodyEncoding);
                 $body .= $this->LE . $this->LE;
-                $body .= $this->getBoundary($this->boundary[2], '', 'text/html', '');
-                $body .= $this->encodeString($this->Body, $this->Encoding);
+                $body .= $this->getBoundary($this->boundary[2], $bodyCharSet, 'text/html', $bodyEncoding);
+                $body .= $this->encodeString($this->Body, $bodyEncoding);
                 $body .= $this->LE . $this->LE;
                 $body .= $this->endBoundary($this->boundary[2]);
                 $body .= $this->LE;
@@ -1851,15 +1862,15 @@ class PHPMailer
                 $body .= $this->headerLine('Content-Type', 'multipart/alternative;');
                 $body .= $this->textLine("\tboundary=\"" . $this->boundary[2] . '"');
                 $body .= $this->LE;
-                $body .= $this->getBoundary($this->boundary[2], '', 'text/plain', '');
-                $body .= $this->encodeString($this->AltBody, $this->Encoding);
+                $body .= $this->getBoundary($this->boundary[2], $altBodyCharSet, 'text/plain', $altBodyEncoding);
+                $body .= $this->encodeString($this->AltBody, $altBodyEncoding);
                 $body .= $this->LE . $this->LE;
                 $body .= $this->textLine('--' . $this->boundary[2]);
                 $body .= $this->headerLine('Content-Type', 'multipart/related;');
                 $body .= $this->textLine("\tboundary=\"" . $this->boundary[3] . '"');
                 $body .= $this->LE;
-                $body .= $this->getBoundary($this->boundary[3], '', 'text/html', '');
-                $body .= $this->encodeString($this->Body, $this->Encoding);
+                $body .= $this->getBoundary($this->boundary[3], $bodyCharSet, 'text/html', $bodyEncoding);
+                $body .= $this->encodeString($this->Body, $bodyEncoding);
                 $body .= $this->LE . $this->LE;
                 $body .= $this->attachAll('inline', $this->boundary[3]);
                 $body .= $this->LE;
@@ -1869,7 +1880,7 @@ class PHPMailer
                 break;
             default:
                 // catch case 'plain' and case ''
-                $body .= $this->encodeString($this->Body, $this->Encoding);
+                $body .= $this->encodeString($this->Body, $bodyEncoding);
                 break;
         }
 
@@ -1934,7 +1945,10 @@ class PHPMailer
         $result .= $this->textLine('--' . $boundary);
         $result .= sprintf("Content-Type: %s; charset=%s", $contentType, $charSet);
         $result .= $this->LE;
-        $result .= $this->headerLine('Content-Transfer-Encoding', $encoding);
+        //RFC1341 part 5 says 7bit is assumed if not specified
+        if ($encoding != '7bit') {
+            $result .= $this->headerLine('Content-Transfer-Encoding', $encoding);
+        }
         $result .= $this->LE;
 
         return $result;
@@ -2109,7 +2123,10 @@ class PHPMailer
                     $this->encodeHeader($this->secureHeader($name)),
                     $this->LE
                 );
-                $mime[] = sprintf("Content-Transfer-Encoding: %s%s", $encoding, $this->LE);
+                //RFC1341 part 5 says 7bit is assumed if not specified
+                if ($encoding != '7bit') {
+                    $mime[] = sprintf("Content-Transfer-Encoding: %s%s", $encoding, $this->LE);
+                }
 
                 if ($disposition == 'inline') {
                     $mime[] = sprintf("Content-ID: <%s>%s", $cid, $this->LE);
@@ -2251,7 +2268,7 @@ class PHPMailer
         switch (strtolower($position)) {
             case 'phrase':
                 if (!preg_match('/[\200-\377]/', $str)) {
-                    // Can't use addslashes as we don't know what value has magic_quotes_sybase
+                    // Can't use addslashes as we don't know the value of magic_quotes_sybase
                     $encoded = addcslashes($str, "\0..\37\177\\\"");
                     if (($str == $encoded) && !preg_match('/[^A-Za-z0-9!#$%&\'*+\/=?^_`{|}~ -]/', $str)) {
                         return ($encoded);
@@ -2296,7 +2313,7 @@ class PHPMailer
             $encoded = str_replace('=' . self::CRLF, "\n", trim($encoded));
         }
 
-        $encoded = preg_replace('/^(.*)$/m', " =?" . $this->CharSet . "?$encoding?\\1?=", $encoded);
+        $encoded = preg_replace('/^(.*)$/m', ' =?' . $this->CharSet . "?$encoding?\\1?=", $encoded);
         $encoded = trim(str_replace("\n", $this->LE, $encoded));
 
         return $encoded;
@@ -2318,9 +2335,20 @@ class PHPMailer
     }
 
     /**
+     * Does a string contain any 8-bit chars (in any charset)?
+     * @param string $text
+     * @return bool
+     */
+    public function has8bitChars($text)
+    {
+        return (bool)preg_match('/[\x80-\xFF]/', $text);
+    }
+
+    /**
      * Encode and wrap long multibyte strings for mail headers
      * without breaking lines within a character.
-     * Adapted from a function by paravoid at http://uk.php.net/manual/en/function.mb-encode-mimeheader.php
+     * Adapted from a function by paravoid
+     * @link http://www.php.net/manual/en/function.mb-encode-mimeheader.php#60283
      * @access public
      * @param string $str multi-byte text to wrap encode
      * @param string $lf string to use as linefeed/end-of-line
@@ -2731,10 +2759,10 @@ class PHPMailer
             $result = $this->Hostname;
         } elseif (isset($_SERVER) and array_key_exists('SERVER_NAME', $_SERVER) and !empty($_SERVER['SERVER_NAME'])) {
             $result = $_SERVER['SERVER_NAME'];
-        } elseif (function_exists("gethostname") && gethostname() !== false) {
+        } elseif (function_exists('gethostname') && gethostname() !== false) {
             $result = gethostname();
-        }elseif (php_uname("n") !== false){
-            $result = php_uname("n");
+        } elseif (php_uname('n') !== false) {
+            $result = php_uname('n');
         }
         return $result;
     }
